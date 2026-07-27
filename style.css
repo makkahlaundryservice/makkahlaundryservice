@@ -970,3 +970,19 @@ button,
     transition: all .3s ease;
     
 }
+.whatsapp-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:15px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+    z-index:9999;
+}
+.whatsapp-btn:hover{
+    background:#1da851;
+}
