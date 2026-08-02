@@ -1,0 +1,15 @@
+{
+  "name": "Makkah Laundry Service",
+  "short_name": "Laundry",
+  "start_url": "/makkahlaundryservice/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0077ff",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
