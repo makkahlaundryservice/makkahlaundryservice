@@ -66,7 +66,7 @@ const clothQty = document.getElementById("clothQty").value;
 📝 Note: ${note}`;
     
     window.open(
-      `https://wa.me/966575563613?text=${encodeURIComponent(message)}`,
+      `https://wa.me/966550865064?text=${encodeURIComponent(message)}`,
       "_blank"
     );
     
