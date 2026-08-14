@@ -1002,3 +1002,130 @@ button,
 .call-btn:hover{
     background:#0056b3;
 }
+
+/* ================================
+   NEW HERO SECTION DESIGN
+================================ */
+
+.hero {
+  min-height: 520px;
+  height: 520px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 70, 130, 0.62),
+      rgba(0, 40, 90, 0.68)
+    ),
+    url("images/laundry-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  padding: 30px 20px;
+  margin: auto;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 18px;
+
+  text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+}
+
+.hero p {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 30px;
+
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.hero .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero .btn1,
+.hero .btn2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 120px;
+  padding: 13px 25px;
+
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.hero .btn1 {
+  background: #ffffff;
+  color: #0077ff;
+}
+
+.hero .btn2 {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.hero .btn1:hover,
+.hero .btn2:hover {
+  transform: translateY(-3px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 440px;
+    height: 440px;
+
+    background-position: center;
+  }
+
+  .hero-content {
+    padding: 20px 15px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .hero .buttons {
+    gap: 10px;
+  }
+
+  .hero .btn1,
+  .hero .btn2 {
+    padding: 11px 20px;
+    min-width: 110px;
+  }
+}
