@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://makkahlaundryservice.github.io/makkahalaundryservice/sitemap.xml
+Sitemap: https://makkahlaundryservice.github.io/makkahlaundryservice/sitemap.xml
