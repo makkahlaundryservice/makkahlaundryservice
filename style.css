@@ -1361,3 +1361,108 @@ body.dark-mode header nav ul li a:hover {
 body.menu-open {
     overflow: hidden;
 }
+
+/* =========================================
+   FINAL MOBILE MENU + SCROLL FIX
+========================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+}
+
+body.menu-open {
+    overflow-y: auto !important;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex !important;
+        position: absolute !important;
+        top: 10px !important;
+        right: -27px !important;
+
+        width: 72px !important;
+        height: 58px !important;
+
+        border: 0 !important;
+        border-radius: 18px 0 0 18px !important;
+
+        background: #0077ff !important;
+        color: #fff !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        font-size: 30px !important;
+
+        z-index: 999999 !important;
+        cursor: pointer !important;
+
+        pointer-events: auto !important;
+    }
+
+    header nav {
+        display: block !important;
+
+        position: fixed !important;
+
+        top: 68px !important;
+        right: 0 !important;
+
+        width: 85% !important;
+        max-width: 360px !important;
+
+        height: calc(100vh - 68px) !important;
+
+        background: #fff !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        transform: translateX(110%) !important;
+
+        transition: transform .3s ease !important;
+
+        z-index: 999998 !important;
+    }
+
+    header nav.active {
+        transform: translateX(0) !important;
+    }
+
+    header nav ul {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    header nav ul li {
+        width: 100% !important;
+    }
+
+    header nav ul li a {
+        display: flex !important;
+        width: 100% !important;
+        min-height: 55px !important;
+
+        align-items: center !important;
+
+        color: #222 !important;
+        padding: 14px 18px !important;
+    }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+}
