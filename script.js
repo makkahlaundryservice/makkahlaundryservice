@@ -338,62 +338,31 @@ ${note || "None"}`;
 });
 
 
-// =========================================================
-// PRICE CALCULATOR
-// =========================================================
-
+// ===============================
+// Price Calculator
+// ===============================
 function calculatePrice() {
 
-    const serviceElement =
-        document.getElementById("serviceType");
+    const serviceElement = document.getElementById("serviceType");
+    const quantityElement = document.getElementById("quantity");
+    const totalElement = document.getElementById("totalPrice");
 
-    const quantityElement =
-        document.getElementById("quantity");
-
-    const resultElement =
-        document.getElementById("totalPrice");
-
-
-    if (
-        !serviceElement ||
-        !quantityElement ||
-        !resultElement
-    ) {
-
+    if (!serviceElement || !quantityElement || !totalElement) {
+        console.error("Calculator elements not found.");
         return;
-
     }
 
+    const price = Number(serviceElement.value);
+    const quantity = Number(quantityElement.value);
 
-    const price =
-        parseFloat(serviceElement.value);
-
-
-    const quantity =
-        parseInt(quantityElement.value);
-
-
-    if (
-        isNaN(price) ||
-        isNaN(quantity) ||
-        quantity < 1
-    ) {
-
-        resultElement.textContent =
-            "Please enter a valid quantity.";
-
+    if (!Number.isFinite(quantity) || quantity < 1) {
+        totalElement.textContent = "Please enter a valid quantity.";
         return;
-
     }
 
+    const total = price * quantity;
 
-    const total =
-        price * quantity;
-
-
-    resultElement.textContent =
-        "Total: " + total + " SAR";
-
+    totalElement.textContent = "Total: " + total + " SAR";
 }
 
 
