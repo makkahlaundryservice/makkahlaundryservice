@@ -12,50 +12,62 @@ const WHATSAPP_NUMBER = "966550865064";
 document.addEventListener("DOMContentLoaded", function () {
 
   // ===============================
-// Mobile Menu - FIXED
+// MOBILE MENU FINAL FIX
 // ===============================
+
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
 if (menuToggle && mainNav) {
 
-  menuToggle.addEventListener("click", function (e) {
+    menuToggle.addEventListener("click", function (event) {
 
-    e.preventDefault();
-    e.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
 
-    const isOpen = mainNav.classList.toggle("active");
+        mainNav.classList.toggle("active");
 
-    if (isOpen) {
-      menuToggle.innerHTML = "✕";
-      menuToggle.setAttribute("aria-label", "Close Menu");
-      menuToggle.setAttribute("aria-expanded", "true");
-      document.body.classList.add("menu-open");
-    } else {
-      menuToggle.innerHTML = "☰";
-      menuToggle.setAttribute("aria-label", "Open Menu");
-      menuToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
-    }
+        if (mainNav.classList.contains("active")) {
 
-  });
+            menuToggle.textContent = "✕";
 
-  // Close menu when clicking a menu link
-  mainNav.querySelectorAll("a").forEach(function (link) {
+            menuToggle.setAttribute(
+                "aria-label",
+                "Close Menu"
+            );
 
-    link.addEventListener("click", function () {
+        } else {
 
-      mainNav.classList.remove("active");
+            menuToggle.textContent = "☰";
 
-      menuToggle.innerHTML = "☰";
-      menuToggle.setAttribute("aria-label", "Open Menu");
-      menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open Menu"
+            );
 
-      document.body.classList.remove("menu-open");
+        }
 
     });
 
-  });
+
+    // Close menu when a link is clicked
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            mainNav.classList.remove("active");
+
+            menuToggle.textContent = "☰";
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open Menu"
+            );
+
+        });
+
+    });
 
 }
 
