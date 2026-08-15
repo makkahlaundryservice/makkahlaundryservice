@@ -1,27 +1,34 @@
 /* =========================================================
    MAKKAH LAUNDRY SERVICE
-   Clean Responsive CSS
+   FINAL STYLE.CSS
+   Responsive • Mobile Menu • Smooth Scroll
 ========================================================= */
 
 :root {
     --primary: #0077ff;
-    --primary-dark: #005fd1;
-    --primary-soft: #eef6ff;
+    --primary-dark: #005dcc;
+    --primary-light: #eef6ff;
+
     --text: #1f2937;
     --muted: #667085;
+
     --white: #ffffff;
-    --light: #f6faff;
+    --bg: #f5f9ff;
     --border: #e5e7eb;
-    --success: #25d366;
-    --success-dark: #1da851;
-    --shadow: 0 8px 25px rgba(0, 0, 0, .08);
-    --radius: 16px;
-    --transition: .25s ease;
+
+    --whatsapp: #25d366;
+    --whatsapp-dark: #1da851;
+
+    --shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 15px 35px rgba(15, 23, 42, 0.13);
+
+    --radius: 18px;
+    --transition: 0.3s ease;
 }
 
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -35,18 +42,16 @@ html {
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
     font-family: "Poppins", Arial, sans-serif;
-    background: var(--light);
+    background: var(--bg);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+body.menu-open {
+    overflow: hidden;
 }
 
 a {
@@ -54,21 +59,26 @@ a {
     color: inherit;
 }
 
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 button,
 input,
 select,
 textarea {
-    font: inherit;
+    font-family: inherit;
 }
 
 button {
     cursor: pointer;
 }
-
-ul {
-    list-style: none;
-}
-
 
 /* =========================================================
    TOP BAR
@@ -77,23 +87,24 @@ ul {
 .top-bar {
     min-height: 42px;
     padding: 8px 20px;
-    background: var(--primary);
-    color: #fff;
 
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 25px;
+    align-items: center;
     flex-wrap: wrap;
+
+    gap: 25px;
+
+    background: var(--primary);
+    color: white;
 
     font-size: 14px;
 }
 
 .top-bar a {
-    color: #fff;
+    color: white;
     font-weight: 600;
 }
-
 
 /* =========================================================
    HEADER
@@ -109,16 +120,15 @@ header {
 
     padding: 10px 5%;
 
-    background: rgba(255, 255, 255, .97);
-    backdrop-filter: blur(12px);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+    background: rgba(255, 255, 255, 0.97);
 
-    z-index: 10000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    z-index: 99999;
 }
 
 .logo {
@@ -132,9 +142,8 @@ header {
     white-space: nowrap;
 }
 
-
 /* =========================================================
-   DESKTOP NAV
+   DESKTOP NAVIGATION
 ========================================================= */
 
 header nav {
@@ -146,7 +155,7 @@ header nav {
 header nav ul {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 20px;
 }
 
 header nav li {
@@ -157,13 +166,14 @@ header nav li {
 header nav a {
     position: relative;
 
-    padding: 8px 5px;
+    padding: 8px 4px;
 
     color: #374151;
-    font-size: 14px;
+
+    font-size: 15px;
     font-weight: 600;
 
-    transition: color .25s ease;
+    transition: color var(--transition);
 }
 
 header nav a:hover {
@@ -174,8 +184,9 @@ header nav a::after {
     content: "";
 
     position: absolute;
-    left: 5px;
-    right: 5px;
+
+    left: 0;
+    right: 0;
     bottom: 0;
 
     height: 2px;
@@ -183,69 +194,15 @@ header nav a::after {
     background: var(--primary);
 
     transform: scaleX(0);
-    transition: transform .25s ease;
+    transition: transform var(--transition);
 }
 
 header nav a:hover::after {
     transform: scaleX(1);
 }
 
-
 /* =========================================================
-   ORDER BUTTON
-========================================================= */
-
-.order-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 44px;
-    padding: 10px 20px;
-
-    border-radius: 999px;
-
-    background: var(--primary);
-    color: #fff !important;
-
-    font-weight: 700;
-
-    box-shadow: 0 7px 20px rgba(0, 119, 255, .2);
-
-    transition: all .25s ease;
-}
-
-.order-btn:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   LANGUAGE BUTTON
-========================================================= */
-
-#langBtn {
-    min-height: 44px;
-    padding: 9px 16px;
-
-    border: 2px solid var(--primary);
-    border-radius: 999px;
-
-    background: #fff;
-    color: var(--primary);
-
-    font-weight: 700;
-}
-
-#langBtn:hover {
-    background: var(--primary);
-    color: #fff;
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
+   MENU TOGGLE
 ========================================================= */
 
 .menu-toggle {
@@ -255,21 +212,76 @@ header nav a:hover::after {
     height: 52px;
 
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
 
     background: var(--primary);
-    color: #fff;
+    color: white;
 
     font-size: 28px;
 
     align-items: center;
     justify-content: center;
 
+    z-index: 100000;
+
     cursor: pointer;
 
-    z-index: 10003;
+    position: relative;
 }
 
+/* =========================================================
+   ORDER BUTTON
+========================================================= */
+
+.order-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 10px 20px;
+
+    border-radius: 999px;
+
+    background: var(--primary);
+    color: white !important;
+
+    font-weight: 700;
+
+    transition: all var(--transition);
+}
+
+.order-btn:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   LANGUAGE BUTTON
+========================================================= */
+
+#langBtn {
+    min-height: 44px;
+
+    padding: 9px 17px;
+
+    border: 2px solid var(--primary);
+
+    border-radius: 999px;
+
+    background: white;
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+#langBtn:hover {
+    background: var(--primary);
+    color: white;
+}
 
 /* =========================================================
    HERO
@@ -284,91 +296,109 @@ header nav a:hover::after {
 
     text-align: center;
 
+    position: relative;
+
     background:
         linear-gradient(
-            rgba(0, 40, 80, .55),
-            rgba(0, 20, 50, .65)
+            rgba(0, 50, 100, 0.55),
+            rgba(0, 20, 50, 0.65)
         ),
         url("images/laundry-bg.jpg")
         center / cover no-repeat;
+
+    overflow: hidden;
 }
 
 .hero-content {
     width: 100%;
     max-width: 900px;
+
     padding: 30px 20px;
+
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    color: #fff;
+    color: white;
 
-    font-size: clamp(32px, 5vw, 52px);
+    font-size: clamp(32px, 5vw, 55px);
+
     line-height: 1.2;
 
     font-weight: 800;
 
     margin-bottom: 18px;
 
-    text-shadow: 0 4px 15px rgba(0,0,0,.5);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    color: #fff;
+    color: white;
 
-    max-width: 750px;
+    font-size: clamp(15px, 2vw, 20px);
 
-    margin: 0 auto 28px;
+    margin-bottom: 30px;
 
-    font-size: 18px;
-
-    text-shadow: 0 2px 10px rgba(0,0,0,.5);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero .buttons {
     display: flex;
+
     justify-content: center;
-    gap: 12px;
+    align-items: center;
+
+    gap: 14px;
+
     flex-wrap: wrap;
 }
 
 .hero .btn1,
 .hero .btn2 {
+    min-width: 135px;
+    min-height: 48px;
+
+    padding: 11px 22px;
+
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    min-width: 130px;
-    min-height: 48px;
-
-    padding: 10px 24px;
-
     border-radius: 999px;
 
     font-weight: 700;
 
-    transition: all .25s ease;
+    transition: all var(--transition);
 }
 
 .hero .btn1 {
-    background: #fff;
+    background: white;
     color: var(--primary);
 }
 
 .hero .btn2 {
     background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
+    color: white;
+
+    border: 2px solid white;
 }
 
 .hero .btn1:hover,
 .hero .btn2:hover {
     transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+.hero .btn2:hover {
+    background: white;
+    color: var(--primary);
+}
 
 /* =========================================================
-   GENERAL
+   CONTAINER
 ========================================================= */
 
 .container {
@@ -376,6 +406,7 @@ header nav a:hover::after {
     max-width: 1200px;
 
     margin: auto;
+
     padding: 0 20px;
 }
 
@@ -385,6 +416,8 @@ header nav a:hover::after {
     color: var(--primary);
 
     font-size: clamp(28px, 4vw, 40px);
+
+    line-height: 1.25;
 
     margin-bottom: 40px;
 
@@ -399,13 +432,12 @@ header nav a:hover::after {
     width: 55px;
     height: 4px;
 
-    margin: 12px auto 0;
+    margin: 13px auto 0;
 
     background: var(--primary);
 
     border-radius: 10px;
 }
-
 
 /* =========================================================
    SECTIONS
@@ -437,7 +469,7 @@ header nav a:hover::after {
 .calculator,
 .why-us,
 .quick-actions {
-    background: #fff;
+    background: white;
 }
 
 .about,
@@ -449,7 +481,6 @@ header nav a:hover::after {
 .contact {
     background: #f4f8fd;
 }
-
 
 /* =========================================================
    GRIDS
@@ -463,11 +494,12 @@ header nav a:hover::after {
 .why-grid,
 .action-grid {
     display: grid;
+
     gap: 24px;
 }
 
 .service-box {
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .price-grid {
@@ -475,7 +507,7 @@ header nav a:hover::after {
 }
 
 .review-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .hotel-grid {
@@ -494,7 +526,6 @@ header nav a:hover::after {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-
 /* =========================================================
    CARDS
 ========================================================= */
@@ -505,13 +536,15 @@ header nav a:hover::after {
 .hotel-card,
 .why-card,
 .action-card,
-.hours-box {
-    border: 1px solid var(--border);
+.hours-box,
+.faq-item {
     border-radius: var(--radius);
 
     box-shadow: var(--shadow);
 
-    transition: all .25s ease;
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
 }
 
 .service:hover,
@@ -520,50 +553,62 @@ header nav a:hover::after {
 .hotel-card:hover,
 .why-card:hover,
 .action-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-hover);
 }
 
-
 /* =========================================================
-   SERVICE
+   SERVICES
 ========================================================= */
 
 .service {
     padding: 30px;
-    background: #fff;
+
+    background: white;
+
+    border: 1px solid var(--border);
 }
 
 .service h3 {
     color: var(--primary);
-    margin-bottom: 10px;
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
 }
 
 .service p {
     color: var(--muted);
+
+    line-height: 1.8;
 }
 
-
 /* =========================================================
-   PRICE
+   PRICING
 ========================================================= */
 
 .price-card {
-    padding: 30px 20px;
+    padding: 30px 22px;
+
+    background: white;
 
     text-align: center;
 
-    background: #fff;
+    border: 1px solid var(--border);
 }
 
 .price-card h3 {
     color: var(--primary);
+
     margin: 8px 0;
+
+    font-size: 21px;
 }
 
 .price-card p {
     color: var(--muted);
 }
-
 
 /* =========================================================
    ABOUT
@@ -580,13 +625,13 @@ header nav a:hover::after {
 
     color: #4b5563;
 
-    font-size: 17px;
+    font-size: 18px;
+
     line-height: 1.9;
 }
 
-
 /* =========================================================
-   BOOKING
+   BOOKING FORM
 ========================================================= */
 
 .booking form {
@@ -604,35 +649,42 @@ header nav a:hover::after {
 .booking input,
 .booking select,
 .booking textarea,
-.calculator input,
 .calculator select,
+.calculator input,
 .tracking input {
     width: 100%;
 
     padding: 14px 15px;
 
     border: 1px solid var(--border);
-    border-radius: 10px;
 
-    background: #fff;
+    border-radius: 12px;
+
+    background: white;
+
+    color: var(--text);
 
     outline: none;
+
+    transition: all var(--transition);
 }
 
 .booking input:focus,
 .booking select:focus,
 .booking textarea:focus,
-.calculator input:focus,
 .calculator select:focus,
+.calculator input:focus,
 .tracking input:focus {
     border-color: var(--primary);
 
     box-shadow:
-        0 0 0 4px rgba(0,119,255,.1);
+        0 0 0 4px rgba(0, 119, 255, 0.1);
 }
 
 .booking textarea {
-    min-height: 120px;
+    min-height: 130px;
+
+    resize: vertical;
 }
 
 .booking button,
@@ -640,24 +692,30 @@ header nav a:hover::after {
 .tracking button {
     border: none;
 
-    padding: 15px;
-
-    border-radius: 10px;
-
     background: var(--primary);
-    color: #fff;
+
+    color: white;
+
+    border-radius: 12px;
 
     font-weight: 700;
 
-    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.booking button {
+    padding: 16px;
+
+    font-size: 17px;
 }
 
 .booking button:hover,
 .calculator button:hover,
 .tracking button:hover {
     background: var(--primary-dark);
-}
 
+    transform: translateY(-2px);
+}
 
 /* =========================================================
    REVIEWS
@@ -666,68 +724,72 @@ header nav a:hover::after {
 .review-card {
     padding: 28px;
 
-    text-align: center;
-
     background: #f8fbff;
+
+    text-align: center;
 }
 
 .review-card p {
-    margin: 15px 0;
+    margin: 17px 0;
+
     color: #4b5563;
+
+    line-height: 1.8;
 }
 
 .review-card h4 {
     color: var(--primary);
 }
 
-
 /* =========================================================
    HOTELS
 ========================================================= */
 
 .hotel-card {
-    padding: 22px;
+    padding: 23px 18px;
+
+    background: white;
 
     text-align: center;
 
     font-weight: 700;
 
-    background: #fff;
+    border: 1px solid var(--border);
 }
 
 .hotel-card:hover {
     background: var(--primary);
-    color: #fff;
-}
 
+    color: white;
+}
 
 /* =========================================================
    FAQ
 ========================================================= */
 
 .faq-item {
-    margin-bottom: 16px;
-
     padding: 22px;
 
-    border-left: 4px solid var(--primary);
-
-    border-radius: 10px;
+    margin-bottom: 18px;
 
     background: #f8fbff;
 
-    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
 }
 
 .faq-item h3 {
     color: var(--primary);
+
     margin-bottom: 8px;
+
+    font-size: 19px;
 }
 
 .faq-item p {
     color: #4b5563;
-}
 
+    line-height: 1.8;
+}
 
 /* =========================================================
    GALLERY
@@ -736,26 +798,26 @@ header nav a:hover::after {
 .gallery-item {
     overflow: hidden;
 
-    border-radius: 15px;
+    border-radius: 16px;
+
+    background: white;
 
     box-shadow: var(--shadow);
-
-    background: #fff;
 }
 
 .gallery-item img {
     width: 100%;
+
     height: 250px;
 
     object-fit: cover;
 
-    transition: transform .4s ease;
+    transition: transform 0.45s ease;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
-
 
 /* =========================================================
    HOURS
@@ -773,8 +835,17 @@ header nav a:hover::after {
     padding: 30px;
 
     background: #f8fbff;
+
+    border: 1px solid var(--border);
 }
 
+.hours-box p {
+    margin: 10px 0;
+
+    color: #374151;
+
+    font-size: 18px;
+}
 
 /* =========================================================
    LOCATION
@@ -785,13 +856,14 @@ header nav a:hover::after {
 
     min-height: 400px;
 
+    display: block;
+
     border: 0;
 
     border-radius: 18px;
 
     box-shadow: var(--shadow);
 }
-
 
 /* =========================================================
    CALCULATOR
@@ -811,17 +883,21 @@ header nav a:hover::after {
 
 .calculator button {
     width: 100%;
-    margin-top: 10px;
+
+    padding: 15px;
+
+    margin-top: 8px;
+
+    font-size: 17px;
 }
 
 .calculator h3 {
     text-align: center;
 
-    margin-top: 20px;
+    margin-top: 22px;
 
     color: var(--primary);
 }
-
 
 /* =========================================================
    TRACKING
@@ -834,11 +910,13 @@ header nav a:hover::after {
 .tracking input {
     max-width: 500px;
 
-    margin: 10px auto;
+    margin: 10px 0 15px;
 }
 
 .tracking button {
-    padding: 13px 30px;
+    padding: 14px 32px;
+
+    font-size: 16px;
 }
 
 #trackingResult {
@@ -846,20 +924,21 @@ header nav a:hover::after {
 
     color: var(--primary);
 
+    font-size: 19px;
+
     font-weight: 700;
 }
-
 
 /* =========================================================
    WHY US
 ========================================================= */
 
 .why-card {
-    padding: 28px;
-
-    text-align: center;
+    padding: 28px 22px;
 
     background: #f8fbff;
+
+    text-align: center;
 }
 
 .why-card h3 {
@@ -868,25 +947,33 @@ header nav a:hover::after {
     margin-bottom: 10px;
 }
 
-
 /* =========================================================
    QUICK ACTIONS
 ========================================================= */
 
 .action-card {
-    padding: 28px;
-
-    text-align: center;
+    padding: 28px 20px;
 
     background: #f8fbff;
+
+    text-align: center;
 }
 
 .action-card h3 {
-    margin: 10px 0;
-
     color: var(--primary);
+
+    margin: 10px 0;
 }
 
+.action-card:hover {
+    background: var(--primary);
+
+    color: white;
+}
+
+.action-card:hover h3 {
+    color: white;
+}
 
 /* =========================================================
    CONTACT
@@ -897,7 +984,9 @@ header nav a:hover::after {
 }
 
 .contact p {
-    margin: 10px auto;
+    max-width: 850px;
+
+    margin: 12px auto;
 
     color: #4b5563;
 
@@ -906,8 +995,9 @@ header nav a:hover::after {
 
 .contact a:not(.order-btn) {
     color: var(--primary);
-}
 
+    font-weight: 600;
+}
 
 /* =========================================================
    FOOTER
@@ -918,15 +1008,20 @@ footer {
 
     background: #075fc9;
 
-    color: #fff;
+    color: white;
 
     text-align: center;
 }
 
-footer a {
-    text-decoration: underline;
+footer p {
+    margin: 7px 0;
 }
 
+footer a {
+    color: white;
+
+    text-decoration: underline;
+}
 
 /* =========================================================
    FLOATING BUTTONS
@@ -938,7 +1033,7 @@ footer a {
 
     right: 20px;
 
-    z-index: 9000;
+    z-index: 9990;
 
     display: inline-flex;
 
@@ -951,17 +1046,25 @@ footer a {
 
     border-radius: 999px;
 
-    color: #fff;
+    color: white;
 
     font-weight: 700;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    transition: all var(--transition);
 }
 
 .whatsapp-btn {
     bottom: 20px;
 
-    background: var(--success);
+    background: var(--whatsapp);
+}
+
+.whatsapp-btn:hover {
+    background: var(--whatsapp-dark);
+
+    transform: translateY(-3px);
 }
 
 .call-btn {
@@ -970,30 +1073,19 @@ footer a {
     background: var(--primary);
 }
 
-.whatsapp-btn:hover {
-    background: var(--success-dark);
-}
-
 .call-btn:hover {
     background: var(--primary-dark);
+
+    transform: translateY(-3px);
 }
 
-
 /* =========================================================
-   MOBILE MENU
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
 
-    html {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
     body {
-        overflow-x: hidden;
-        overflow-y: auto;
-
         padding-top: 68px;
     }
 
@@ -1001,15 +1093,12 @@ footer a {
         display: none;
     }
 
-    /* Header */
-
     header {
         height: 68px;
+
         min-height: 68px;
 
-        padding: 8px 15px;
-
-        z-index: 10000;
+        padding: 7px 14px;
     }
 
     .logo {
@@ -1021,147 +1110,174 @@ footer a {
     .logo h2 {
         font-size: 19px;
 
-        white-space: nowrap;
+        white-space: normal;
+
+        line-height: 1.2;
     }
 
-    /* Menu button */
+    /* =====================================
+       MOBILE MENU BUTTON
+    ===================================== */
 
     .menu-toggle {
         display: flex !important;
 
-        position: relative;
+        position: absolute !important;
 
-        width: 50px;
-        height: 50px;
+        top: 8px !important;
 
-        margin-left: auto;
+        right: 10px !important;
 
-        flex-shrink: 0;
+        width: 52px !important;
 
-        z-index: 10003;
+        height: 52px !important;
+
+        border-radius: 14px !important;
+
+        background: var(--primary) !important;
+
+        color: white !important;
+
+        z-index: 100000 !important;
+
+        pointer-events: auto !important;
+
+        font-size: 28px !important;
     }
 
-    /* Mobile navigation */
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
 
     header nav {
-        position: fixed;
-
-        top: 68px;
-        right: 0;
-
-        width: min(85%, 360px);
-
-        height: calc(100vh - 68px);
-
-        padding: 20px 15px;
-
-        background: #fff;
-
         display: block !important;
 
-        overflow-y: auto;
-        overflow-x: hidden;
+        position: fixed !important;
 
-        box-shadow: -10px 0 30px rgba(0,0,0,.15);
+        top: 68px !important;
 
-        transform: translateX(100%);
+        right: 0 !important;
 
-        transition: transform .3s ease;
+        width: min(85%, 360px) !important;
 
-        z-index: 10002;
+        height: calc(100vh - 68px) !important;
+
+        padding: 20px 15px 40px !important;
+
+        background: white !important;
+
+        overflow-y: auto !important;
+
+        overflow-x: hidden !important;
+
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+
+        transform: translateX(110%) !important;
+
+        transition: transform 0.3s ease !important;
+
+        z-index: 99999 !important;
     }
 
     header nav.active {
-        transform: translateX(0);
+        transform: translateX(0) !important;
     }
 
     header nav ul {
         width: 100%;
 
-        display: flex;
+        display: flex !important;
 
-        flex-direction: column;
+        flex-direction: column !important;
 
-        align-items: stretch;
+        align-items: stretch !important;
 
-        gap: 5px;
+        gap: 5px !important;
     }
 
     header nav ul li {
-        width: 100%;
+        width: 100% !important;
 
-        display: block;
+        display: block !important;
+
+        border-bottom: 1px solid #edf0f4;
     }
 
     header nav ul li a {
-        display: flex;
-
-        align-items: center;
-
-        width: 100%;
+        width: 100% !important;
 
         min-height: 52px;
 
-        padding: 13px 15px;
+        display: flex !important;
+
+        align-items: center;
+
+        padding: 13px 16px !important;
 
         border-radius: 10px;
 
-        color: #222;
+        color: #222 !important;
 
-        font-size: 16px;
-    }
-
-    header nav ul li a:hover {
-        background: var(--primary-soft);
-
-        color: var(--primary);
+        font-size: 16px !important;
     }
 
     header nav ul li a::after {
-        display: none;
+        display: none !important;
     }
 
-    /* Mobile order button */
+    header nav ul li a:hover {
+        background: var(--primary-light);
+
+        color: var(--primary) !important;
+    }
+
+    header nav .mobile-action {
+        border: none;
+    }
 
     header nav .mobile-action .order-btn {
-        display: flex;
-
         width: 100%;
 
-        margin-top: 10px;
+        margin-top: 12px;
 
         min-height: 50px;
     }
 
-    /* Mobile language button */
-
-    header nav #langBtn {
-        display: block;
-
+    header nav .mobile-action #langBtn {
         width: 100%;
 
-        margin-top: 10px;
-
-        border-radius: 10px;
+        margin-top: 8px;
 
         min-height: 50px;
+
+        border-radius: 12px;
     }
 
-    /* Hero */
+    /* =====================================
+       HERO
+    ===================================== */
 
     .hero {
-        min-height: 420px;
+        min-height: 410px;
+
+        height: 410px;
+    }
+
+    .hero-content {
+        padding: 20px 15px;
     }
 
     .hero h1 {
-        font-size: 29px;
+        font-size: 30px;
     }
 
     .hero p {
         font-size: 15px;
     }
 
-    /* Sections */
+    /* =====================================
+       SECTIONS
+    ===================================== */
 
     #services,
     .pricing,
@@ -1182,48 +1298,53 @@ footer a {
     }
 
     .container {
-        padding: 0 8px;
+        padding: 0 10px;
     }
 
     .container h2 {
-        font-size: 29px;
+        font-size: 30px;
 
-        margin-bottom: 30px;
+        margin-bottom: 32px;
+    }
+
+    .service,
+    .price-card,
+    .review-card,
+    .why-card {
+        padding: 25px 20px;
     }
 
     .gallery-item img {
-        height: 210px;
+        height: 220px;
     }
 
     .location iframe {
         min-height: 320px;
     }
 
-    /* Floating buttons */
+    /* =====================================
+       FLOATING BUTTONS
+    ===================================== */
 
+    .whatsapp-btn,
     .call-btn {
         right: 10px;
-        bottom: 72px;
-
-        min-height: 46px;
-
-        padding: 10px 15px;
 
         font-size: 13px;
+
+        padding: 11px 15px;
+
+        min-height: 46px;
+    }
+
+    .call-btn {
+        bottom: 68px;
     }
 
     .whatsapp-btn {
-        right: 10px;
         bottom: 10px;
-
-        min-height: 46px;
-
-        padding: 10px 15px;
-
-        font-size: 13px;
     }
 }
-
 
 /* =========================================================
    SMALL PHONES
@@ -1231,40 +1352,36 @@ footer a {
 
 @media (max-width: 420px) {
 
-    body {
-        padding-top: 64px;
-    }
-
-    header {
-        height: 64px;
-        min-height: 64px;
-    }
-
     .logo h2 {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     .menu-toggle {
-        width: 48px;
-        height: 48px;
+        width: 50px !important;
 
-        font-size: 25px;
+        height: 50px !important;
+
+        top: 9px !important;
+
+        right: 8px !important;
     }
 
     header nav {
-        top: 64px;
+        top: 68px !important;
 
-        height: calc(100vh - 64px);
+        width: 88% !important;
 
-        width: 88%;
+        height: calc(100vh - 68px) !important;
     }
 
     .hero {
         min-height: 380px;
+
+        height: 380px;
     }
 
     .hero h1 {
-        font-size: 26px;
+        font-size: 27px;
     }
 
     .hero p {
@@ -1277,16 +1394,19 @@ footer a {
 
         min-height: 44px;
 
-        padding: 8px 15px;
+        padding: 9px 15px;
 
         font-size: 14px;
     }
 
     .container h2 {
-        font-size: 26px;
+        font-size: 27px;
+    }
+
+    .gallery-item img {
+        height: 200px;
     }
 }
-
 
 /* =========================================================
    DARK MODE
@@ -1294,6 +1414,7 @@ footer a {
 
 body.dark-mode {
     background: #0b1220;
+
     color: #f3f4f6;
 }
 
@@ -1302,23 +1423,22 @@ body.dark-mode header {
 }
 
 body.dark-mode header nav {
-    background: #111827;
+    background: #111827 !important;
 }
 
 body.dark-mode header nav a {
-    color: #fff;
+    color: #e5e7eb !important;
 }
 
-body.dark-mode .service,
-body.dark-mode .price-card,
-body.dark-mode .review-card,
-body.dark-mode .hotel-card,
-body.dark-mode .why-card,
-body.dark-mode .action-card,
-body.dark-mode .hours-box,
-body.dark-mode .faq-item {
-    background: #172033;
-    color: #fff;
+body.dark-mode #services,
+body.dark-mode .pricing,
+body.dark-mode .reviews,
+body.dark-mode .faq,
+body.dark-mode .hours,
+body.dark-mode .calculator,
+body.dark-mode .why-us,
+body.dark-mode .quick-actions {
+    background: #111827;
 }
 
 body.dark-mode .about,
@@ -1331,25 +1451,48 @@ body.dark-mode .contact {
     background: #0f172a;
 }
 
-body.dark-mode .booking input,
-body.dark-mode .booking select,
-body.dark-mode .booking textarea,
-body.dark-mode .calculator input,
-body.dark-mode .calculator select,
-body.dark-mode .tracking input {
+body.dark-mode .service,
+body.dark-mode .price-card,
+body.dark-mode .review-card,
+body.dark-mode .hotel-card,
+body.dark-mode .why-card,
+body.dark-mode .action-card,
+body.dark-mode .hours-box,
+body.dark-mode .faq-item,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
     background: #172033;
-    color: #fff;
+
+    color: #f3f4f6;
+
+    border-color: #2d3a50;
 }
 
+body.dark-mode .service p,
+body.dark-mode .review-card p,
+body.dark-mode .faq-item p,
+body.dark-mode .about p,
+body.dark-mode .contact p,
+body.dark-mode .hours-box p {
+    color: #cbd5e1;
+}
 
 /* =========================================================
-   DESKTOP MENU BUTTON HIDDEN
+   ACCESSIBILITY
 ========================================================= */
 
-@media (min-width: 769px) {
+@media (prefers-reduced-motion: reduce) {
 
-    .menu-toggle {
-        display: none !important;
+    html {
+        scroll-behavior: auto;
     }
 
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+
+        animation: none !important;
+    }
 }
