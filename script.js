@@ -7,78 +7,139 @@ console.log("Makkah Laundry Service Loaded");
 const WHATSAPP_NUMBER = "966550865064";
 
 // ===============================
-// Navigation Click
+// Navigation
 // ===============================
-const links = document.querySelectorAll("nav a");
+document.addEventListener("DOMContentLoaded", function () {
 
-links.forEach(link => {
-  link.addEventListener("click", () => {
-    console.log(link.innerText + " clicked");
-  });
-});
+  // ===============================
+  // Mobile Menu
+  // ===============================
+  const menuToggle = document.getElementById("menuToggle");
+  const mainNav = document.getElementById("mainNav");
 
-// ===============================
-// Smooth Scroll
-// ===============================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
+  if (menuToggle && mainNav) {
 
-    const target = document.querySelector(this.getAttribute("href"));
+    menuToggle.addEventListener("click", function () {
 
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth"
+      mainNav.classList.toggle("active");
+
+      if (mainNav.classList.contains("active")) {
+        menuToggle.innerHTML = "✕";
+        menuToggle.setAttribute("aria-label", "Close Menu");
+      } else {
+        menuToggle.innerHTML = "☰";
+        menuToggle.setAttribute("aria-label", "Open Menu");
+      }
+
+    });
+
+    // Close menu after clicking a link
+    const navLinks = mainNav.querySelectorAll("a");
+
+    navLinks.forEach(function (link) {
+
+      link.addEventListener("click", function () {
+
+        mainNav.classList.remove("active");
+
+        menuToggle.innerHTML = "☰";
+        menuToggle.setAttribute("aria-label", "Open Menu");
+
       });
-    }
+
+    });
+
+  }
+
+
+  // ===============================
+  // Navigation Click
+  // ===============================
+  const links = document.querySelectorAll("nav a");
+
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      console.log(link.innerText + " clicked");
+    });
   });
-});
 
-// ===============================
-// Booking Form → WhatsApp
-// ===============================
-const bookingForm = document.getElementById("bookingForm");
 
-if (bookingForm) {
+  // ===============================
+  // Smooth Scroll
+  // ===============================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-  bookingForm.addEventListener("submit", function(e) {
+    anchor.addEventListener("click", function(e) {
 
-    e.preventDefault();
+      e.preventDefault();
 
-    const name =
-      document.getElementById("fullName").value;
+      const target = document.querySelector(
+        this.getAttribute("href")
+      );
 
-    const hotel =
-      document.getElementById("hotelName").value;
+      if (target) {
 
-    const room =
-      this.querySelector('input[placeholder="Room Number"]').value;
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
 
-    const phone =
-      this.querySelector('input[placeholder="Mobile Number"]').value;
+      }
 
-    const service =
-      document.getElementById("service").value;
+    });
 
-    const serviceSpeed =
-      document.getElementById("serviceSpeed").value;
+  });
 
-    const pickupDate =
-      document.getElementById("pickupDate").value;
 
-    const pickupTime =
-      document.getElementById("pickupTime").value;
+  // ===============================
+  // Booking Form → WhatsApp
+  // ===============================
+  const bookingForm =
+    document.getElementById("bookingForm");
 
-    const clothesType =
-      document.getElementById("clothesType").value;
+  if (bookingForm) {
 
-    const clothQty =
-      document.getElementById("clothQty").value;
+    bookingForm.addEventListener("submit", function(e) {
 
-    const note =
-      this.querySelector("textarea").value;
+      e.preventDefault();
 
-    const message =
+      const name =
+        document.getElementById("fullName").value;
+
+      const hotel =
+        document.getElementById("hotelName").value;
+
+      const room =
+        this.querySelector(
+          'input[placeholder="Room Number"]'
+        ).value;
+
+      const phone =
+        this.querySelector(
+          'input[placeholder="Mobile Number"]'
+        ).value;
+
+      const service =
+        document.getElementById("service").value;
+
+      const serviceSpeed =
+        document.getElementById("serviceSpeed").value;
+
+      const pickupDate =
+        document.getElementById("pickupDate").value;
+
+      const pickupTime =
+        document.getElementById("pickupTime").value;
+
+      const clothesType =
+        document.getElementById("clothesType").value;
+
+      const clothQty =
+        document.getElementById("clothQty").value;
+
+      const note =
+        this.querySelector("textarea").value;
+
+      const message =
 `🧺 *New Laundry Order*
 
 👤 Name: ${name}
@@ -103,55 +164,87 @@ if (bookingForm) {
 
 📝 Note: ${note}`;
 
-    const whatsappURL =
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      const whatsappURL =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-    window.open(whatsappURL, "_blank");
+      window.open(whatsappURL, "_blank");
 
-  });
-}
+    });
 
-// ===============================
-// English / Arabic
-// ===============================
-const langBtn =
-  document.getElementById("langBtn");
+  }
 
-if (langBtn) {
 
-  let arabic = false;
+  // ===============================
+  // English / Arabic
+  // ===============================
+  const langBtn =
+    document.getElementById("langBtn");
 
-  langBtn.addEventListener("click", () => {
+  if (langBtn) {
 
-    if (!arabic) {
+    let arabic = false;
 
-      document.querySelector(".hero h1").innerHTML =
-        "خدمة غسيل الملابس بمكة<br>توصيل لجميع الفنادق القريبة من برج الساعة";
+    langBtn.addEventListener("click", function() {
 
-      document.querySelector(".hero p").innerHTML =
-        "غسيل • كي • تنظيف جاف • استلام وتوصيل";
+      if (!arabic) {
 
-      langBtn.innerHTML = "English";
+        document.querySelector(".hero h1").innerHTML =
+          "خدمة غسيل الملابس بمكة<br>توصيل لجميع الفنادق القريبة من برج الساعة";
 
-      arabic = true;
+        document.querySelector(".hero p").innerHTML =
+          "غسيل • كي • تنظيف جاف • استلام وتوصيل";
 
-    } else {
+        langBtn.innerHTML = "English";
 
-      document.querySelector(".hero h1").innerHTML =
-        "Professional Laundry Service<br>Near Makkah Clock Tower";
+        arabic = true;
 
-      document.querySelector(".hero p").innerHTML =
-        "Fast Pickup • Hotel Delivery • Ironing • Dry Cleaning";
+      } else {
 
-      langBtn.innerHTML = "العربية";
+        document.querySelector(".hero h1").innerHTML =
+          "Makkah Laundry Service Near Makkah Clock Tower";
 
-      arabic = false;
+        document.querySelector(".hero p").innerHTML =
+          "Fast Laundry Pickup & Delivery • Wash & Fold • Ironing • Dry Cleaning";
 
-    }
+        langBtn.innerHTML = "العربية";
 
-  });
+        arabic = false;
 
-}
+      }
+
+    });
+
+  }
+
+
+  // ===============================
+  // Dark Mode
+  // ===============================
+  const darkBtn =
+    document.getElementById("darkModeBtn");
+
+  if (darkBtn) {
+
+    darkBtn.addEventListener("click", function() {
+
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+
+        darkBtn.innerHTML = "☀️";
+
+      } else {
+
+        darkBtn.innerHTML = "🌙";
+
+      }
+
+    });
+
+  }
+
+});
+
 
 // ===============================
 // Price Calculator
@@ -169,8 +262,10 @@ function calculatePrice() {
     );
 
   if (qty < 1 || isNaN(qty)) {
+
     document.getElementById("totalPrice").innerHTML =
       "Please enter a valid quantity.";
+
     return;
   }
 
@@ -179,6 +274,7 @@ function calculatePrice() {
   document.getElementById("totalPrice").innerHTML =
     "Total: " + total + " SAR";
 }
+
 
 // ===============================
 // Order Tracking
@@ -214,68 +310,5 @@ function trackOrder() {
       "❌ Order ID Not Found";
 
   }
-
-}
-
-// ===============================
-// Dark Mode
-// ===============================
-const darkBtn =
-  document.getElementById("darkModeBtn");
-
-if (darkBtn) {
-
-  darkBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-
-      darkBtn.innerHTML = "☀️";
-
-    } else {
-
-      darkBtn.innerHTML = "🌙";
-
-    }
-
-  });
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
-
-if (menuToggle && mainNav) {
-
-    menuToggle.addEventListener("click", function () {
-
-        mainNav.classList.toggle("active");
-
-        if (mainNav.classList.contains("active")) {
-            menuToggle.innerHTML = "✕";
-        } else {
-            menuToggle.innerHTML = "☰";
-        }
-
-    });
-
-    /* Close menu after clicking a link */
-
-    const navLinks = mainNav.querySelectorAll("a");
-
-    navLinks.forEach(function(link) {
-
-        link.addEventListener("click", function() {
-
-            mainNav.classList.remove("active");
-
-            menuToggle.innerHTML = "☰";
-
-        });
-
-    });
 
 }
