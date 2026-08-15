@@ -1232,7 +1232,9 @@
 
     <h2>Laundry Price Calculator</h2>
 
-    <label for="serviceType">Select Service</label>
+    <label for="serviceType">
+      Select Service
+    </label>
 
     <select id="serviceType">
       <option value="15">Wash & Fold - 15 SAR</option>
@@ -1240,7 +1242,9 @@
       <option value="12">Dry Cleaning - 12 SAR</option>
     </select>
 
-    <label for="quantity">Quantity</label>
+    <label for="quantity">
+      Quantity
+    </label>
 
     <input
       type="number"
@@ -1249,16 +1253,46 @@
       min="1"
     >
 
-    <button type="button" id="calculatePriceBtn">
-  Calculate Price
-</button>
+    <button
+      type="button"
+      id="calculatePriceBtn">
+      Calculate Price
+    </button>
 
-<h3 id="totalPrice">Total: 15 SAR</h3>
+    <h3 id="totalPrice">
+      Total: 15 SAR
+    </h3>
 
   </div>
 
 </section>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const button = document.getElementById("calculatePriceBtn");
+    const service = document.getElementById("serviceType");
+    const quantity = document.getElementById("quantity");
+    const result = document.getElementById("totalPrice");
+
+    button.addEventListener("click", function () {
+
+        const price = parseFloat(service.value);
+        const qty = parseInt(quantity.value);
+
+        if (isNaN(qty) || qty < 1) {
+            result.textContent = "Please enter a valid quantity.";
+            return;
+        }
+
+        const total = price * qty;
+
+        result.textContent = "Total: " + total + " SAR";
+
+    });
+
+});
+</script>
 
 <!-- =====================================================
      ORDER TRACKING
