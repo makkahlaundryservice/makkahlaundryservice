@@ -312,3 +312,40 @@ function trackOrder() {
   }
 
 }
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+
+    menuToggle.addEventListener("click", function () {
+
+        mainNav.classList.toggle("active");
+
+        if (mainNav.classList.contains("active")) {
+            menuToggle.innerHTML = "✕";
+        } else {
+            menuToggle.innerHTML = "☰";
+        }
+
+    });
+
+    const navLinks = mainNav.querySelectorAll("a");
+
+    navLinks.forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            mainNav.classList.remove("active");
+
+            menuToggle.innerHTML = "☰";
+
+        });
+
+    });
+
+}
