@@ -1,65 +1,95 @@
-const CACHE_NAME = "makkah-laundry-v2";
+const CACHE_NAME = "makkah-laundry-v1";
 
-const urlsToCache = [
-  "/makkahalaundryservice/",
-  "/makkahalaundryservice/style.css",
-  "/makkahalaundryservice/images/logo.png"
+const FILES_TO_CACHE = [
+    "./",
+    "./index.html",
+    "./style.css",
+    "./script.js",
+    "./manifest.json"
 ];
 
+
 // Install
-self.addEventListener("install", event => {
-  self.skipWaiting();
+self.addEventListener("install", function (event) {
 
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
+    event.waitUntil(
 
-// Activate
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
-  );
-});
+        caches.open(CACHE_NAME)
+            .then(function (cache) {
 
-// Fetch
-self.addEventListener("fetch", event => {
+                return cache.addAll(FILES_TO_CACHE);
 
-  // HTML files: always try the latest version
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      fetch(event.request)
-        .then(response => {
-          const responseClone = response.clone();
+            })
 
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseClone);
-          });
-
-          return response;
-        })
-        .catch(() => {
-          return caches.match(event.request);
-        })
     );
 
-    return;
-  }
+    self.skipWaiting();
 
-  // Other files: cache first
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+});
+
+
+// Activate
+self.addEventListener("activate", function (event) {
+
+    event.waitUntil(
+
+        caches.keys().then(function (cacheNames) {
+
+            return Promise.all(
+
+                cacheNames.map(function (cacheName) {
+
+                    if (cacheName !== CACHE_NAME) {
+
+                        return caches.delete(cacheName);
+
+                    }
+
+                })
+
+            );
+
+        })
+
+    );
+
+    self.clients.claim();
+
+});
+
+
+// Fetch
+self.addEventListener("fetch", function (event) {
+
+    if (event.request.method !== "GET") {
+        return;
+    }
+
+    event.respondWith(
+
+        caches.match(event.request)
+            .then(function (cachedResponse) {
+
+                if (cachedResponse) {
+
+                    return cachedResponse;
+
+                }
+
+                return fetch(event.request)
+                    .then(function (networkResponse) {
+
+                        return networkResponse;
+
+                    })
+                    .catch(function () {
+
+                        return caches.match("./index.html");
+
+                    });
+
+            })
+
+    );
+
 });
