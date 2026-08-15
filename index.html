@@ -1249,47 +1249,16 @@
       min="1"
     >
 
-    <button
-      type="button"
-      onclick="calculateLaundryPrice()">
-      Calculate Price
-    </button>
+    <button type="button" id="calculatePriceBtn">
+  Calculate Price
+</button>
 
-    <h3 id="totalPrice">Total: 15 SAR</h3>
+<h3 id="totalPrice">Total: 15 SAR</h3>
 
   </div>
 
 </section>
 
-<script>
-function calculateLaundryPrice() {
-
-    const service =
-        document.getElementById("serviceType");
-
-    const quantity =
-        document.getElementById("quantity");
-
-    const totalPrice =
-        document.getElementById("totalPrice");
-
-    const price = Number(service.value);
-    const qty = Number(quantity.value);
-
-    if (!qty || qty < 1) {
-
-        totalPrice.textContent =
-            "Please enter a valid quantity.";
-
-        return;
-    }
-
-    const total = price * qty;
-
-    totalPrice.textContent =
-        "Total: " + total + " SAR";
-}
-</script>
 
 <!-- =====================================================
      ORDER TRACKING
