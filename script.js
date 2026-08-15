@@ -349,3 +349,71 @@ if (menuToggle && mainNav) {
     });
 
 }
+
+
+// ===============================
+// Dark Mode
+// ===============================
+
+const darkBtn = document.getElementById("darkModeBtn");
+
+if (darkBtn) {
+
+    darkBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            darkBtn.innerHTML = "☀️";
+        } else {
+            darkBtn.innerHTML = "🌙";
+        }
+
+    });
+
+}
+
+
+// ===============================
+// MOBILE MENU
+// ===============================
+
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+
+    menuToggle.addEventListener("click", function () {
+
+        mainNav.classList.toggle("active");
+
+        if (mainNav.classList.contains("active")) {
+
+            menuToggle.innerHTML = "✕";
+
+        } else {
+
+            menuToggle.innerHTML = "☰";
+
+        }
+
+    });
+
+
+    // Close menu after clicking any link
+
+    const navLinks = mainNav.querySelectorAll("a");
+
+    navLinks.forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            mainNav.classList.remove("active");
+
+            menuToggle.innerHTML = "☰";
+
+        });
+
+    });
+
+}
