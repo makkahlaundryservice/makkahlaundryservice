@@ -1325,3 +1325,39 @@ body.dark-mode header nav ul li {
 body.dark-mode header nav ul li a:hover {
     background: #1e293b;
 }
+
+/* =========================================
+   MOBILE MENU FINAL FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex !important;
+        position: absolute !important;
+        z-index: 10002 !important;
+        cursor: pointer;
+    }
+
+    header nav {
+        display: block !important;
+        visibility: visible !important;
+        position: fixed !important;
+
+        transform: translateX(105%) !important;
+
+        transition: transform 0.35s ease !important;
+
+        z-index: 10001 !important;
+    }
+
+    header nav.active {
+        transform: translateX(0) !important;
+    }
+
+}
+
+/* Prevent page movement when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
