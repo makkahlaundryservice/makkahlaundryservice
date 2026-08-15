@@ -1385,48 +1385,6 @@ footer a {
 }
 
 
-/* =========================================
-   MOBILE MENU - CHATGPT STYLE
-========================================= */
-
-@media (max-width: 768px) {
-
-    header {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 90px;
-        min-height: 90px;
-
-        padding: 15px 20px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        background: #fff;
-        z-index: 9999;
-
-        box-shadow: 0 3px 15px rgba(0,0,0,.08);
-    }
-
-    body {
-        padding-top: 90px;
-    }
-
-    /* Logo */
-    .logo {
-        max-width: 300px;
-    }
-
-    .logo h2 {
-        font-size: 26px;
-        line-height: 1.15;
-        margin: 0;
-        color: #0077ff;
-    }
-
     /* =================================
        MENU BUTTON
     ================================= */
@@ -1552,43 +1510,6 @@ footer a {
 
 }
 
-/* =========================================
-   CHATGPT STYLE MOBILE SIDE MENU
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    /* Header */
-    header {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 72px;
-        min-height: 72px;
-
-        padding: 10px 16px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        background: #ffffff;
-        z-index: 9999;
-
-        box-shadow: 0 3px 15px rgba(0,0,0,.10);
-    }
-
-    /* Logo */
-    header .logo {
-        max-width: 220px;
-    }
-
-    header .logo h2 {
-        font-size: 22px;
-        line-height: 1.1;
-        margin: 0;
-    }
 
     /* =========================
        MENU BUTTON
@@ -1836,6 +1757,507 @@ footer a {
 @media (min-width: 769px) {
 
     .menu-toggle {
+        display: none !important;
+    }
+
+}
+
+/* =========================================
+   CLEAN MOBILE MENU
+   CHATGPT STYLE
+========================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        padding-top: 72px;
+    }
+
+    /* =========================
+       MOBILE HEADER
+    ========================= */
+
+    header {
+        position: fixed !important;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 72px;
+        min-height: 72px;
+
+        padding: 10px 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: #fff;
+
+        box-shadow: 0 3px 15px rgba(0,0,0,.10);
+
+        z-index: 9999;
+    }
+
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    header .logo {
+        max-width: calc(100% - 55px);
+
+        overflow: hidden;
+    }
+
+    header .logo h2 {
+        margin: 0;
+
+        color: #0077ff;
+
+        font-size: 22px;
+
+        line-height: 1.1;
+
+        white-space: normal;
+    }
+
+
+    /* =========================
+       MENU BUTTON
+       HALF OUTSIDE SCREEN
+    ========================= */
+
+    .menu-toggle {
+        display: flex !important;
+
+        position: absolute;
+
+        top: 10px;
+
+        right: -28px;
+
+        width: 76px;
+        height: 62px;
+
+        border: none;
+
+        border-radius: 20px 0 0 20px;
+
+        background: #0077ff;
+
+        color: #fff;
+
+        font-size: 34px;
+        font-weight: 300;
+
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        z-index: 10002;
+
+        transition: background .25s ease;
+    }
+
+    .menu-toggle:hover {
+        background: #005fd1;
+    }
+
+    .menu-toggle:active {
+        transform: scale(.97);
+    }
+
+
+    /* =========================
+       SIDE MENU
+    ========================= */
+
+    header nav {
+
+        display: block !important;
+
+        position: fixed;
+
+        top: 72px;
+
+        right: 0;
+
+        width: 82%;
+
+        max-width: 360px;
+
+        height: calc(100vh - 72px);
+
+        background: #fff;
+
+        padding: 25px 18px 35px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        box-shadow:
+            -10px 0 35px rgba(0,0,0,.15);
+
+        transform: translateX(105%);
+
+        transition: transform .35s ease;
+
+        z-index: 10001;
+    }
+
+
+    /* =========================
+       OPEN MENU
+    ========================= */
+
+    header nav.active {
+        transform: translateX(0);
+    }
+
+
+    /* =========================
+       MENU LIST
+    ========================= */
+
+    header nav ul {
+
+        display: flex !important;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 0;
+
+        list-style: none;
+    }
+
+
+    /* =========================
+       MENU ITEM
+    ========================= */
+
+    header nav ul li {
+
+        width: 100%;
+
+        display: block;
+
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+
+    /* =========================
+       MENU LINK
+    ========================= */
+
+    header nav ul li a {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        width: 100%;
+
+        min-height: 58px;
+
+        padding: 14px 18px;
+
+        color: #222;
+
+        font-size: 18px;
+
+        font-weight: 600;
+
+        text-align: left;
+
+        border-radius: 12px;
+
+        transition:
+            background .25s ease,
+            color .25s ease,
+            padding-left .25s ease;
+    }
+
+
+    header nav ul li a:hover {
+
+        background: #f0f6ff;
+
+        color: #0077ff;
+
+        padding-left: 24px;
+    }
+
+
+    /* =========================
+       ORDER BUTTON
+    ========================= */
+
+    header nav .order-btn {
+
+        display: flex !important;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 100%;
+
+        min-height: 52px;
+
+        margin-top: 15px;
+
+        background: #0077ff;
+
+        color: #fff;
+
+        border-radius: 12px;
+
+        font-size: 17px;
+    }
+
+
+    /* =========================
+       LANGUAGE BUTTON
+    ========================= */
+
+    header nav #langBtn {
+
+        display: block !important;
+
+        width: 100%;
+
+        min-height: 52px;
+
+        margin-top: 10px;
+
+        background: #fff;
+
+        color: #0077ff;
+
+        border: 2px solid #0077ff;
+
+        border-radius: 12px;
+
+        font-size: 17px;
+    }
+
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    header nav #darkModeBtn {
+
+        display: block !important;
+
+        width: 100%;
+
+        min-height: 52px;
+
+        margin-top: 10px;
+
+        background: #f5f5f5;
+
+        color: #222;
+
+        border: none;
+
+        border-radius: 12px;
+
+        font-size: 20px;
+    }
+
+
+    /* =========================
+       HERO MOBILE
+    ========================= */
+
+    .hero {
+
+        width: 100%;
+
+        min-height: 390px;
+
+        height: 390px;
+
+        overflow: hidden;
+
+        background-position: center center;
+    }
+
+
+    .hero-content {
+
+        width: 100%;
+
+        padding: 20px 15px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 31px;
+
+        line-height: 1.2;
+    }
+
+
+    .hero p {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+
+    /* =========================
+       FLOATING BUTTONS
+    ========================= */
+
+    .whatsapp-btn {
+
+        right: 12px;
+
+        bottom: 15px;
+
+        padding: 14px 18px;
+
+        font-size: 15px;
+
+        z-index: 9998;
+    }
+
+
+    .call-btn {
+
+        right: 12px;
+
+        bottom: 75px;
+
+        padding: 14px 18px;
+
+        font-size: 15px;
+
+        z-index: 9998;
+    }
+
+
+    /* Hide duplicate WhatsApp circle */
+
+    .floating-whatsapp {
+
+        display: none;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 420px) {
+
+    header {
+
+        height: 68px;
+        min-height: 68px;
+
+        padding: 8px 14px;
+    }
+
+    body {
+
+        padding-top: 68px;
+    }
+
+
+    header .logo h2 {
+
+        font-size: 20px;
+    }
+
+
+    .menu-toggle {
+
+        top: 8px;
+
+        right: -27px;
+
+        width: 70px;
+
+        height: 58px;
+
+        font-size: 31px;
+
+        border-radius: 18px 0 0 18px;
+    }
+
+
+    header nav {
+
+        top: 68px;
+
+        height: calc(100vh - 68px);
+
+        width: 85%;
+    }
+
+
+    .hero {
+
+        min-height: 370px;
+
+        height: 370px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 27px;
+    }
+
+
+    .hero p {
+
+        font-size: 14px;
+    }
+
+
+    .container h2 {
+
+        font-size: 30px;
+    }
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 769px) {
+
+    .menu-toggle {
+
         display: none !important;
     }
 
