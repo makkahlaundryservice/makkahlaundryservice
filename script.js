@@ -338,31 +338,55 @@ ${note || "None"}`;
 });
 
 
-// ===============================
-// Price Calculator
-// ===============================
-function calculatePrice() {
+// =========================================================
+// PRICE CALCULATOR
+// =========================================================
 
-    const serviceElement = document.getElementById("serviceType");
-    const quantityElement = document.getElementById("quantity");
-    const totalElement = document.getElementById("totalPrice");
+function calculateLaundryPrice() {
+
+    const serviceElement =
+        document.getElementById("serviceType");
+
+    const quantityElement =
+        document.getElementById("quantity");
+
+    const totalElement =
+        document.getElementById("totalPrice");
+
 
     if (!serviceElement || !quantityElement || !totalElement) {
+
         console.error("Calculator elements not found.");
+
         return;
     }
 
-    const price = Number(serviceElement.value);
-    const quantity = Number(quantityElement.value);
 
-    if (!Number.isFinite(quantity) || quantity < 1) {
-        totalElement.textContent = "Please enter a valid quantity.";
+    const price =
+        Number(serviceElement.value);
+
+    const quantity =
+        Number(quantityElement.value);
+
+
+    if (
+        !Number.isFinite(quantity) ||
+        quantity < 1
+    ) {
+
+        totalElement.textContent =
+            "Please enter a valid quantity.";
+
         return;
     }
 
-    const total = price * quantity;
 
-    totalElement.textContent = "Total: " + total + " SAR";
+    const total =
+        price * quantity;
+
+
+    totalElement.textContent =
+        "Total: " + total + " SAR";
 }
 
 
