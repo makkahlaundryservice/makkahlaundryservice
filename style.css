@@ -1225,3 +1225,219 @@ button,
         font-size: 14px;
     }
 }
+
+/* =================================
+   MOBILE HEADER - NEW DESIGN
+================================= */
+
+.menu-toggle {
+    display: none;
+    background: #0077ff;
+    color: #fff;
+    border: none;
+    font-size: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Desktop */
+
+header {
+    min-height: 76px;
+}
+
+header .logo {
+    flex-shrink: 0;
+}
+
+header nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+header nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    white-space: nowrap;
+}
+
+/* Actions inside menu */
+
+.mobile-action {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-action .order-btn {
+    white-space: nowrap;
+}
+
+.mobile-action #langBtn {
+    white-space: nowrap;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 72px;
+    }
+
+    /* Hide top information bar on phone */
+    .top-bar {
+        display: none;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        min-height: 72px;
+
+        padding: 10px 16px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        background: #ffffff;
+
+        box-shadow: 0 3px 15px rgba(0,0,0,.10);
+
+        z-index: 9999;
+    }
+
+    /* Logo */
+
+    .logo {
+        max-width: 220px;
+    }
+
+    .logo h2 {
+        font-size: 20px;
+        line-height: 1.15;
+        margin: 0;
+    }
+
+    /* Menu button */
+
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    /* Navigation */
+
+    header nav {
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+
+        background: #ffffff;
+
+        padding: 15px 18px 20px;
+
+        box-shadow: 0 10px 25px rgba(0,0,0,.12);
+
+        border-top: 1px solid #eeeeee;
+    }
+
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 5px;
+
+        width: 100%;
+    }
+
+    header nav ul li {
+        width: 100%;
+    }
+
+    header nav ul li a {
+        display: block;
+
+        width: 100%;
+
+        padding: 12px 14px;
+
+        text-align: center;
+
+        font-size: 16px;
+
+        border-radius: 10px;
+    }
+
+    header nav ul li a:hover {
+        background: #f0f7ff;
+    }
+
+    /* Order button */
+
+    .mobile-action .order-btn {
+        display: block;
+
+        width: 100%;
+
+        text-align: center;
+
+        padding: 13px 20px;
+
+        margin-top: 8px;
+    }
+
+    /* Arabic button */
+
+    .mobile-action #langBtn {
+        width: 100%;
+
+        margin: 5px 0 0;
+
+        padding: 12px;
+
+        background: #ffffff;
+
+        color: #0077ff;
+
+        border: 2px solid #0077ff;
+
+        border-radius: 30px;
+
+        font-size: 16px;
+    }
+
+}
