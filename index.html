@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#0077ff">
-
-  <title>Makkah Laundry Service | Laundry Pickup & Delivery in Makkah</title>
+  <title>Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram</title>
 
   <meta name="description"
-        content="Makkah Laundry Service offers convenient laundry pickup and delivery in Makkah, including wash & fold, ironing and dry cleaning for hotels, residents and visitors.">
-
-  <meta name="keywords"
-        content="Makkah Laundry Service, Laundry Near Me, Laundry Pickup Makkah, Hotel Laundry Makkah, Dry Cleaning Makkah, Ironing Service, Wash and Fold">
+        content="Makkah Laundry Service provides hotel laundry pickup and delivery near Masjid Al Haram and Makkah Clock Tower. Wash & fold, ironing, dry cleaning and express laundry for pilgrims, visitors and residents. Order by WhatsApp.">
 
   <meta name="author" content="Makkah Laundry Service">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0077ff">
+
+  <meta name="geo.region" content="SA-02">
+  <meta name="geo.placename" content="Makkah">
 
   <meta name="google-site-verification"
         content="aKXy9hWVjC953DscMvTWQBUe3B23HB-JEzbPoaQdimk">
@@ -25,10 +24,10 @@
 
   <!-- Open Graph -->
   <meta property="og:title"
-        content="Makkah Laundry Service | Laundry Pickup & Delivery in Makkah">
+        content="Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram">
 
   <meta property="og:description"
-        content="Fast laundry pickup and delivery in Makkah including wash & fold, ironing and dry cleaning.">
+        content="Laundry pickup and delivery in Makkah for hotels, pilgrims, visitors and residents. Wash & fold, ironing, dry cleaning and express service.">
 
   <meta property="og:type" content="website">
 
@@ -41,10 +40,23 @@
   <meta property="og:site_name"
         content="Makkah Laundry Service">
 
+  <meta property="og:locale" content="en_SA">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+        content="Makkah Laundry Service | Laundry Pickup & Delivery">
+  <meta name="twitter:description"
+        content="Hotel laundry pickup and delivery in Makkah near Haram and Makkah Clock Tower.">
+  <meta name="twitter:image"
+        content="https://makkahlaundryservice.github.io/makkahlaundryservice/images/logo.png">
+
+  <!-- Favicon -->
   <link rel="icon"
         type="image/png"
         href="images/favicon.png">
 
+  <!-- Manifest -->
   <link rel="manifest"
         href="manifest.json">
 
@@ -63,8 +75,53 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Main CSS -->
+  <link rel="stylesheet"
+        href="style.css">
+
+  <!-- Additional SEO Content Styling -->
+  <style>
+    .seo-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 35px 20px;
+      line-height: 1.8;
+    }
+
+    .seo-content h2 {
+      margin-bottom: 15px;
+    }
+
+    .seo-content h3 {
+      margin-top: 25px;
+      margin-bottom: 8px;
+    }
+
+    .seo-content p {
+      margin-bottom: 12px;
+    }
+
+    .arabic-seo {
+      direction: rtl;
+      text-align: right;
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    .location-note {
+      font-size: 14px;
+      opacity: .85;
+      margin-top: 8px;
+    }
+
+    .hotel-note {
+      font-size: 13px;
+      opacity: .8;
+      margin-top: 5px;
+    }
+  </style>
 
   <!-- Google Analytics -->
   <script async
@@ -88,20 +145,24 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Makkah Laundry Service",
-    "url": "https://makkahlaundryservice.github.io/makkahlaundryservice/"
+    "url": "https://makkahlaundryservice.github.io/makkahlaundryservice/",
+    "description": "Laundry pickup and delivery service in Makkah for hotels, pilgrims, visitors and residents."
   }
   </script>
 
-  <!-- Local Business Schema -->
+  <!-- Laundry Business Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "DryCleaningOrLaundry",
     "name": "Makkah Laundry Service",
     "url": "https://makkahlaundryservice.github.io/makkahlaundryservice/",
     "telephone": "+966550865064",
     "email": "makkahlaundryserviceksa@gmail.com",
     "image": "https://makkahlaundryservice.github.io/makkahlaundryservice/images/logo.png",
+    "priceRange": "SAR 5-50",
+    "currenciesAccepted": "SAR",
+    "paymentAccepted": "Cash",
     "areaServed": {
       "@type": "City",
       "name": "Makkah"
@@ -110,7 +171,61 @@
       "@type": "PostalAddress",
       "addressLocality": "Makkah",
       "addressCountry": "SA"
-    }
+    },
+    "sameAs": [
+      "https://wa.me/966550865064"
+    ]
+  }
+  </script>
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Makkah Laundry Services",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "position": 1,
+        "name": "Wash and Fold Laundry",
+        "serviceType": "Wash and Fold",
+        "areaServed": {
+          "@type": "City",
+          "name": "Makkah"
+        }
+      },
+      {
+        "@type": "Service",
+        "position": 2,
+        "name": "Clothes Ironing",
+        "serviceType": "Ironing Service",
+        "areaServed": {
+          "@type": "City",
+          "name": "Makkah"
+        }
+      },
+      {
+        "@type": "Service",
+        "position": 3,
+        "name": "Dry Cleaning",
+        "serviceType": "Dry Cleaning",
+        "areaServed": {
+          "@type": "City",
+          "name": "Makkah"
+        }
+      },
+      {
+        "@type": "Service",
+        "position": 4,
+        "name": "Hotel Laundry Pickup and Delivery",
+        "serviceType": "Laundry Pickup and Delivery",
+        "areaServed": {
+          "@type": "City",
+          "name": "Makkah"
+        }
+      }
+    ]
   }
   </script>
 
@@ -122,18 +237,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Do you provide hotel pickup?",
+        "name": "Do you provide hotel laundry pickup in Makkah?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we provide pickup and delivery from hotels around Makkah Clock Tower."
+          "text": "Yes. We provide laundry pickup and delivery from selected hotels and locations in Makkah. Pickup availability depends on location and order time."
         }
       },
       {
         "@type": "Question",
-        "name": "How long does laundry take?",
+        "name": "Do you provide laundry near Makkah Clock Tower?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Usually 6–24 hours depending on the service."
+          "text": "Yes. Our service area includes Makkah Clock Tower and nearby central Makkah locations, subject to pickup availability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does laundry cost in Makkah?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wash and fold starts from 15 SAR per bag, ironing starts from 5 SAR per item, and dry cleaning starts from 12 SAR per item."
         }
       },
       {
@@ -141,15 +264,23 @@
         "name": "Do you offer express laundry service?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, express laundry service is available."
+          "text": "Express laundry may be available depending on the order, location and workload. Please contact us on WhatsApp before ordering."
         }
       },
       {
         "@type": "Question",
-        "name": "How can I pay?",
+        "name": "How can I order laundry pickup?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Cash payment is accepted upon delivery."
+          "text": "You can order through WhatsApp by sending your hotel name, room number, phone number and the laundry service you need."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل توجد خدمة غسيل ملابس في مكة؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل في مكة حسب الموقع والتوفر."
         }
       }
     ]
@@ -160,1429 +291,1524 @@
 
 <body>
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <span>🟢 Laundry Support Available</span>
 
-<div class="top-bar">
+      <span>
+        <i class="fa-solid fa-phone"></i>
+        <a href="tel:+966550865064">+966 55 086 5064</a>
+      </span>
 
-  <span>
-    🟢 Laundry Support Available
-  </span>
-
-  <a href="tel:+966550865064">
-    📞 +966 0550865064
-  </a>
-
-  <a href="https://wa.me/966550865064"
-     target="_blank"
-     rel="noopener">
-    💬 WhatsApp
-  </a>
-
-</div>
+      <span>
+        <i class="fa-brands fa-whatsapp"></i>
+        <a href="https://wa.me/966550865064" target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </span>
+    </div>
+  </div>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
 
-<header>
+      <a href="#home" class="logo">
+        <img src="images/logo.png"
+             alt="Makkah Laundry Service logo"
+             loading="eager">
+      </a>
 
-  <a href="#home"
-     class="logo"
-     aria-label="Makkah Laundry Service Home">
+      <nav class="nav" aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#booking">Book Pickup</a>
+        <a href="#hotels">Hotels</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary"
+           href="https://wa.me/966550865064?text=Hello%2C%20I%20need%20laundry%20pickup%20in%20Makkah."
+           target="_blank"
+           rel="noopener">
+          Order Now
+        </a>
+
+        <button id="langBtn"
+                type="button"
+                aria-label="Switch language">
+          العربية
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <p class="eyebrow">
+          Laundry Pickup & Delivery in Makkah
+        </p>
+
+        <h1>
+          Makkah Laundry Service Near Makkah Clock Tower
+        </h1>
+
+        <p>
+          Fast and convenient laundry pickup and delivery in Makkah
+          for pilgrims, visitors, residents and hotel guests.
+        </p>
+
+        <p>
+          <strong>
+            Wash & Fold • Ironing • Dry Cleaning • Hotel Pickup & Delivery
+          </strong>
+        </p>
+
+        <div class="hero-buttons">
+
+          <a class="btn btn-primary"
+             href="https://wa.me/966550865064?text=Hello%2C%20I%20need%20laundry%20pickup%20in%20Makkah.%20Hotel%3A%20"
+             target="_blank"
+             rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            Order on WhatsApp
+          </a>
+
+          <a class="btn btn-secondary"
+             href="tel:+966550865064">
+            <i class="fa-solid fa-phone"></i>
+            Call Now
+          </a>
+
+        </div>
+
+        <p class="location-note">
+          📍 Serving Makkah, including central Makkah and areas around
+          Makkah Clock Tower, subject to pickup availability.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Laundry Services in Makkah</h2>
+
+        <p>
+          Convenient laundry solutions for hotel guests, pilgrims,
+          visitors and residents in Makkah.
+        </p>
+      </div>
+
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <i class="fa-solid fa-shirt"></i>
+
+          <h3>Wash & Fold</h3>
+
+          <p>
+            Professional washing and folding for everyday clothes.
+          </p>
+        </div>
+
+
+        <div class="service-card">
+          <i class="fa-solid fa-temperature-high"></i>
+
+          <h3>Ironing Service</h3>
+
+          <p>
+            Clean and neat ironing for thobes, shirts, trousers
+            and other clothes.
+          </p>
+        </div>
+
+
+        <div class="service-card">
+          <i class="fa-solid fa-soap"></i>
+
+          <h3>Dry Cleaning</h3>
+
+          <p>
+            Dry cleaning service for suitable garments and special clothing.
+          </p>
+        </div>
+
+
+        <div class="service-card">
+          <i class="fa-solid fa-truck"></i>
+
+          <h3>Hotel Pickup & Delivery</h3>
+
+          <p>
+            We collect your laundry from selected hotels and locations
+            and return it after service.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LOCAL SEO CONTENT -->
+  <section class="seo-content">
 
     <h2>
-      Makkah Laundry Service
+      Laundry Near Me in Makkah – Pickup & Delivery
     </h2>
 
-  </a>
+    <p>
+      Looking for a reliable <strong>laundry near me in Makkah</strong>?
+      Makkah Laundry Service provides convenient laundry pickup and delivery
+      for hotel guests, pilgrims, visitors and residents.
+    </p>
+
+    <p>
+      Our service includes
+      <strong>hotel laundry in Makkah</strong>,
+      <strong>wash and fold</strong>,
+      <strong>clothes ironing</strong>,
+      <strong>dry cleaning</strong> and
+      <strong>laundry pickup and delivery</strong>.
+    </p>
+
+    <h3>Hotel Laundry Near Makkah Clock Tower</h3>
+
+    <p>
+      If you are staying near the Makkah Clock Tower or central Makkah,
+      you can contact us on WhatsApp to check pickup availability.
+      Send your hotel name, room number and required service.
+    </p>
+
+    <h3>Laundry Service for Umrah Pilgrims</h3>
+
+    <p>
+      Pilgrims often need clean clothes during their stay in Makkah.
+      Our laundry pickup and delivery service makes it easier to send
+      your clothes for washing, ironing or dry cleaning without looking
+      for a laundry shop yourself.
+    </p>
+
+    <h3>How to Order Laundry in Makkah</h3>
+
+    <p>
+      Simply contact us on WhatsApp, tell us your hotel or location,
+      room number and laundry requirement. We will confirm pickup
+      availability and arrange the service.
+    </p>
+
+  </section>
 
 
-  <!-- Mobile Menu Button -->
+  <!-- ARABIC SEO -->
+  <section class="seo-content arabic-seo"
+           lang="ar"
+           dir="rtl">
 
-  <button
-    type="button"
-    class="menu-toggle"
-    id="menuToggle"
-    aria-label="Open Menu"
-    aria-expanded="false">
+    <h2>مغسلة ملابس في مكة</h2>
 
-    ☰
+    <p>
+      نقدم خدمة غسيل وكي الملابس في مكة مع خدمة الاستلام والتوصيل
+      من الفنادق والمواقع القريبة حسب التوفر.
+    </p>
 
-  </button>
+    <h3>مغسلة ملابس قريبة من الحرم</h3>
+
+    <p>
+      إذا كنت تبحث عن مغسلة ملابس قريبة من الحرم أو برج الساعة في مكة،
+      يمكنك التواصل معنا عبر واتساب وإرسال اسم الفندق ورقم الغرفة.
+    </p>
+
+    <h3>خدمة غسيل ملابس للفنادق والحجاج</h3>
+
+    <p>
+      نوفر خدمة غسل وطي الملابس، كي الملابس، والتنظيف الجاف،
+      مع إمكانية الاستلام والتوصيل حسب الموقع والتوفر.
+    </p>
+
+    <h3>كيف تطلب الخدمة؟</h3>
+
+    <p>
+      أرسل لنا عبر واتساب اسم الفندق، رقم الغرفة ونوع الخدمة المطلوبة،
+      وسنقوم بتأكيد إمكانية الاستلام.
+    </p>
+
+  </section>
 
 
-  <!-- Navigation -->
+  <!-- PRICING -->
+  <section id="pricing" class="section">
 
-  <nav id="mainNav">
+    <div class="container">
 
-    <ul>
+      <div class="section-heading">
 
-      <li>
-        <a href="#home">
-          Home
-        </a>
-      </li>
+        <h2>Laundry Prices in Makkah</h2>
 
-      <li>
-        <a href="#services">
-          Services
-        </a>
-      </li>
+        <p>
+          Simple starting prices. Final price may depend on quantity,
+          garment type and service requirements.
+        </p>
 
-      <li>
-        <a href="#pricing">
-          Pricing
-        </a>
-      </li>
+      </div>
 
-      <li>
-        <a href="#booking">
-          Book Pickup
-        </a>
-      </li>
 
-      <li>
-        <a href="#hotels">
-          Hotels
-        </a>
-      </li>
+      <div class="pricing-grid">
 
-      <li>
-        <a href="#faq">
-          FAQ
-        </a>
-      </li>
+        <div class="price-card">
 
-      <li>
-        <a href="#contact">
-          Contact
-        </a>
-      </li>
+          <h3>Wash & Fold</h3>
 
-      <li class="mobile-action">
+          <div class="price">
+            <span>15</span> SAR
+          </div>
 
-        <a
-          class="order-btn"
-          href="https://wa.me/966550865064?text=Hello%20I%20need%20Laundry%20Pickup"
-          target="_blank"
-          rel="noopener">
+          <p>
+            From 15 SAR per bag
+          </p>
 
-          💬 Order Now
+          <a href="#booking"
+             class="btn btn-primary">
+            Book Now
+          </a>
 
-        </a>
+        </div>
 
-      </li>
 
-      <li class="mobile-action">
+        <div class="price-card">
 
-        <button
-          type="button"
-          id="langBtn">
+          <h3>Ironing</h3>
 
-          العربية
+          <div class="price">
+            <span>5</span> SAR
+          </div>
+
+          <p>
+            From 5 SAR per item
+          </p>
+
+          <a href="#booking"
+             class="btn btn-primary">
+            Book Now
+          </a>
+
+        </div>
+
+
+        <div class="price-card">
+
+          <h3>Dry Cleaning</h3>
+
+          <div class="price">
+            <span>12</span> SAR
+          </div>
+
+          <p>
+            From 12 SAR per item
+          </p>
+
+          <a href="#booking"
+             class="btn btn-primary">
+            Book Now
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+
+    <div class="container">
+
+      <div class="about-content">
+
+        <div>
+
+          <h2>About Makkah Laundry Service</h2>
+
+          <p>
+            Makkah Laundry Service is a convenient laundry pickup and
+            delivery service in Makkah.
+          </p>
+
+          <p>
+            We help hotel guests, pilgrims, visitors and residents
+            arrange laundry collection and delivery without needing
+            to search for a laundry shop.
+          </p>
+
+          <p>
+            Our services include wash & fold, ironing, dry cleaning
+            and hotel laundry pickup and delivery.
+          </p>
+
+          <a class="btn btn-primary"
+             href="https://wa.me/966550865064?text=Hello%2C%20I%20want%20to%20check%20laundry%20pickup%20availability%20in%20Makkah."
+             target="_blank"
+             rel="noopener">
+            Check Pickup Availability
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOOKING -->
+  <section id="booking" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Book Laundry Pickup in Makkah</h2>
+
+        <p>
+          Fill in your details and send your laundry request through WhatsApp.
+        </p>
+
+      </div>
+
+
+      <form id="bookingForm"
+            class="booking-form">
+
+        <div class="form-group">
+
+          <label for="fullName">
+            Full Name
+          </label>
+
+          <input type="text"
+                 id="fullName"
+                 placeholder="Your name"
+                 required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="hotelName">
+            Hotel / Location
+          </label>
+
+          <select id="hotelName"
+                  required>
+
+            <option value="">
+              Select Hotel / Location
+            </option>
+
+            <option value="Swissôtel Makkah">
+              Swissôtel Makkah
+            </option>
+
+            <option value="Swissôtel Al Maqam">
+              Swissôtel Al Maqam
+            </option>
+
+            <option value="Pullman ZamZam Makkah">
+              Pullman ZamZam Makkah
+            </option>
+
+            <option value="Fairmont Makkah Clock Royal Tower">
+              Fairmont Makkah Clock Royal Tower
+            </option>
+
+            <option value="Raffles Makkah Palace">
+              Raffles Makkah Palace
+            </option>
+
+            <option value="Mövenpick Hajar Tower">
+              Mövenpick Hajar Tower
+            </option>
+
+            <option value="Address Jabal Omar">
+              Address Jabal Omar
+            </option>
+
+            <option value="Conrad Makkah">
+              Conrad Makkah
+            </option>
+
+            <option value="Anjum Hotel">
+              Anjum Hotel
+            </option>
+
+            <option value="Hilton Suites Makkah">
+              Hilton Suites Makkah
+            </option>
+
+            <option value="Other Hotel / Location">
+              Other Hotel / Location
+            </option>
+
+          </select>
+
+          <p class="hotel-note">
+            Pickup availability may vary by location.
+          </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="roomNumber">
+            Room Number
+          </label>
+
+          <input type="text"
+                 id="roomNumber"
+                 placeholder="Room number"
+                 required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="customerPhone">
+            WhatsApp / Phone
+          </label>
+
+          <input type="tel"
+                 id="customerPhone"
+                 placeholder="+966..."
+                 required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="service">
+            Service
+          </label>
+
+          <select id="service"
+                  required>
+
+            <option value="">
+              Select Service
+            </option>
+
+            <option value="Wash & Fold">
+              Wash & Fold – From 15 SAR/bag
+            </option>
+
+            <option value="Ironing">
+              Ironing – From 5 SAR/item
+            </option>
+
+            <option value="Dry Cleaning">
+              Dry Cleaning – From 12 SAR/item
+            </option>
+
+            <option value="Wash & Fold + Ironing">
+              Wash & Fold + Ironing
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="serviceSpeed">
+            Service Speed
+          </label>
+
+          <select id="serviceSpeed"
+                  required>
+
+            <option value="Normal – 24h">
+              Normal – 24h
+            </option>
+
+            <option value="Express – Subject to Availability">
+              Express – Subject to Availability
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pickupDate">
+            Pickup Date
+          </label>
+
+          <input type="date"
+                 id="pickupDate"
+                 required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pickupTime">
+            Preferred Pickup Time
+          </label>
+
+          <input type="time"
+                 id="pickupTime"
+                 required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="clothesType">
+            Clothes Type
+          </label>
+
+          <input type="text"
+                 id="clothesType"
+                 placeholder="Thobe, shirt, trousers, mixed clothes...">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="clothQty">
+            Quantity
+          </label>
+
+          <input type="number"
+                 id="clothQty"
+                 min="1"
+                 placeholder="Quantity">
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="specialNote">
+            Special Note
+          </label>
+
+          <textarea id="specialNote"
+                    rows="4"
+                    placeholder="Any special instructions?"></textarea>
+
+        </div>
+
+
+        <button type="submit"
+                class="btn btn-primary">
+
+          <i class="fa-brands fa-whatsapp"></i>
+          Send Booking on WhatsApp
 
         </button>
 
-      </li>
-
-    </ul>
-
-  </nav>
-
-</header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section id="home"
-         class="hero">
-
-  <div class="hero-content">
-
-    <h1>
-      Makkah Laundry Service Near Makkah Clock Tower
-    </h1>
-
-    <p>
-      Fast Laundry Pickup & Delivery • Wash & Fold • Ironing • Dry Cleaning
-    </p>
-
-    <div class="buttons">
-
-      <a
-        class="btn1"
-        href="https://wa.me/966550865064?text=Hello%20I%20need%20Laundry%20Pickup"
-        target="_blank"
-        rel="noopener">
-
-        💬 WhatsApp
-
-      </a>
-
-      <a
-        class="btn2"
-        href="tel:+966550865064">
-
-        📞 Call Now
-
-      </a>
+      </form>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- =====================================================
-     SERVICES
-===================================================== -->
+  <!-- CUSTOMER TRUST -->
+  <section class="section">
 
-<section id="services">
+    <div class="container">
 
-  <div class="container">
+      <div class="section-heading">
 
-    <h2>
-      Laundry Services in Makkah
-    </h2>
-
-    <div class="service-box">
-
-      <div class="service">
-
-        <div class="service-icon">
-          🧺
-        </div>
-
-        <h3>
-          Wash & Fold Laundry Service
-        </h3>
+        <h2>Why Customers Choose Our Laundry Service</h2>
 
         <p>
-          Professional washing and folding for clothes,
-          hotel guests, residents and visitors.
+          Convenient service designed for hotel guests and visitors in Makkah.
         </p>
 
       </div>
 
 
-      <div class="service">
+      <div class="services-grid">
 
-        <div class="service-icon">
-          👔
+        <div class="service-card">
+
+          <i class="fa-solid fa-hotel"></i>
+
+          <h3>Hotel Pickup</h3>
+
+          <p>
+            Convenient collection from selected hotels and nearby locations.
+          </p>
+
         </div>
 
-        <h3>
-          Professional Ironing Service
-        </h3>
 
-        <p>
-          Clean and wrinkle-free ironing service
-          for shirts, thobes and other garments.
-        </p>
+        <div class="service-card">
 
-      </div>
+          <i class="fa-solid fa-clock"></i>
 
+          <h3>Flexible Service</h3>
 
-      <div class="service">
+          <p>
+            Choose normal service or ask about express availability.
+          </p>
 
-        <div class="service-icon">
-          ✨
         </div>
 
-        <h3>
-          Dry Cleaning Service
-        </h3>
 
-        <p>
-          Professional dry cleaning for delicate
-          and special garments.
-        </p>
+        <div class="service-card">
 
-      </div>
+          <i class="fa-brands fa-whatsapp"></i>
 
+          <h3>Easy WhatsApp Booking</h3>
 
-      <div class="service">
+          <p>
+            Contact us directly with your hotel and laundry requirements.
+          </p>
 
-        <div class="service-icon">
-          🚚
         </div>
 
-        <h3>
-          Hotel Laundry Pickup & Delivery
-        </h3>
 
-        <p>
-          Convenient laundry pickup and delivery
-          around Makkah Clock Tower hotels.
-        </p>
+        <div class="service-card">
+
+          <i class="fa-solid fa-location-dot"></i>
+
+          <h3>Makkah Service Area</h3>
+
+          <p>
+            Serving central Makkah and locations around Makkah Clock Tower.
+          </p>
+
+        </div>
 
       </div>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- =====================================================
-     PRICING
-===================================================== -->
+  <!-- HOTELS -->
+  <section id="hotels" class="section">
 
-<section id="pricing"
-         class="pricing">
+    <div class="container">
 
-  <div class="container">
+      <div class="section-heading">
 
-    <h2>
-      Laundry Service Prices in Makkah
-    </h2>
-
-    <p class="section-intro">
-      Affordable laundry service prices including
-      wash & fold, ironing and dry cleaning.
-    </p>
-
-    <div class="price-grid">
-
-      <div class="price-card">
-
-        <div class="price-icon">
-          🧺
-        </div>
-
-        <h3>
-          Wash & Fold
-        </h3>
-
-        <div class="price">
-          From 15 SAR
-        </div>
+        <h2>Hotels Near Our Makkah Pickup Area</h2>
 
         <p>
-          Per bag
+          Pickup availability depends on hotel location, timing and order details.
         </p>
 
       </div>
 
 
-      <div class="price-card">
+      <div class="hotel-list">
 
-        <div class="price-icon">
-          👔
-        </div>
-
-        <h3>
-          Ironing
-        </h3>
-
-        <div class="price">
-          From 5 SAR
-        </div>
-
-        <p>
-          Per item
-        </p>
-
-      </div>
-
-
-      <div class="price-card">
-
-        <div class="price-icon">
-          ✨
-        </div>
-
-        <h3>
-          Dry Cleaning
-        </h3>
-
-        <div class="price">
-          From 12 SAR
-        </div>
-
-        <p>
-          Per item
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section id="about"
-         class="about">
-
-  <div class="container">
-
-    <h2>
-      About Makkah Laundry Service
-    </h2>
-
-    <p>
-      Makkah Laundry Service provides professional laundry,
-      wash and fold, ironing, dry cleaning, and hotel pickup
-      and delivery services near Makkah Clock Tower.
-    </p>
-
-    <p>
-      We serve hotel guests, residents and visitors in Makkah
-      with convenient pickup, reliable cleaning, fast delivery
-      and affordable laundry services.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     BOOKING
-===================================================== -->
-
-<section id="booking"
-         class="booking">
-
-  <div class="container">
-
-    <h2>
-      Book Laundry Pickup
-    </h2>
-
-    <p class="section-intro">
-      Fill out the form and send your laundry pickup request
-      directly to our WhatsApp.
-    </p>
-
-
-    <form id="bookingForm">
-
-
-      <input
-        type="text"
-        id="fullName"
-        name="fullName"
-        placeholder="Full Name"
-        autocomplete="name"
-        required>
-
-
-      <label for="hotelName">
-        Select Hotel
-      </label>
-
-      <select
-        id="hotelName"
-        required>
-
-        <option value="">
-          Choose Your Hotel
-        </option>
-
-        <option>
+        <div class="hotel-item">
           Swissôtel Makkah
-        </option>
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Swissôtel Al Maqam
-        </option>
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Pullman ZamZam Makkah
-        </option>
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Fairmont Makkah Clock Royal Tower
-        </option>
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Raffles Makkah Palace
-        </option>
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Mövenpick Hajar Tower
-        </option>
+        </div>
 
-        <option>
-          Address Jabal Omar Makkah
-        </option>
+        <div class="hotel-item">
+          Address Jabal Omar
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Conrad Makkah
-        </option>
+        </div>
 
-        <option>
-          Anjum Hotel Makkah
-        </option>
+        <div class="hotel-item">
+          Anjum Hotel
+        </div>
 
-        <option>
+        <div class="hotel-item">
           Hilton Suites Makkah
-        </option>
-
-      </select>
-
-
-      <input
-        type="text"
-        id="roomNumber"
-        placeholder="Room Number">
-
-
-      <input
-        type="tel"
-        id="customerPhone"
-        placeholder="Mobile Number"
-        autocomplete="tel"
-        required>
-
-
-      <label for="service">
-        Select Service
-      </label>
-
-      <select
-        id="service"
-        required>
-
-        <option value="">
-          Select Service
-        </option>
-
-        <option>
-          Wash & Fold
-        </option>
-
-        <option>
-          Ironing
-        </option>
-
-        <option>
-          Dry Cleaning
-        </option>
-
-        <option>
-          Express Laundry
-        </option>
-
-      </select>
-
-
-      <label for="serviceSpeed">
-        Service Speed
-      </label>
-
-      <select id="serviceSpeed">
-
-        <option value="Normal">
-          🟢 Normal (24 Hours)
-        </option>
-
-        <option value="Express">
-          ⚡ Express (2–4 Hours)
-        </option>
-
-      </select>
-
-
-      <label for="pickupDate">
-        Pickup Date
-      </label>
-
-      <input
-        type="date"
-        id="pickupDate"
-        required>
-
-
-      <label for="pickupTime">
-        Pickup Time
-      </label>
-
-      <input
-        type="time"
-        id="pickupTime"
-        required>
-
-
-      <label for="clothesType">
-        Clothes Type
-      </label>
-
-      <select id="clothesType">
-
-        <option>
-          Thobe
-        </option>
-
-        <option>
-          Shirt
-        </option>
-
-        <option>
-          T-Shirt
-        </option>
-
-        <option>
-          Pant
-        </option>
-
-        <option>
-          Jacket
-        </option>
-
-        <option>
-          Blanket
-        </option>
-
-        <option>
-          Curtain
-        </option>
-
-        <option>
-          Carpet
-        </option>
-
-        <option>
-          KG
-        </option>
-
-      </select>
-
-
-      <label for="clothQty">
-        Quantity
-      </label>
-
-      <input
-        type="number"
-        id="clothQty"
-        value="1"
-        min="1"
-        required>
-
-
-      <textarea
-        id="specialNote"
-        placeholder="Special Instructions"></textarea>
-
-
-      <button type="submit">
-        💬 Send via WhatsApp
-      </button>
-
-    </form>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     REVIEWS
-===================================================== -->
-
-<section id="reviews"
-         class="reviews">
-
-  <div class="container">
-
-    <h2>
-      Customer Reviews
-    </h2>
-
-    <div class="review-grid">
-
-
-      <div class="review-card">
-
-        <div class="stars">
-          ⭐⭐⭐⭐⭐
         </div>
 
+      </div>
+
+
+      <p class="hotel-note">
+        Please contact us before ordering to confirm pickup availability
+        from your exact hotel.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Frequently Asked Questions</h2>
+
+      </div>
+
+
+      <div class="faq-container">
+
+        <details>
+
+          <summary>
+            Do you provide hotel laundry pickup in Makkah?
+          </summary>
+
+          <p>
+            Yes. We provide pickup and delivery from selected hotels
+            and locations in Makkah. Availability depends on location
+            and order time.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Do you provide laundry near Makkah Clock Tower?
+          </summary>
+
+          <p>
+            Yes. We serve central Makkah and areas around Makkah Clock Tower,
+            subject to pickup availability.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            How much does laundry cost?
+          </summary>
+
+          <p>
+            Wash & Fold starts from 15 SAR per bag.
+            Ironing starts from 5 SAR per item.
+            Dry Cleaning starts from 12 SAR per item.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Do you offer express laundry?
+          </summary>
+
+          <p>
+            Express service may be available depending on the order,
+            location and workload. Please contact us on WhatsApp first.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            How can I order?
+          </summary>
+
+          <p>
+            Send us a WhatsApp message with your hotel name,
+            room number, phone number and required laundry service.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            هل توجد خدمة غسيل ملابس في مكة؟
+          </summary>
+
+          <p dir="rtl">
+            نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل
+            في مكة حسب الموقع والتوفر.
+          </p>
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Our Laundry Service</h2>
+
         <p>
-          "Fast pickup and excellent laundry service.
-          Highly recommended."
+          Washing, ironing, packing and delivery.
         </p>
 
-        <h4>
-          — Hotel Guest
-        </h4>
+      </div>
+
+
+      <div class="gallery-grid">
+
+        <img src="images/wash.jpg"
+             alt="Laundry washing service in Makkah"
+             loading="lazy">
+
+        <img src="images/iron.jpg"
+             alt="Thobe ironing service in Makkah"
+             loading="lazy">
+
+        <img src="images/delivery.jpg"
+             alt="Laundry pickup and delivery in Makkah"
+             loading="lazy">
+
+        <img src="images/dryclean.jpg"
+             alt="Dry cleaning service in Makkah"
+             loading="lazy">
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BUSINESS HOURS -->
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Business Hours</h2>
 
       </div>
 
 
-      <div class="review-card">
-
-        <div class="stars">
-          ⭐⭐⭐⭐⭐
-        </div>
+      <div class="hours">
 
         <p>
-          "Very clean ironing and on-time delivery."
+          <strong>Saturday – Thursday:</strong>
+          08:00 – 23:00
         </p>
-
-        <h4>
-          — Umrah Visitor
-        </h4>
-
-      </div>
-
-
-      <div class="review-card">
-
-        <div class="stars">
-          ⭐⭐⭐⭐⭐
-        </div>
 
         <p>
-          "Best laundry service near Makkah Clock Tower."
+          <strong>Friday:</strong>
+          14:00 – 23:00
         </p>
 
-        <h4>
-          — Family Customer
-        </h4>
+        <p>
+          WhatsApp orders can be sent anytime.
+          Response time may vary outside business hours.
+        </p>
 
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
 
+  <!-- QUICK ACTIONS -->
+  <section class="section">
 
-<!-- =====================================================
-     HOTELS
-===================================================== -->
+    <div class="container">
 
-<section id="hotels"
-         class="hotels">
+      <div class="quick-actions">
 
-  <div class="container">
+        <a class="btn btn-primary"
+           href="https://wa.me/966550865064?text=Hello%2C%20I%20need%20laundry%20pickup%20in%20Makkah."
+           target="_blank"
+           rel="noopener">
 
-    <h2>
-      Hotels We Serve in Makkah
-    </h2>
-
-    <p class="section-intro">
-
-      We provide convenient laundry pickup and delivery
-      for hotels around Makkah Clock Tower and central Makkah.
-
-    </p>
-
-
-    <div class="hotel-grid">
-
-      <div class="hotel-card">
-        Makkah Clock Royal Tower
-      </div>
-
-      <div class="hotel-card">
-        Swissôtel Makkah
-      </div>
-
-      <div class="hotel-card">
-        Swissôtel Al Maqam
-      </div>
-
-      <div class="hotel-card">
-        Pullman ZamZam Makkah
-      </div>
-
-      <div class="hotel-card">
-        Mövenpick Hotel & Residence Hajar Tower
-      </div>
-
-      <div class="hotel-card">
-        Fairmont Makkah Clock Royal Tower
-      </div>
-
-      <div class="hotel-card">
-        Raffles Makkah Palace
-      </div>
-
-      <div class="hotel-card">
-        Anjum Hotel Makkah
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     FAQ
-===================================================== -->
-
-<section id="faq"
-         class="faq">
-
-  <div class="container">
-
-    <h2>
-      Frequently Asked Questions
-    </h2>
-
-
-    <div class="faq-item">
-
-      <h3>
-        Do you provide hotel pickup?
-      </h3>
-
-      <p>
-        Yes, we provide pickup and delivery from hotels
-        around Makkah Clock Tower.
-      </p>
-
-    </div>
-
-
-    <div class="faq-item">
-
-      <h3>
-        How long does laundry take?
-      </h3>
-
-      <p>
-        Usually 6–24 hours depending on the service.
-      </p>
-
-    </div>
-
-
-    <div class="faq-item">
-
-      <h3>
-        Do you offer express laundry service?
-      </h3>
-
-      <p>
-        Yes, express laundry service is available
-        with additional charges.
-      </p>
-
-    </div>
-
-
-    <div class="faq-item">
-
-      <h3>
-        How can I pay?
-      </h3>
-
-      <p>
-        Cash payment is accepted upon delivery.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     GALLERY
-===================================================== -->
-
-<section id="gallery"
-         class="gallery">
-
-  <div class="container">
-
-    <h2>
-      Our Laundry Work
-    </h2>
-
-    <div class="gallery-grid">
-
-
-      <div class="gallery-item">
-
-        <img
-          src="images/wash.jpg"
-          alt="Professional laundry washing service in Makkah"
-          loading="lazy">
-
-      </div>
-
-
-      <div class="gallery-item">
-
-        <img
-          src="images/iron.jpg"
-          alt="Professional ironing service in Makkah"
-          loading="lazy">
-
-      </div>
-
-
-      <div class="gallery-item">
-
-        <img
-          src="images/delivery.jpg"
-          alt="Laundry pickup and delivery service in Makkah"
-          loading="lazy">
-
-      </div>
-
-
-      <div class="gallery-item">
-
-        <img
-          src="images/dryclean.jpg"
-          alt="Dry cleaning service in Makkah"
-          loading="lazy">
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     BUSINESS HOURS
-===================================================== -->
-
-<section id="hours"
-         class="hours">
-
-  <div class="container">
-
-    <h2>
-      Business Hours
-    </h2>
-
-    <div class="hours-box">
-
-      <p>
-        <strong>
-          Saturday – Thursday
-        </strong>
-      </p>
-
-      <p>
-        08:00 AM – 11:00 PM
-      </p>
-
-      <hr>
-
-      <p>
-        <strong>
-          Friday
-        </strong>
-      </p>
-
-      <p>
-        02:00 PM – 11:00 PM
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     QUICK ACTIONS
-===================================================== -->
-
-<section id="quick-actions"
-         class="quick-actions">
-
-  <div class="container">
-
-    <h2>
-      Quick Actions
-    </h2>
-
-    <div class="action-grid">
-
-
-      <a
-        href="https://wa.me/966550865064"
-        target="_blank"
-        rel="noopener"
-        class="action-card">
-
-        <span class="action-icon">
-          💬
-        </span>
-
-        <h3>
+          <i class="fa-brands fa-whatsapp"></i>
           WhatsApp
-        </h3>
 
-        <p>
-          Chat with us instantly
-        </p>
-
-      </a>
+        </a>
 
 
-      <a
-        href="tel:+966550865064"
-        class="action-card">
+        <a class="btn btn-secondary"
+           href="tel:+966550865064">
 
-        <span class="action-icon">
-          📞
-        </span>
+          <i class="fa-solid fa-phone"></i>
+          Call
 
-        <h3>
-          Call Us
-        </h3>
-
-        <p>
-          Call now for pickup
-        </p>
-
-      </a>
+        </a>
 
 
-      <a
-        href="#location"
-        class="action-card">
+        <a class="btn btn-secondary"
+           href="#location">
 
-        <span class="action-icon">
-          📍
-        </span>
-
-        <h3>
+          <i class="fa-solid fa-location-dot"></i>
           Location
-        </h3>
 
-        <p>
-          View our service area
-        </p>
+        </a>
 
-      </a>
+      </div>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<!-- =====================================================
-     LOCATION
-===================================================== -->
+  <!-- LOCATION -->
+  <section id="location" class="section">
 
-<section id="location"
-         class="location">
+    <div class="container">
 
-  <div class="container">
+      <div class="section-heading">
 
-    <h2>
-      Our Laundry Service Area in Makkah
-    </h2>
+        <h2>Makkah Laundry Service Location</h2>
 
-    <p class="section-intro">
+        <p>
+          Serving Makkah and nearby central areas.
+        </p>
 
-      We provide laundry pickup and delivery around
-      Makkah Clock Tower, including nearby hotels
-      and accommodations in central Makkah.
-
-    </p>
+      </div>
 
 
-    <iframe
-      src="https://www.google.com/maps?q=Abraj%20Al%20Bait%20Clock%20Tower%20Makkah&output=embed"
-      width="100%"
-      height="450"
-      style="border:0;"
-      loading="lazy"
-      title="Makkah Laundry Service Location Map">
-    </iframe>
+      <div class="map-container">
 
-  </div>
+        <iframe
+          src="https://www.google.com/maps?q=Abraj+Al+Bait+Clock+Tower+Makkah&output=embed"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Makkah Clock Tower location">
+        </iframe>
 
-</section>
+      </div>
+
+    </div>
+
+  </section>
 
 
-<!-- =====================================================
-     PRICE CALCULATOR
-===================================================== -->
+  <!-- PRICE CALCULATOR -->
+  <section id="calculator" class="section">
 
-<section id="calculator" class="calculator">
+    <div class="container">
 
-  <div class="container">
+      <div class="section-heading">
 
-    <h2>Laundry Price Calculator</h2>
+        <h2>Laundry Price Calculator</h2>
 
-    <label for="serviceType">
-      Select Service
-    </label>
+        <p>
+          Calculate an estimated starting price.
+        </p>
 
-    <select id="serviceType">
-      <option value="15">Wash & Fold - 15 SAR</option>
-      <option value="5">Ironing - 5 SAR</option>
-      <option value="12">Dry Cleaning - 12 SAR</option>
-    </select>
+      </div>
 
-    <label for="quantity">
-      Quantity
-    </label>
 
-    <input
-      type="number"
-      id="quantity"
-      value="1"
-      min="1"
-    >
+      <div class="calculator">
 
-    <button
-      type="button"
-      id="calculatePriceBtn">
-      Calculate Price
-    </button>
+        <div class="form-group">
 
-    <h3 id="totalPrice">
-      Total: 15 SAR
-    </h3>
+          <label for="calcService">
+            Service
+          </label>
 
-  </div>
+          <select id="calcService">
 
-</section>
+            <option value="15">
+              Wash & Fold – 15 SAR
+            </option>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+            <option value="5">
+              Ironing – 5 SAR
+            </option>
 
-    const button = document.getElementById("calculatePriceBtn");
-    const service = document.getElementById("serviceType");
-    const quantity = document.getElementById("quantity");
-    const result = document.getElementById("totalPrice");
+            <option value="12">
+              Dry Cleaning – 12 SAR
+            </option>
 
-    button.addEventListener("click", function () {
+          </select>
 
-        const price = parseFloat(service.value);
-        const qty = parseInt(quantity.value);
+        </div>
 
-        if (isNaN(qty) || qty < 1) {
-            result.textContent = "Please enter a valid quantity.";
-            return;
+
+        <div class="form-group">
+
+          <label for="calcQuantity">
+            Quantity
+          </label>
+
+          <input type="number"
+                 id="calcQuantity"
+                 value="1"
+                 min="1">
+
+        </div>
+
+
+        <div class="calculator-result">
+
+          Estimated Price:
+          <strong>
+            <span id="calcResult">15</span> SAR
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ORDER TRACKING -->
+  <section id="tracking" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Order Tracking</h2>
+
+        <p>
+          If you have an order ID, enter it below.
+        </p>
+
+      </div>
+
+
+      <div class="tracking-form">
+
+        <input type="text"
+               id="orderId"
+               placeholder="Enter Order ID">
+
+        <button type="button"
+                id="trackOrder"
+                class="btn btn-primary">
+          Track Order
+        </button>
+
+      </div>
+
+
+      <div id="trackingResult"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY CHOOSE US -->
+  <section id="why-us" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Why Choose Makkah Laundry Service?</h2>
+
+      </div>
+
+
+      <div class="services-grid">
+
+        <div class="service-card">
+
+          <i class="fa-solid fa-location-dot"></i>
+
+          <h3>Makkah Focused</h3>
+
+          <p>
+            Our service is focused on customers staying in Makkah.
+          </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <i class="fa-solid fa-hotel"></i>
+
+          <h3>Hotel Friendly</h3>
+
+          <p>
+            Convenient pickup and delivery for hotel guests.
+          </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <i class="fa-solid fa-bolt"></i>
+
+          <h3>Fast Communication</h3>
+
+          <p>
+            Easy communication through WhatsApp.
+          </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <i class="fa-solid fa-hand-holding-heart"></i>
+
+          <h3>Convenient Service</h3>
+
+          <p>
+            Send your laundry request without searching for a shop.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>Contact Makkah Laundry Service</h2>
+
+        <p>
+          Contact us to check laundry pickup availability in Makkah.
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+        <div class="contact-item">
+
+          <i class="fa-brands fa-whatsapp"></i>
+
+          <h3>WhatsApp</h3>
+
+          <a href="https://wa.me/966550865064"
+             target="_blank"
+             rel="noopener">
+            +966 55 086 5064
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <i class="fa-solid fa-phone"></i>
+
+          <h3>Call</h3>
+
+          <a href="tel:+966550865064">
+            +966 55 086 5064
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <i class="fa-solid fa-envelope"></i>
+
+          <h3>Email</h3>
+
+          <a href="mailto:makkahlaundryserviceksa@gmail.com">
+            makkahlaundryserviceksa@gmail.com
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <i class="fa-solid fa-location-dot"></i>
+
+          <h3>Service Area</h3>
+
+          <p>
+            Makkah, Saudi Arabia
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="section final-cta">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>
+          Need Laundry Pickup in Makkah?
+        </h2>
+
+        <p>
+          Send us your hotel name and room number on WhatsApp.
+        </p>
+
+
+        <a class="btn btn-primary"
+           href="https://wa.me/966550865064?text=السلام%20عليكم،%20أريد%20خدمة%20غسيل%20الملابس.%20الفندق:%20%20رقم%20الغرفة:%20%20الخدمة:%20"
+           target="_blank"
+           rel="noopener">
+
+          <i class="fa-brands fa-whatsapp"></i>
+          Order Laundry on WhatsApp
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+
+          <img src="images/logo.png"
+               alt="Makkah Laundry Service"
+               loading="lazy">
+
+          <p>
+            Laundry pickup and delivery service in Makkah.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Quick Links</h3>
+
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#booking">Book Pickup</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div>
+
+          <h3>Contact</h3>
+
+          <a href="https://wa.me/966550865064"
+             target="_blank"
+             rel="noopener">
+            WhatsApp
+          </a>
+
+          <a href="tel:+966550865064">
+            Call Us
+          </a>
+
+          <a href="mailto:makkahlaundryserviceksa@gmail.com">
+            Email
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © 2026 Makkah Laundry Service. All Rights Reserved.
+        </p>
+
+        <div>
+
+          <a href="privacy.html">
+            Privacy Policy
+          </a>
+
+          <a href="terms.html">
+            Terms & Conditions
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP -->
+  <a class="floating-whatsapp"
+     href="https://wa.me/966550865064?text=Hello%2C%20I%20need%20laundry%20pickup%20in%20Makkah."
+     target="_blank"
+     rel="noopener"
+     aria-label="Contact Makkah Laundry Service on WhatsApp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+  </a>
+
+
+  <!-- FLOATING CALL -->
+  <a class="floating-call"
+     href="tel:+966550865064"
+     aria-label="Call Makkah Laundry Service">
+
+    <i class="fa-solid fa-phone"></i>
+
+  </a>
+
+
+  <!-- MAIN JAVASCRIPT -->
+  <script src="script.js"></script>
+
+
+  <!-- Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("service-worker.js")
+          .catch(function (error) {
+            console.log("Service Worker registration failed:", error);
+          });
+      });
+    }
+  </script>
+
+
+  <!-- Calculator Fallback -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const service = document.getElementById("calcService");
+      const quantity = document.getElementById("calcQuantity");
+      const result = document.getElementById("calcResult");
+
+      function calculatePrice() {
+
+        if (!service || !quantity || !result) {
+          return;
         }
 
-        const total = price * qty;
+        const price = parseFloat(service.value) || 0;
+        const qty = parseInt(quantity.value) || 1;
 
-        result.textContent = "Total: " + total + " SAR";
+        result.textContent = price * qty;
+      }
+
+      if (service) {
+        service.addEventListener("change", calculatePrice);
+      }
+
+      if (quantity) {
+        quantity.addEventListener("input", calculatePrice);
+      }
+
+      calculatePrice();
 
     });
+  </script>
 
-});
-</script>
-
-<!-- =====================================================
-     ORDER TRACKING
-===================================================== -->
-
-<section id="tracking"
-         class="tracking">
-
-  <div class="container">
-
-    <h2>
-      Track Your Laundry Order
-    </h2>
-
-    <p>
-      Enter your Order ID
-    </p>
-
-
-    <input
-      type="text"
-      id="orderID"
-      placeholder="Example: MLS-1001">
-
-
-    <button
-      type="button"
-      id="trackBtn">
-
-      Track Order
-
-    </button>
-
-
-    <h3 id="trackingResult"></h3>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     WHY CHOOSE US
-===================================================== -->
-
-<section id="why-us"
-         class="why-us">
-
-  <div class="container">
-
-    <h2>
-      Why Choose Makkah Laundry Service?
-    </h2>
-
-
-    <div class="why-grid">
-
-
-      <div class="why-card">
-
-        <div class="why-icon">
-          ⚡
-        </div>
-
-        <h3>
-          Fast Pickup
-        </h3>
-
-        <p>
-          Pickup from hotels around Makkah Clock Tower
-          within a short time.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <div class="why-icon">
-          🧼
-        </div>
-
-        <h3>
-          Professional Cleaning
-        </h3>
-
-        <p>
-          Modern washing, ironing and dry cleaning
-          with high-quality care.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <div class="why-icon">
-          🚚
-        </div>
-
-        <h3>
-          Hotel Delivery
-        </h3>
-
-        <p>
-          Clean clothes delivered back to your hotel
-          safely and on time.
-        </p>
-
-      </div>
-
-
-      <div class="why-card">
-
-        <div class="why-icon">
-          💬
-        </div>
-
-        <h3>
-          WhatsApp Support
-        </h3>
-
-        <p>
-          Contact us through WhatsApp for quick assistance.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact"
-         class="contact">
-
-  <div class="container">
-
-    <h2>
-      Contact Us
-    </h2>
-
-
-    <p>
-      <strong>
-        WhatsApp:
-      </strong>
-
-      +966 0550865064
-    </p>
-
-
-    <p>
-
-      <strong>
-        Call:
-      </strong>
-
-      <a href="tel:+966550865064">
-        +966 0550865064
-      </a>
-
-    </p>
-
-
-    <p>
-
-      <strong>
-        Email:
-      </strong>
-
-      <a href="mailto:makkahlaundryserviceksa@gmail.com">
-        makkahlaundryserviceksa@gmail.com
-      </a>
-
-    </p>
-
-
-    <p>
-
-      <strong>
-        Service Area:
-      </strong>
-
-      Hotels Around Makkah Clock Tower
-
-    </p>
-
-
-    <a
-      class="order-btn"
-      href="https://wa.me/966550865064?text=Hello%20I%20need%20Laundry%20Pickup"
-      target="_blank"
-      rel="noopener">
-
-      💬 Order on WhatsApp
-
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-  <p>
-    © 2026 Makkah Laundry Service.
-    All Rights Reserved.
-  </p>
-
-  <p>
-
-    <a href="privacy.html">
-      Privacy Policy
-    </a>
-
-    <span> | </span>
-
-    <a href="terms.html">
-      Terms & Conditions
-    </a>
-
-  </p>
-
-</footer>
-
-
-<!-- =====================================================
-     FLOATING BUTTONS
-===================================================== -->
-
-<a
-  href="https://wa.me/966550865064?text=Hello%20I%20need%20Laundry%20Pickup"
-  class="whatsapp-btn"
-  target="_blank"
-  rel="noopener"
-  aria-label="Order on WhatsApp">
-
-  💬 Order on WhatsApp
-
-</a>
-
-
-<a
-  href="tel:+966550865064"
-  class="call-btn"
-  aria-label="Call Makkah Laundry Service">
-
-  📞 Call Now
-
-</a>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script src="script.js"></script>
-
-
-<!-- Service Worker -->
-
-<script>
-
-  if ("serviceWorker" in navigator) {
-
-    window.addEventListener("load", function () {
-
-      navigator.serviceWorker
-        .register("service-worker.js")
-        .catch(function (error) {
-          console.log("Service Worker Error:", error);
-        });
-
-    });
-
-  }
-
-</script>
 
 </body>
 </html>
