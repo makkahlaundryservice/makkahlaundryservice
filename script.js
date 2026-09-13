@@ -1687,7 +1687,8 @@ document.addEventListener(
       "Makkah Laundry Service Loaded"
     );
 
-
+setupMobileMenu();
+     
     /*
       IMPORTANT:
       Save the ORIGINAL English page
@@ -1729,3 +1730,89 @@ document.addEventListener(
 
   }
 );
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+function setupMobileMenu() {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (!menuToggle || !mainNav) {
+        return;
+    }
+
+    const menuIcon = menuToggle.querySelector("i");
+
+    function openMenu() {
+
+        mainNav.classList.add("active");
+        document.body.classList.add("menu-open");
+
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close menu");
+
+        if (menuIcon) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-xmark");
+        }
+    }
+
+    function closeMenu() {
+
+        mainNav.classList.remove("active");
+        document.body.classList.remove("menu-open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open menu");
+
+        if (menuIcon) {
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+        }
+    }
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen = mainNav.classList.contains("active");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+
+    });
+
+    /* Close after clicking a navigation link */
+    const navLinks = mainNav.querySelectorAll("a[href^='#']");
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+            closeMenu();
+        });
+
+    });
+
+    /* Close with ESC */
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+
+    });
+
+    /* Close if screen becomes desktop */
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+
+    });
+
+}
