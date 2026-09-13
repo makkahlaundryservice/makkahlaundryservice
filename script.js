@@ -1,807 +1,521 @@
 "use strict";
 
-/* =====================================================
+/* =========================================================
    MAKKAH LAUNDRY SERVICE
-   COMPLETE ENGLISH ↔ ARABIC SYSTEM
-===================================================== */
+   ARABIC / ENGLISH LANGUAGE SYSTEM
+   ========================================================= */
 
 const WHATSAPP_NUMBER = "966550865064";
 const LANGUAGE_KEY = "makkahLaundryLanguage";
 
+const ARABIC = "ar";
+const ENGLISH = "en";
 
-/* =====================================================
-   TRANSLATIONS
-===================================================== */
+
+/* =========================================================
+   LANGUAGE DATA
+   ========================================================= */
 
 const translations = {
 
-  en: {
+  "Laundry Support Available": "خدمة دعم الغسيل متاحة",
 
-    /* TOP */
-    "🟢 Laundry Support Available": "🟢 Laundry Support Available",
-    "WhatsApp": "WhatsApp",
+  "Home": "الرئيسية",
+  "Services": "الخدمات",
+  "Pricing": "الأسعار",
+  "Book Pickup": "حجز الاستلام",
+  "Hotels": "الفنادق",
+  "FAQ": "الأسئلة الشائعة",
+  "Contact": "اتصل بنا",
 
-    /* NAVIGATION */
-    "Home": "Home",
-    "Services": "Services",
-    "Pricing": "Pricing",
-    "Book Pickup": "Book Pickup",
-    "Hotels": "Hotels",
-    "FAQ": "FAQ",
-    "Contact": "Contact",
+  "Order Now": "اطلب الآن",
+  "العربية": "English",
+  "English": "العربية",
 
-    /* BUTTONS */
-    "Order Now": "Order Now",
-    "Order on WhatsApp": "Order on WhatsApp",
-    "Call Now": "Call Now",
-    "Book Now": "Book Now",
-    "Check Pickup Availability": "Check Pickup Availability",
-    "Send Booking on WhatsApp": "Send Booking on WhatsApp",
-    "Track Order": "Track Order",
-    "Call": "Call",
-    "Location": "Location",
-    "Order Laundry on WhatsApp": "Order Laundry on WhatsApp",
-    "Call Us": "Call Us",
-    "Email": "Email",
+  "Laundry Pickup & Delivery in Makkah":
+    "استلام وتوصيل الملابس في مكة",
 
-    /* HERO */
-    "Laundry Pickup & Delivery in Makkah":
-      "Laundry Pickup & Delivery in Makkah",
+  "Makkah Laundry Service Near Makkah Clock Tower":
+    "خدمة مغسلة ملابس في مكة بالقرب من برج الساعة",
 
-    "Makkah Laundry Service Near Makkah Clock Tower":
-      "Makkah Laundry Service Near Makkah Clock Tower",
+  "Fast and convenient laundry pickup and delivery in Makkah for pilgrims, visitors, residents and hotel guests.":
+    "خدمة سريعة ومريحة لاستلام وتوصيل الملابس في مكة للحجاج والزوار والمقيمين ونزلاء الفنادق.",
 
-    "Fast and convenient laundry pickup and delivery in Makkah for pilgrims, visitors, residents and hotel guests.":
-      "Fast and convenient laundry pickup and delivery in Makkah for pilgrims, visitors, residents and hotel guests.",
+  "Wash & Fold • Ironing • Dry Cleaning • Hotel Pickup & Delivery":
+    "غسيل وطي • كي الملابس • تنظيف جاف • استلام وتوصيل من الفنادق",
 
-    "Wash & Fold • Ironing • Dry Cleaning • Hotel Pickup & Delivery":
-      "Wash & Fold • Ironing • Dry Cleaning • Hotel Pickup & Delivery",
+  "Order on WhatsApp": "اطلب عبر واتساب",
+  "Call Now": "اتصل الآن",
 
-    "📍 Serving Makkah, including central Makkah and areas around Makkah Clock Tower, subject to pickup availability.":
-      "📍 Serving Makkah, including central Makkah and areas around Makkah Clock Tower, subject to pickup availability.",
+  "📍 Serving Makkah, including central Makkah and areas around Makkah Clock Tower, subject to pickup availability.":
+    "📍 نخدم مكة، بما في ذلك وسط مكة والمناطق المحيطة ببرج الساعة، حسب توفر خدمة الاستلام.",
 
-    /* SERVICES */
-    "Laundry Services in Makkah":
-      "Laundry Services in Makkah",
 
-    "Convenient laundry solutions for hotel guests, pilgrims, visitors and residents in Makkah.":
-      "Convenient laundry solutions for hotel guests, pilgrims, visitors and residents in Makkah.",
+  /* SERVICES */
 
-    "Wash & Fold":
-      "Wash & Fold",
+  "Laundry Services in Makkah":
+    "خدمات غسيل الملابس في مكة",
 
-    "Professional washing and folding for everyday clothes.":
-      "Professional washing and folding for everyday clothes.",
+  "Convenient laundry solutions for hotel guests, pilgrims, visitors and residents in Makkah.":
+    "حلول مريحة لغسيل الملابس لنزلاء الفنادق والحجاج والزوار والمقيمين في مكة.",
 
-    "Ironing Service":
-      "Ironing Service",
+  "Wash & Fold":
+    "غسيل وطي الملابس",
 
-    "Clean and neat ironing for thobes, shirts, trousers and other clothes.":
-      "Clean and neat ironing for thobes, shirts, trousers and other clothes.",
+  "Professional washing and folding for everyday clothes.":
+    "غسيل وطي احترافي للملابس اليومية.",
 
-    "Dry Cleaning":
-      "Dry Cleaning",
+  "Ironing Service":
+    "خدمة كي الملابس",
 
-    "Dry cleaning service for suitable garments and special clothing.":
-      "Dry cleaning service for suitable garments and special clothing.",
+  "Clean and neat ironing for thobes, shirts, trousers and other clothes.":
+    "كي نظيف ومرتب للثياب والقمصان والسراويل والملابس الأخرى.",
 
-    "Hotel Pickup & Delivery":
-      "Hotel Pickup & Delivery",
+  "Dry Cleaning":
+    "التنظيف الجاف",
 
-    "We collect your laundry from selected hotels and locations and return it after service.":
-      "We collect your laundry from selected hotels and locations and return it after service.",
+  "Dry cleaning service for suitable garments and special clothing.":
+    "خدمة التنظيف الجاف للملابس المناسبة والملابس الخاصة.",
 
-    /* PRICING */
-    "Laundry Prices in Makkah":
-      "Laundry Prices in Makkah",
+  "Hotel Pickup & Delivery":
+    "الاستلام والتوصيل من الفنادق",
 
-    "Simple starting prices. Final price may depend on quantity, garment type and service requirements.":
-      "Simple starting prices. Final price may depend on quantity, garment type and service requirements.",
+  "We collect your laundry from selected hotels and locations and return it after service.":
+    "نستلم ملابسك من الفنادق والمواقع المحددة ونعيدها إليك بعد إتمام الخدمة.",
 
-    "From 15 SAR per bag":
-      "From 15 SAR per bag",
 
-    "From 5 SAR per item":
-      "From 5 SAR per item",
+  /* PRICING */
 
-    "From 12 SAR per item":
-      "From 12 SAR per item",
+  "Laundry Prices in Makkah":
+    "أسعار غسيل الملابس في مكة",
 
-    /* ABOUT */
-    "About Makkah Laundry Service":
-      "About Makkah Laundry Service",
+  "Simple starting prices. Final price may depend on quantity, garment type and service requirements.":
+    "أسعار ابتدائية بسيطة. قد يختلف السعر النهائي حسب الكمية ونوع الملابس ومتطلبات الخدمة.",
 
-    "Makkah Laundry Service is a convenient laundry pickup and delivery service in Makkah.":
-      "Makkah Laundry Service is a convenient laundry pickup and delivery service in Makkah.",
+  "Ironing":
+    "كي الملابس",
 
-    "We help hotel guests, pilgrims, visitors and residents arrange laundry collection and delivery without needing to search for a laundry shop.":
-      "We help hotel guests, pilgrims, visitors and residents arrange laundry collection and delivery without needing to search for a laundry shop.",
+  "Book Now":
+    "احجز الآن",
 
-    "Our services include wash & fold, ironing, dry cleaning and hotel laundry pickup and delivery.":
-      "Our services include wash & fold, ironing, dry cleaning and hotel laundry pickup and delivery.",
+  "From 15 SAR per bag":
+    "ابتداءً من 15 ريال للكيس",
 
-    /* BOOKING */
-    "Book Laundry Pickup in Makkah":
-      "Book Laundry Pickup in Makkah",
+  "From 5 SAR per item":
+    "ابتداءً من 5 ريال للقطعة",
 
-    "Fill in your details and send your laundry request through WhatsApp.":
-      "Fill in your details and send your laundry request through WhatsApp.",
+  "From 12 SAR per item":
+    "ابتداءً من 12 ريال للقطعة",
 
-    "Full Name":
-      "Full Name",
 
-    "Your name":
-      "Your name",
+  /* ABOUT */
 
-    "Hotel / Location":
-      "Hotel / Location",
+  "About Makkah Laundry Service":
+    "عن خدمة مغسلة مكة",
 
-    "Select Hotel / Location":
-      "Select Hotel / Location",
+  "Makkah Laundry Service is a convenient laundry pickup and delivery service in Makkah.":
+    "مغسلة مكة هي خدمة مريحة لاستلام وتوصيل الملابس في مكة.",
 
-    "Other Hotel / Location":
-      "Other Hotel / Location",
+  "We help hotel guests, pilgrims, visitors and residents arrange laundry collection and delivery without needing to search for a laundry shop.":
+    "نساعد نزلاء الفنادق والحجاج والزوار والمقيمين على ترتيب استلام وتوصيل الملابس دون الحاجة للبحث عن مغسلة.",
 
-    "Pickup availability may vary by location.":
-      "Pickup availability may vary by location.",
+  "Our services include wash & fold, ironing, dry cleaning and hotel laundry pickup and delivery.":
+    "تشمل خدماتنا غسيل وطي الملابس، وكي الملابس، والتنظيف الجاف، واستلام وتوصيل الملابس من الفنادق.",
 
-    "Room Number":
-      "Room Number",
+  "Check Pickup Availability":
+    "تحقق من توفر خدمة الاستلام",
 
-    "Room number":
-      "Room number",
 
-    "WhatsApp / Phone":
-      "WhatsApp / Phone",
+  /* BOOKING */
 
-    "Service":
-      "Service",
+  "Book Laundry Pickup in Makkah":
+    "احجز استلام الملابس في مكة",
 
-    "Select Service":
-      "Select Service",
+  "Fill in your details and send your laundry request through WhatsApp.":
+    "أدخل بياناتك وأرسل طلب خدمة الغسيل عبر واتساب.",
 
-    "Wash & Fold – From 15 SAR/bag":
-      "Wash & Fold – From 15 SAR/bag",
+  "Full Name":
+    "الاسم الكامل",
 
-    "Ironing – From 5 SAR/item":
-      "Ironing – From 5 SAR/item",
+  "Your name":
+    "اسمك",
 
-    "Dry Cleaning – From 12 SAR/item":
-      "Dry Cleaning – From 12 SAR/item",
+  "Hotel / Location":
+    "الفندق / الموقع",
 
-    "Wash & Fold + Ironing":
-      "Wash & Fold + Ironing",
+  "Select Hotel / Location":
+    "اختر الفندق / الموقع",
 
-    "Service Speed":
-      "Service Speed",
+  "Room Number":
+    "رقم الغرفة",
 
-    "Normal – 24h":
-      "Normal – 24h",
+  "Room number":
+    "رقم الغرفة",
 
-    "Express – Subject to Availability":
-      "Express – Subject to Availability",
+  "WhatsApp / Phone":
+    "واتساب / الهاتف",
 
-    "Pickup Date":
-      "Pickup Date",
+  "Service":
+    "الخدمة",
 
-    "Preferred Pickup Time":
-      "Preferred Pickup Time",
+  "Select Service":
+    "اختر الخدمة",
 
-    "Clothes Type":
-      "Clothes Type",
+  "Wash & Fold – From 15 SAR/bag":
+    "غسيل وطي – ابتداءً من 15 ريال/كيس",
 
-    "Thobe, shirt, trousers, mixed clothes...":
-      "Thobe, shirt, trousers, mixed clothes...",
+  "Ironing – From 5 SAR/item":
+    "كي الملابس – ابتداءً من 5 ريال/قطعة",
 
-    "Quantity":
-      "Quantity",
+  "Dry Cleaning – From 12 SAR/item":
+    "التنظيف الجاف – ابتداءً من 12 ريال/قطعة",
 
-    "Special Note":
-      "Special Note",
+  "Wash & Fold + Ironing":
+    "غسيل وطي + كي",
 
-    "Any special instructions?":
-      "Any special instructions?",
+  "Service Speed":
+    "سرعة الخدمة",
 
-    /* TRUST */
-    "Why Customers Choose Our Laundry Service":
-      "Why Customers Choose Our Laundry Service",
+  "Normal – 24h":
+    "عادي – 24 ساعة",
 
-    "Convenient service designed for hotel guests and visitors in Makkah.":
-      "Convenient service designed for hotel guests and visitors in Makkah.",
+  "Express – Subject to Availability":
+    "سريع – حسب التوفر",
 
-    "Hotel Pickup":
-      "Hotel Pickup",
+  "Pickup Date":
+    "تاريخ الاستلام",
 
-    "Convenient collection from selected hotels and nearby locations.":
-      "Convenient collection from selected hotels and nearby locations.",
+  "Preferred Pickup Time":
+    "وقت الاستلام المفضل",
 
-    "Flexible Service":
-      "Flexible Service",
+  "Clothes Type":
+    "نوع الملابس",
 
-    "Choose normal service or ask about express availability.":
-      "Choose normal service or ask about express availability.",
+  "Thobe, shirt, trousers, mixed clothes...":
+    "ثوب، قميص، بنطال، ملابس متنوعة...",
 
-    "Easy WhatsApp Booking":
-      "Easy WhatsApp Booking",
+  "Quantity":
+    "الكمية",
 
-    "Contact us directly with your hotel and laundry requirements.":
-      "Contact us directly with your hotel and laundry requirements.",
+  "Special Note":
+    "ملاحظات خاصة",
 
-    "Makkah Service Area":
-      "Makkah Service Area",
+  "Any special instructions?":
+    "هل توجد تعليمات خاصة؟",
 
-    "Serving central Makkah and locations around Makkah Clock Tower.":
-      "Serving central Makkah and locations around Makkah Clock Tower.",
+  "Send Booking on WhatsApp":
+    "إرسال الحجز عبر واتساب",
 
-    /* HOTELS */
-    "Hotels Near Our Makkah Pickup Area":
-      "Hotels Near Our Makkah Pickup Area",
+  "Pickup availability may vary by location.":
+    "قد يختلف توفر الاستلام حسب الموقع.",
 
-    "Pickup availability depends on hotel location, timing and order details.":
-      "Pickup availability depends on hotel location, timing and order details.",
 
-    "Please contact us before ordering to confirm pickup availability from your exact hotel.":
-      "Please contact us before ordering to confirm pickup availability from your exact hotel.",
+  /* CUSTOMER TRUST */
 
-    /* FAQ */
-    "Frequently Asked Questions":
-      "Frequently Asked Questions",
+  "Why Customers Choose Our Laundry Service":
+    "لماذا يختار العملاء خدمة الغسيل لدينا؟",
 
-    "Do you provide hotel laundry pickup in Makkah?":
-      "Do you provide hotel laundry pickup in Makkah?",
+  "Convenient service designed for hotel guests and visitors in Makkah.":
+    "خدمة مريحة مصممة لنزلاء الفنادق والزوار في مكة.",
 
-    "Yes. We provide pickup and delivery from selected hotels and locations in Makkah. Availability depends on location and order time.":
-      "Yes. We provide pickup and delivery from selected hotels and locations in Makkah. Availability depends on location and order time.",
+  "Hotel Pickup":
+    "استلام من الفندق",
 
-    "Do you provide laundry near Makkah Clock Tower?":
-      "Do you provide laundry near Makkah Clock Tower?",
+  "Convenient collection from selected hotels and nearby locations.":
+    "استلام مريح من الفنادق المحددة والمواقع القريبة.",
 
-    "Yes. We serve central Makkah and areas around Makkah Clock Tower, subject to pickup availability.":
-      "Yes. We serve central Makkah and areas around Makkah Clock Tower, subject to pickup availability.",
+  "Flexible Service":
+    "خدمة مرنة",
 
-    "How much does laundry cost?":
-      "How much does laundry cost?",
+  "Choose normal service or ask about express availability.":
+    "اختر الخدمة العادية أو اسأل عن توفر الخدمة السريعة.",
 
-    "Wash & Fold starts from 15 SAR per bag. Ironing starts from 5 SAR per item. Dry Cleaning starts from 12 SAR per item.":
-      "Wash & Fold starts from 15 SAR per bag. Ironing starts from 5 SAR per item. Dry Cleaning starts from 12 SAR per item.",
+  "Easy WhatsApp Booking":
+    "حجز سهل عبر واتساب",
 
-    "Do you offer express laundry?":
-      "Do you offer express laundry?",
+  "Contact us directly with your hotel and laundry requirements.":
+    "تواصل معنا مباشرة وأرسل اسم الفندق واحتياجات الغسيل.",
 
-    "Express service may be available depending on the order, location and workload. Please contact us on WhatsApp first.":
-      "Express service may be available depending on the order, location and workload. Please contact us on WhatsApp first.",
+  "Makkah Service Area":
+    "منطقة الخدمة في مكة",
 
-    "How can I order?":
-      "How can I order?",
+  "Serving central Makkah and locations around Makkah Clock Tower.":
+    "نخدم وسط مكة والمناطق المحيطة ببرج الساعة.",
 
-    "Send us a WhatsApp message with your hotel name, room number, phone number and required laundry service.":
-      "Send us a WhatsApp message with your hotel name, room number, phone number and required laundry service.",
 
-    /* GALLERY */
-    "Our Laundry Service":
-      "Our Laundry Service",
+  /* HOTELS */
 
-    "Washing, ironing, packing and delivery.":
-      "Washing, ironing, packing and delivery.",
+  "Hotels Near Our Makkah Pickup Area":
+    "الفنادق القريبة من منطقة الاستلام في مكة",
 
-    /* HOURS */
-    "Business Hours":
-      "Business Hours",
+  "Pickup availability depends on hotel location, timing and order details.":
+    "يعتمد توفر الاستلام على موقع الفندق والوقت وتفاصيل الطلب.",
 
-    "Saturday – Thursday:":
-      "Saturday – Thursday:",
+  "Please contact us before ordering to confirm pickup availability from your exact hotel.":
+    "يرجى التواصل معنا قبل الطلب للتأكد من توفر الاستلام من فندقك.",
 
-    "Friday:":
-      "Friday:",
 
-    "WhatsApp orders can be sent anytime. Response time may vary outside business hours.":
-      "WhatsApp orders can be sent anytime. Response time may vary outside business hours.",
+  /* FAQ */
 
-    /* LOCATION */
-    "Makkah Laundry Service Location":
-      "Makkah Laundry Service Location",
+  "Frequently Asked Questions":
+    "الأسئلة الشائعة",
 
-    "Serving Makkah and nearby central areas.":
-      "Serving Makkah and nearby central areas.",
+  "Do you provide hotel laundry pickup in Makkah?":
+    "هل توفرون خدمة استلام الملابس من الفنادق في مكة؟",
 
-    /* CALCULATOR */
-    "Laundry Price Calculator":
-      "Laundry Price Calculator",
+  "Yes. We provide pickup and delivery from selected hotels and locations in Makkah. Availability depends on location and order time.":
+    "نعم. نوفر خدمة الاستلام والتوصيل من الفنادق والمواقع المحددة في مكة. يعتمد توفر الخدمة على الموقع ووقت الطلب.",
 
-    "Calculate an estimated starting price.":
-      "Calculate an estimated starting price.",
+  "Do you provide laundry near Makkah Clock Tower?":
+    "هل توفرون خدمة غسيل الملابس بالقرب من برج الساعة في مكة؟",
 
-    "Estimated Price:":
-      "Estimated Price:",
+  "Yes. We serve central Makkah and areas around Makkah Clock Tower, subject to pickup availability.":
+    "نعم. نخدم وسط مكة والمناطق المحيطة ببرج الساعة حسب توفر خدمة الاستلام.",
 
-    /* TRACKING */
-    "Order Tracking":
-      "Order Tracking",
+  "How much does laundry cost?":
+    "كم تكلفة غسيل الملابس؟",
 
-    "If you have an order ID, enter it below.":
-      "If you have an order ID, enter it below.",
+  "Wash & Fold starts from 15 SAR per bag. Ironing starts from 5 SAR per item. Dry Cleaning starts from 12 SAR per item.":
+    "يبدأ غسيل وطي الملابس من 15 ريال للكيس. ويبدأ كي الملابس من 5 ريال للقطعة. ويبدأ التنظيف الجاف من 12 ريال للقطعة.",
 
-    "Enter Order ID":
-      "Enter Order ID",
+  "Do you offer express laundry?":
+    "هل توفرون خدمة الغسيل السريع؟",
 
-    /* WHY US */
-    "Why Choose Makkah Laundry Service?":
-      "Why Choose Makkah Laundry Service?",
+  "Express service may be available depending on the order, location and workload. Please contact us on WhatsApp first.":
+    "قد تتوفر الخدمة السريعة حسب الطلب والموقع وحجم العمل. يرجى التواصل معنا عبر واتساب أولاً.",
 
-    "Makkah Focused":
-      "Makkah Focused",
+  "How can I order?":
+    "كيف يمكنني الطلب؟",
 
-    "Our service is focused on customers staying in Makkah.":
-      "Our service is focused on customers staying in Makkah.",
+  "Send us a WhatsApp message with your hotel name, room number, phone number and required laundry service.":
+    "أرسل لنا رسالة عبر واتساب تحتوي على اسم الفندق ورقم الغرفة ورقم الهاتف وخدمة الغسيل المطلوبة.",
 
-    "Hotel Friendly":
-      "Hotel Friendly",
+  "هل توجد خدمة غسيل ملابس في مكة؟":
+    "هل توجد خدمة غسيل ملابس في مكة؟",
 
-    "Convenient pickup and delivery for hotel guests.":
-      "Convenient pickup and delivery for hotel guests.",
+  "نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل في مكة حسب الموقع والتوفر.":
+    "نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل في مكة حسب الموقع والتوفر.",
 
-    "Fast Communication":
-      "Fast Communication",
 
-    "Easy communication through WhatsApp.":
-      "Easy communication through WhatsApp.",
+  /* GALLERY */
 
-    "Convenient Service":
-      "Convenient Service",
+  "Our Laundry Service":
+    "خدمة الغسيل لدينا",
 
-    "Send your laundry request without searching for a shop.":
-      "Send your laundry request without searching for a shop.",
+  "Washing, ironing, packing and delivery.":
+    "غسيل وكي وتغليف وتوصيل الملابس.",
 
-    /* CONTACT */
-    "Contact Makkah Laundry Service":
-      "Contact Makkah Laundry Service",
 
-    "Contact us to check laundry pickup availability in Makkah.":
-      "Contact us to check laundry pickup availability in Makkah.",
+  /* HOURS */
 
-    "Service Area":
-      "Service Area",
+  "Business Hours":
+    "ساعات العمل",
 
-    "Makkah, Saudi Arabia":
-      "Makkah, Saudi Arabia",
+  "Saturday – Thursday:":
+    "السبت – الخميس:",
 
-    /* CTA */
-    "Need Laundry Pickup in Makkah?":
-      "Need Laundry Pickup in Makkah?",
+  "Friday:":
+    "الجمعة:",
 
-    "Send us your hotel name and room number on WhatsApp.":
-      "Send us your hotel name and room number on WhatsApp.",
+  "WhatsApp orders can be sent anytime. Response time may vary outside business hours.":
+    "يمكن إرسال الطلبات عبر واتساب في أي وقت. قد يختلف وقت الرد خارج ساعات العمل.",
 
-    /* FOOTER */
-    "Quick Links":
-      "Quick Links",
 
-    "Laundry pickup and delivery service in Makkah.":
-      "Laundry pickup and delivery service in Makkah.",
+  /* QUICK ACTIONS */
 
-    "Privacy Policy":
-      "Privacy Policy",
+  "WhatsApp":
+    "واتساب",
 
-    "Terms & Conditions":
-      "Terms & Conditions",
+  "Call":
+    "اتصال",
 
-    "All Rights Reserved.":
-      "All Rights Reserved."
-  },
+  "Location":
+    "الموقع",
 
 
-  /* =====================================================
-     ARABIC
-  ===================================================== */
+  /* LOCATION */
 
-  ar: {
+  "Makkah Laundry Service Location":
+    "موقع خدمة مغسلة مكة",
 
-    "🟢 Laundry Support Available": "🟢 خدمة دعم الغسيل متاحة",
-    "WhatsApp": "واتساب",
+  "Serving Makkah and nearby central areas.":
+    "نخدم مكة والمناطق المركزية القريبة.",
 
-    "Home": "الرئيسية",
-    "Services": "الخدمات",
-    "Pricing": "الأسعار",
-    "Book Pickup": "طلب الاستلام",
-    "Hotels": "الفنادق",
-    "FAQ": "الأسئلة الشائعة",
-    "Contact": "اتصل بنا",
 
-    "Order Now": "اطلب الآن",
-    "Order on WhatsApp": "اطلب عبر واتساب",
-    "Call Now": "اتصل الآن",
-    "Book Now": "احجز الآن",
-    "Check Pickup Availability": "تحقق من توفر الاستلام",
-    "Send Booking on WhatsApp": "إرسال الطلب عبر واتساب",
-    "Track Order": "تتبع الطلب",
-    "Call": "اتصال",
-    "Location": "الموقع",
-    "Order Laundry on WhatsApp": "اطلب خدمة الغسيل عبر واتساب",
-    "Call Us": "اتصل بنا",
-    "Email": "البريد الإلكتروني",
+  /* CALCULATOR */
 
-    "Laundry Pickup & Delivery in Makkah":
-      "خدمة استلام وتوصيل الملابس في مكة",
+  "Laundry Price Calculator":
+    "حاسبة أسعار الغسيل",
 
-    "Makkah Laundry Service Near Makkah Clock Tower":
-      "مغسلة ملابس في مكة بالقرب من برج الساعة",
+  "Calculate an estimated starting price.":
+    "احسب السعر الابتدائي التقريبي.",
 
-    "Fast and convenient laundry pickup and delivery in Makkah for pilgrims, visitors, residents and hotel guests.":
-      "خدمة سريعة ومريحة لاستلام وتوصيل الملابس في مكة للحجاج والزوار والمقيمين ونزلاء الفنادق.",
+  "Estimated Price:":
+    "السعر التقديري:",
 
-    "Wash & Fold • Ironing • Dry Cleaning • Hotel Pickup & Delivery":
-      "غسيل وطي • كي الملابس • تنظيف جاف • استلام وتوصيل من الفنادق",
 
-    "📍 Serving Makkah, including central Makkah and areas around Makkah Clock Tower, subject to pickup availability.":
-      "📍 نخدم مكة، بما في ذلك المنطقة المركزية والمناطق المحيطة ببرج الساعة، حسب توفر خدمة الاستلام.",
+  /* TRACKING */
 
-    "Laundry Services in Makkah":
-      "خدمات غسيل الملابس في مكة",
+  "Order Tracking":
+    "تتبع الطلب",
 
-    "Convenient laundry solutions for hotel guests, pilgrims, visitors and residents in Makkah.":
-      "حلول مريحة لغسيل الملابس لنزلاء الفنادق والحجاج والزوار والمقيمين في مكة.",
+  "If you have an order ID, enter it below.":
+    "إذا كان لديك رقم طلب، أدخله أدناه.",
 
-    "Wash & Fold":
-      "غسيل وطي الملابس",
+  "Enter Order ID":
+    "أدخل رقم الطلب",
 
-    "Professional washing and folding for everyday clothes.":
-      "غسيل وطي احترافي للملابس اليومية.",
+  "Track Order":
+    "تتبع الطلب",
 
-    "Ironing Service":
-      "خدمة كي الملابس",
 
-    "Clean and neat ironing for thobes, shirts, trousers and other clothes.":
-      "كي نظيف ومرتب للثياب والقمصان والسراويل والملابس الأخرى.",
+  /* WHY US */
 
-    "Dry Cleaning":
-      "التنظيف الجاف",
+  "Why Choose Makkah Laundry Service?":
+    "لماذا تختار خدمة مغسلة مكة؟",
 
-    "Dry cleaning service for suitable garments and special clothing.":
-      "خدمة التنظيف الجاف للملابس المناسبة والملابس الخاصة.",
+  "Makkah Focused":
+    "متخصصون في خدمة مكة",
 
-    "Hotel Pickup & Delivery":
-      "الاستلام والتوصيل من الفنادق",
+  "Our service is focused on customers staying in Makkah.":
+    "نركز خدماتنا على العملاء المقيمين في مكة.",
 
-    "We collect your laundry from selected hotels and locations and return it after service.":
-      "نستلم ملابسك من الفنادق والمواقع المحددة ونعيدها إليك بعد الانتهاء من الخدمة.",
+  "Hotel Friendly":
+    "مناسب لنزلاء الفنادق",
 
-    "Laundry Prices in Makkah":
-      "أسعار غسيل الملابس في مكة",
+  "Convenient pickup and delivery for hotel guests.":
+    "استلام وتوصيل مريح لنزلاء الفنادق.",
 
-    "Simple starting prices. Final price may depend on quantity, garment type and service requirements.":
-      "أسعار ابتدائية بسيطة. قد يختلف السعر النهائي حسب الكمية ونوع الملابس ومتطلبات الخدمة.",
+  "Fast Communication":
+    "تواصل سريع",
 
-    "From 15 SAR per bag":
-      "ابتداءً من 15 ريال للكيس",
+  "Easy communication through WhatsApp.":
+    "تواصل سهل وسريع عبر واتساب.",
 
-    "From 5 SAR per item":
-      "ابتداءً من 5 ريال للقطعة",
+  "Convenient Service":
+    "خدمة مريحة",
 
-    "From 12 SAR per item":
-      "ابتداءً من 12 ريال للقطعة",
+  "Send your laundry request without searching for a shop.":
+    "أرسل طلب الغسيل الخاص بك دون الحاجة للبحث عن مغسلة.",
 
-    "About Makkah Laundry Service":
-      "عن مغسلة مكة",
 
-    "Makkah Laundry Service is a convenient laundry pickup and delivery service in Makkah.":
-      "مغسلة مكة هي خدمة مريحة لاستلام وتوصيل الملابس في مكة.",
+  /* CONTACT */
 
-    "We help hotel guests, pilgrims, visitors and residents arrange laundry collection and delivery without needing to search for a laundry shop.":
-      "نساعد نزلاء الفنادق والحجاج والزوار والمقيمين على استلام وتوصيل الملابس دون الحاجة للبحث عن مغسلة.",
+  "Contact Makkah Laundry Service":
+    "اتصل بخدمة مغسلة مكة",
 
-    "Our services include wash & fold, ironing, dry cleaning and hotel laundry pickup and delivery.":
-      "تشمل خدماتنا غسيل وطي الملابس، وكي الملابس، والتنظيف الجاف، واستلام وتوصيل الملابس من الفنادق.",
+  "Contact us to check laundry pickup availability in Makkah.":
+    "تواصل معنا للتحقق من توفر خدمة استلام الملابس في مكة.",
 
-    "Book Laundry Pickup in Makkah":
-      "طلب استلام الملابس في مكة",
+  "Email":
+    "البريد الإلكتروني",
 
-    "Fill in your details and send your laundry request through WhatsApp.":
-      "أدخل بياناتك وأرسل طلب خدمة الغسيل عبر واتساب.",
+  "Service Area":
+    "منطقة الخدمة",
 
-    "Full Name":
-      "الاسم الكامل",
+  "Makkah, Saudi Arabia":
+    "مكة، المملكة العربية السعودية",
 
-    "Your name":
-      "اسمك",
+  "Call Us":
+    "اتصل بنا",
 
-    "Hotel / Location":
-      "الفندق / الموقع",
 
-    "Select Hotel / Location":
-      "اختر الفندق / الموقع",
+  /* CTA */
 
-    "Other Hotel / Location":
-      "فندق / موقع آخر",
+  "Need Laundry Pickup in Makkah?":
+    "هل تحتاج إلى استلام الملابس في مكة؟",
 
-    "Pickup availability may vary by location.":
-      "قد يختلف توفر الاستلام حسب الموقع.",
+  "Send us your hotel name and room number on WhatsApp.":
+    "أرسل لنا اسم الفندق ورقم الغرفة عبر واتساب.",
 
-    "Room Number":
-      "رقم الغرفة",
+  "Order Laundry on WhatsApp":
+    "اطلب خدمة الغسيل عبر واتساب",
 
-    "Room number":
-      "رقم الغرفة",
 
-    "WhatsApp / Phone":
-      "واتساب / الهاتف",
+  /* FOOTER */
 
-    "Service":
-      "الخدمة",
+  "Laundry pickup and delivery service in Makkah.":
+    "خدمة استلام وتوصيل الملابس في مكة.",
 
-    "Select Service":
-      "اختر الخدمة",
+  "Quick Links":
+    "روابط سريعة",
 
-    "Wash & Fold – From 15 SAR/bag":
-      "غسيل وطي – ابتداءً من 15 ريال للكيس",
+  "© 2026 Makkah Laundry Service. All Rights Reserved.":
+    "© 2026 Makkah Laundry Service. جميع الحقوق محفوظة.",
 
-    "Ironing – From 5 SAR/item":
-      "كي الملابس – ابتداءً من 5 ريال للقطعة",
+  "Privacy Policy":
+    "سياسة الخصوصية",
 
-    "Dry Cleaning – From 12 SAR/item":
-      "تنظيف جاف – ابتداءً من 12 ريال للقطعة",
-
-    "Wash & Fold + Ironing":
-      "غسيل وطي + كي الملابس",
-
-    "Service Speed":
-      "سرعة الخدمة",
-
-    "Normal – 24h":
-      "عادي – 24 ساعة",
-
-    "Express – Subject to Availability":
-      "سريع – حسب التوفر",
-
-    "Pickup Date":
-      "تاريخ الاستلام",
-
-    "Preferred Pickup Time":
-      "وقت الاستلام المفضل",
-
-    "Clothes Type":
-      "نوع الملابس",
-
-    "Thobe, shirt, trousers, mixed clothes...":
-      "ثوب، قميص، بنطلون، ملابس متنوعة...",
-
-    "Quantity":
-      "الكمية",
-
-    "Special Note":
-      "ملاحظة خاصة",
-
-    "Any special instructions?":
-      "هل لديك أي تعليمات خاصة؟",
-
-    "Why Customers Choose Our Laundry Service":
-      "لماذا يختار العملاء خدمة الغسيل لدينا؟",
-
-    "Convenient service designed for hotel guests and visitors in Makkah.":
-      "خدمة مريحة مصممة لنزلاء الفنادق والزوار في مكة.",
-
-    "Hotel Pickup":
-      "استلام من الفندق",
-
-    "Convenient collection from selected hotels and nearby locations.":
-      "استلام مريح من الفنادق المحددة والمواقع القريبة.",
-
-    "Flexible Service":
-      "خدمة مرنة",
-
-    "Choose normal service or ask about express availability.":
-      "اختر الخدمة العادية أو اسأل عن توفر الخدمة السريعة.",
-
-    "Easy WhatsApp Booking":
-      "طلب سهل عبر واتساب",
-
-    "Contact us directly with your hotel and laundry requirements.":
-      "تواصل معنا مباشرة وأرسل اسم الفندق ومتطلبات الغسيل.",
-
-    "Makkah Service Area":
-      "منطقة الخدمة في مكة",
-
-    "Serving central Makkah and locations around Makkah Clock Tower.":
-      "نخدم المنطقة المركزية في مكة والمناطق المحيطة ببرج الساعة.",
-
-    "Hotels Near Our Makkah Pickup Area":
-      "الفنادق القريبة من منطقة الاستلام في مكة",
-
-    "Pickup availability depends on hotel location, timing and order details.":
-      "يعتمد توفر الاستلام على موقع الفندق ووقت الطلب وتفاصيله.",
-
-    "Please contact us before ordering to confirm pickup availability from your exact hotel.":
-      "يرجى التواصل معنا قبل الطلب للتأكد من توفر الاستلام من فندقك.",
-
-    "Frequently Asked Questions":
-      "الأسئلة الشائعة",
-
-    "Do you provide hotel laundry pickup in Makkah?":
-      "هل توفرون استلام الملابس من الفنادق في مكة؟",
-
-    "Yes. We provide pickup and delivery from selected hotels and locations in Makkah. Availability depends on location and order time.":
-      "نعم، نوفر استلام وتوصيل الملابس من الفنادق والمواقع المحددة في مكة. يعتمد توفر الخدمة على الموقع ووقت الطلب.",
-
-    "Do you provide laundry near Makkah Clock Tower?":
-      "هل توفرون خدمة غسيل الملابس بالقرب من برج الساعة؟",
-
-    "Yes. We serve central Makkah and areas around Makkah Clock Tower, subject to pickup availability.":
-      "نعم، نخدم المنطقة المركزية والمناطق المحيطة ببرج الساعة في مكة حسب توفر خدمة الاستلام.",
-
-    "How much does laundry cost?":
-      "كم تكلفة غسيل الملابس؟",
-
-    "Wash & Fold starts from 15 SAR per bag. Ironing starts from 5 SAR per item. Dry Cleaning starts from 12 SAR per item.":
-      "تبدأ خدمة الغسيل والطي من 15 ريال للكيس، والكي من 5 ريال للقطعة، والتنظيف الجاف من 12 ريال للقطعة.",
-
-    "Do you offer express laundry?":
-      "هل توفرون خدمة الغسيل السريع؟",
-
-    "Express service may be available depending on the order, location and workload. Please contact us on WhatsApp first.":
-      "قد تتوفر الخدمة السريعة حسب الطلب والموقع وحجم العمل. يرجى التواصل معنا عبر واتساب أولاً.",
-
-    "How can I order?":
-      "كيف يمكنني الطلب؟",
-
-    "Send us a WhatsApp message with your hotel name, room number, phone number and required laundry service.":
-      "أرسل لنا رسالة عبر واتساب تحتوي على اسم الفندق ورقم الغرفة ورقم الهاتف والخدمة المطلوبة.",
-
-    "Our Laundry Service":
-      "خدمة الغسيل لدينا",
-
-    "Washing, ironing, packing and delivery.":
-      "الغسيل والكي والتغليف والتوصيل.",
-
-    "Business Hours":
-      "ساعات العمل",
-
-    "Saturday – Thursday:":
-      "السبت – الخميس:",
-
-    "Friday:":
-      "الجمعة:",
-
-    "WhatsApp orders can be sent anytime. Response time may vary outside business hours.":
-      "يمكن إرسال الطلبات عبر واتساب في أي وقت. قد يختلف وقت الرد خارج ساعات العمل.",
-
-    "Makkah Laundry Service Location":
-      "موقع خدمة مغسلة مكة",
-
-    "Serving Makkah and nearby central areas.":
-      "نخدم مكة والمناطق المركزية القريبة.",
-
-    "Laundry Price Calculator":
-      "حاسبة أسعار الغسيل",
-
-    "Calculate an estimated starting price.":
-      "احسب السعر التقديري المبدئي.",
-
-    "Estimated Price:":
-      "السعر التقديري:",
-
-    "Order Tracking":
-      "تتبع الطلب",
-
-    "If you have an order ID, enter it below.":
-      "إذا كان لديك رقم طلب، أدخله أدناه.",
-
-    "Enter Order ID":
-      "أدخل رقم الطلب",
-
-    "Why Choose Makkah Laundry Service?":
-      "لماذا تختار مغسلة مكة؟",
-
-    "Makkah Focused":
-      "متخصصون في مكة",
-
-    "Our service is focused on customers staying in Makkah.":
-      "خدمتنا مخصصة للعملاء المقيمين في مكة.",
-
-    "Hotel Friendly":
-      "مناسبة لنزلاء الفنادق",
-
-    "Convenient pickup and delivery for hotel guests.":
-      "استلام وتوصيل مريح لنزلاء الفنادق.",
-
-    "Fast Communication":
-      "تواصل سريع",
-
-    "Easy communication through WhatsApp.":
-      "تواصل سهل وسريع عبر واتساب.",
-
-    "Convenient Service":
-      "خدمة مريحة",
-
-    "Send your laundry request without searching for a shop.":
-      "أرسل طلب الغسيل الخاص بك دون الحاجة للبحث عن مغسلة.",
-
-    "Contact Makkah Laundry Service":
-      "تواصل مع مغسلة مكة",
-
-    "Contact us to check laundry pickup availability in Makkah.":
-      "تواصل معنا للتأكد من توفر خدمة استلام الملابس في مكة.",
-
-    "Service Area":
-      "منطقة الخدمة",
-
-    "Makkah, Saudi Arabia":
-      "مكة المكرمة، المملكة العربية السعودية",
-
-    "Need Laundry Pickup in Makkah?":
-      "هل تحتاج إلى خدمة استلام الملابس في مكة؟",
-
-    "Send us your hotel name and room number on WhatsApp.":
-      "أرسل لنا اسم الفندق ورقم الغرفة عبر واتساب.",
-
-    "Quick Links":
-      "روابط سريعة",
-
-    "Laundry pickup and delivery service in Makkah.":
-      "خدمة استلام وتوصيل الملابس في مكة.",
-
-    "Privacy Policy":
-      "سياسة الخصوصية",
-
-    "Terms & Conditions":
-      "الشروط والأحكام",
-
-    "All Rights Reserved.":
-      "جميع الحقوق محفوظة."
-  }
-
+  "Terms & Conditions":
+    "الشروط والأحكام"
 };
 
 
-/* =====================================================
+/* =========================================================
+   HOTEL TRANSLATIONS
+   ========================================================= */
+
+const hotelArabic = {
+  "Select Hotel / Location": "اختر الفندق / الموقع",
+  "Swissôtel Makkah": "سويس أوتيل مكة",
+  "Swissôtel Al Maqam": "سويس أوتيل المقام",
+  "Pullman ZamZam Makkah": "بولمان زمزم مكة",
+  "Fairmont Makkah Clock Royal Tower": "فيرمونت مكة برج الساعة",
+  "Raffles Makkah Palace": "رافلز مكة بالاس",
+  "Mövenpick Hajar Tower": "موفنبيك برج هاجر",
+  "Address Jabal Omar": "العنوان جبل عمر",
+  "Conrad Makkah": "كونراد مكة",
+  "Anjum Hotel": "فندق أنجم",
+  "Hilton Suites Makkah": "أجنحة هيلتون مكة",
+  "Other Hotel / Location": "فندق / موقع آخر"
+};
+
+
+/* =========================================================
+   ENGLISH HOTEL TEXT
+   ========================================================= */
+
+const hotelEnglish = {};
+
+Object.keys(hotelArabic).forEach(function (key) {
+  hotelEnglish[hotelArabic[key]] = key;
+});
+
+
+/* =========================================================
    HELPER
-===================================================== */
+   ========================================================= */
 
-function translateText(text, language) {
-  const clean = text.trim();
-
-  if (!clean) {
-    return text;
-  }
-
-  const dictionary = translations[language];
-
-  if (dictionary && Object.prototype.hasOwnProperty.call(dictionary, clean)) {
-    return text.replace(clean, dictionary[clean]);
-  }
-
-  return text;
+function normalizeText(text) {
+  return text
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 
-/* =====================================================
+/* =========================================================
    TRANSLATE TEXT NODES
-===================================================== */
+   ========================================================= */
 
-function translateTextNodes(language) {
+function translateTextNodes(root, language) {
 
   const walker = document.createTreeWalker(
-    document.body,
+    root,
     NodeFilter.SHOW_TEXT,
     {
       acceptNode: function (node) {
 
-        const parent = node.parentElement;
-
-        if (!parent) {
+        if (!node.parentElement) {
           return NodeFilter.FILTER_REJECT;
         }
 
-        const tag = parent.tagName.toLowerCase();
+        const tag = node.parentElement.tagName;
 
         if (
-          tag === "script" ||
-          tag === "style" ||
-          tag === "noscript" ||
-          tag === "iframe"
+          tag === "SCRIPT" ||
+          tag === "STYLE" ||
+          tag === "NOSCRIPT"
         ) {
-          return NodeFilter.FILTER_REJECT;
-        }
-
-        if (!node.nodeValue.trim()) {
           return NodeFilter.FILTER_REJECT;
         }
 
@@ -812,104 +526,109 @@ function translateTextNodes(language) {
 
   const nodes = [];
 
-  let node;
-
-  while ((node = walker.nextNode())) {
-    nodes.push(node);
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
   }
 
-  nodes.forEach(function (textNode) {
+  nodes.forEach(function (node) {
 
-    const original =
-      textNode.getAttribute &&
-      textNode.getAttribute("data-original-text");
+    const original = normalizeText(node.nodeValue);
 
-    if (original) {
-
-      const translated =
-        translations[language][original] || original;
-
-      textNode.nodeValue =
-        textNode.nodeValue.replace(
-          textNode.nodeValue.trim(),
-          translated
-        );
-
+    if (!original) {
       return;
     }
 
-    const value = textNode.nodeValue.trim();
+    let translated = original;
 
-    if (
-      translations[language] &&
-      Object.prototype.hasOwnProperty.call(
-        translations[language],
-        value
-      )
-    ) {
+    if (language === ARABIC) {
 
-      if (!textNode.dataset) {
-        return;
+      if (translations[original]) {
+        translated = translations[original];
       }
 
-      textNode.dataset.originalText = value;
+      if (hotelArabic[original]) {
+        translated = hotelArabic[original];
+      }
 
-      textNode.nodeValue =
-        textNode.nodeValue.replace(
-          value,
-          translations[language][value]
-        );
+    } else {
+
+      const arabicToEnglish = {};
+
+      Object.keys(translations).forEach(function (english) {
+        arabicToEnglish[translations[english]] = english;
+      });
+
+      if (arabicToEnglish[original]) {
+        translated = arabicToEnglish[original];
+      }
+
+      if (hotelEnglish[original]) {
+        translated = hotelEnglish[original];
+      }
+    }
+
+    if (translated !== original) {
+
+      const leading = node.nodeValue.match(/^\s*/)?.[0] || "";
+      const trailing = node.nodeValue.match(/\s*$/)?.[0] || "";
+
+      node.nodeValue = leading + translated + trailing;
     }
 
   });
 }
 
 
-/* =====================================================
+/* =========================================================
    TRANSLATE PLACEHOLDERS
-===================================================== */
+   ========================================================= */
 
-const placeholderTranslations = {
+const placeholderArabic = {
 
   "Your name": "اسمك",
   "Room number": "رقم الغرفة",
   "+966...": "+966...",
   "Thobe, shirt, trousers, mixed clothes...":
-    "ثوب، قميص، بنطلون، ملابس متنوعة...",
+    "ثوب، قميص، بنطال، ملابس متنوعة...",
   "Quantity": "الكمية",
   "Any special instructions?":
-    "هل لديك أي تعليمات خاصة؟",
+    "هل توجد تعليمات خاصة؟",
   "Enter Order ID":
     "أدخل رقم الطلب"
 };
 
+const placeholderEnglish = {};
+
+Object.keys(placeholderArabic).forEach(function (key) {
+  placeholderEnglish[placeholderArabic[key]] = key;
+});
+
 
 function translatePlaceholders(language) {
 
-  const inputs = document.querySelectorAll(
-    "input, textarea"
-  );
+  document.querySelectorAll(
+    "input[placeholder], textarea[placeholder]"
+  ).forEach(function (element) {
 
-  inputs.forEach(function (element) {
+    const current = element.getAttribute("placeholder");
 
-    if (!element.dataset.originalPlaceholder) {
+    if (language === ARABIC) {
 
-      element.dataset.originalPlaceholder =
-        element.getAttribute("placeholder") || "";
-
-    }
-
-    const original =
-      element.dataset.originalPlaceholder;
-
-    if (language === "ar") {
-
-      element.placeholder =
-        placeholderTranslations[original] || original;
+      if (placeholderArabic[current]) {
+        element.setAttribute(
+          "placeholder",
+          placeholderArabic[current]
+        );
+      }
 
     } else {
 
-      element.placeholder = original;
+      if (placeholderEnglish[current]) {
+        element.setAttribute(
+          "placeholder",
+          placeholderEnglish[current]
+        );
+      }
 
     }
 
@@ -917,495 +636,452 @@ function translatePlaceholders(language) {
 }
 
 
-/* =====================================================
-   SELECT OPTIONS
-===================================================== */
-
-const optionTranslations = {
-
-  "Select Hotel / Location":
-    "اختر الفندق / الموقع",
-
-  "Other Hotel / Location":
-    "فندق / موقع آخر",
-
-  "Select Service":
-    "اختر الخدمة",
-
-  "Wash & Fold – From 15 SAR/bag":
-    "غسيل وطي – ابتداءً من 15 ريال للكيس",
-
-  "Ironing – From 5 SAR/item":
-    "كي الملابس – ابتداءً من 5 ريال للقطعة",
-
-  "Dry Cleaning – From 12 SAR/item":
-    "تنظيف جاف – ابتداءً من 12 ريال للقطعة",
-
-  "Wash & Fold + Ironing":
-    "غسيل وطي + كي الملابس",
-
-  "Normal – 24h":
-    "عادي – 24 ساعة",
-
-  "Express – Subject to Availability":
-    "سريع – حسب التوفر",
-
-  "Wash & Fold – 15 SAR":
-    "غسيل وطي – 15 ريال",
-
-  "Ironing – 5 SAR":
-    "كي الملابس – 5 ريال",
-
-  "Dry Cleaning – 12 SAR":
-    "تنظيف جاف – 12 ريال"
-};
-
+/* =========================================================
+   TRANSLATE SELECT OPTIONS
+   ========================================================= */
 
 function translateOptions(language) {
 
-  const selects = document.querySelectorAll("select");
+  document.querySelectorAll("select option").forEach(function (option) {
 
-  selects.forEach(function (select) {
+    const current = normalizeText(option.textContent);
 
-    select.querySelectorAll("option").forEach(function (option) {
+    let translated = current;
 
-      if (!option.dataset.originalText) {
+    if (language === ARABIC) {
 
-        option.dataset.originalText =
-          option.textContent.trim();
-
+      if (translations[current]) {
+        translated = translations[current];
       }
 
-      const original =
-        option.dataset.originalText;
-
-      if (language === "ar") {
-
-        option.textContent =
-          optionTranslations[original] || original;
-
-      } else {
-
-        option.textContent = original;
-
+      if (hotelArabic[current]) {
+        translated = hotelArabic[current];
       }
 
-    });
+    } else {
+
+      const reverse = {};
+
+      Object.keys(translations).forEach(function (english) {
+        reverse[translations[english]] = english;
+      });
+
+      if (reverse[current]) {
+        translated = reverse[current];
+      }
+
+      if (hotelEnglish[current]) {
+        translated = hotelEnglish[current];
+      }
+
+    }
+
+    if (translated !== current) {
+      option.textContent = translated;
+    }
 
   });
 }
 
 
-/* =====================================================
-   META TRANSLATION
-===================================================== */
+/* =========================================================
+   ALT TEXT
+   ========================================================= */
 
-function updateMeta(language) {
+const altArabic = {
+
+  "Makkah Laundry Service logo":
+    "شعار خدمة مغسلة مكة",
+
+  "Laundry washing service in Makkah":
+    "خدمة غسيل الملابس في مكة",
+
+  "Thobe ironing service in Makkah":
+    "خدمة كي الثياب في مكة",
+
+  "Laundry pickup and delivery in Makkah":
+    "استلام وتوصيل الملابس في مكة",
+
+  "Dry cleaning service in Makkah":
+    "خدمة التنظيف الجاف في مكة",
+
+  "Makkah Laundry Service":
+    "خدمة مغسلة مكة"
+};
+
+const altEnglish = {};
+
+Object.keys(altArabic).forEach(function (key) {
+  altEnglish[altArabic[key]] = key;
+});
+
+
+function translateAltText(language) {
+
+  document.querySelectorAll("img").forEach(function (img) {
+
+    const current = img.getAttribute("alt");
+
+    if (!current) {
+      return;
+    }
+
+    if (language === ARABIC) {
+
+      if (altArabic[current]) {
+        img.setAttribute("alt", altArabic[current]);
+      }
+
+    } else {
+
+      if (altEnglish[current]) {
+        img.setAttribute("alt", altEnglish[current]);
+      }
+
+    }
+
+  });
+}
+
+
+/* =========================================================
+   ARIA LABELS
+   ========================================================= */
+
+const ariaArabic = {
+
+  "Switch language":
+    "تغيير اللغة",
+
+  "Main Navigation":
+    "القائمة الرئيسية",
+
+  "Contact Makkah Laundry Service on WhatsApp":
+    "تواصل مع خدمة مغسلة مكة عبر واتساب",
+
+  "Call Makkah Laundry Service":
+    "اتصل بخدمة مغسلة مكة",
+
+  "Makkah Clock Tower location":
+    "موقع برج الساعة في مكة"
+};
+
+const ariaEnglish = {};
+
+Object.keys(ariaArabic).forEach(function (key) {
+  ariaEnglish[ariaArabic[key]] = key;
+});
+
+
+function translateAria(language) {
+
+  document.querySelectorAll("[aria-label]").forEach(function (element) {
+
+    const current = element.getAttribute("aria-label");
+
+    if (language === ARABIC) {
+
+      if (ariaArabic[current]) {
+        element.setAttribute(
+          "aria-label",
+          ariaArabic[current]
+        );
+      }
+
+    } else {
+
+      if (ariaEnglish[current]) {
+        element.setAttribute(
+          "aria-label",
+          ariaEnglish[current]
+        );
+      }
+
+    }
+
+  });
+}
+
+
+/* =========================================================
+   META SEO
+   ========================================================= */
+
+function updateSEO(language) {
 
   const title = document.querySelector("title");
+  const description = document.querySelector(
+    'meta[name="description"]'
+  );
 
-  const description =
-    document.querySelector('meta[name="description"]');
+  const ogTitle = document.querySelector(
+    'meta[property="og:title"]'
+  );
 
-  const ogTitle =
-    document.querySelector('meta[property="og:title"]');
+  const ogDescription = document.querySelector(
+    'meta[property="og:description"]'
+  );
 
-  const ogDescription =
-    document.querySelector('meta[property="og:description"]');
+  const twitterTitle = document.querySelector(
+    'meta[name="twitter:title"]'
+  );
 
-  const twitterTitle =
-    document.querySelector('meta[name="twitter:title"]');
+  const twitterDescription = document.querySelector(
+    'meta[name="twitter:description"]'
+  );
 
-  const twitterDescription =
-    document.querySelector('meta[name="twitter:description"]');
+  const ogLocale = document.querySelector(
+    'meta[property="og:locale"]'
+  );
 
-  if (language === "ar") {
 
-    if (title) {
-      title.textContent =
-        "مغسلة ملابس في مكة | استلام وتوصيل من الفنادق بالقرب من الحرم";
-    }
+  if (language === ARABIC) {
 
-    if (description) {
-      description.content =
-        "مغسلة ملابس في مكة تقدم خدمة استلام وتوصيل الملابس من الفنادق بالقرب من المسجد الحرام وبرج الساعة. غسيل وطي، كي، تنظيف جاف وخدمة سريعة للحجاج والزوار والمقيمين.";
-    }
+    title.textContent =
+      "مغسلة ملابس في مكة | استلام وتوصيل الملابس | مغسلة مكة";
 
-    if (ogTitle) {
-      ogTitle.content =
-        "مغسلة ملابس في مكة | استلام وتوصيل من الفنادق";
-    }
+    description.setAttribute(
+      "content",
+      "خدمة غسيل وكي وتنظيف جاف للملابس في مكة مع الاستلام والتوصيل من الفنادق والمواقع القريبة من الحرم وبرج الساعة."
+    );
 
-    if (ogDescription) {
-      ogDescription.content =
-        "خدمة غسيل واستلام وتوصيل الملابس في مكة للحجاج والزوار ونزلاء الفنادق.";
-    }
+    ogTitle.setAttribute(
+      "content",
+      "مغسلة ملابس في مكة | استلام وتوصيل الملابس"
+    );
 
-    if (twitterTitle) {
-      twitterTitle.content =
-        "مغسلة ملابس في مكة | استلام وتوصيل";
-    }
+    ogDescription.setAttribute(
+      "content",
+      "خدمة غسيل الملابس واستلام وتوصيلها في مكة للحجاج والزوار ونزلاء الفنادق."
+    );
 
-    if (twitterDescription) {
-      twitterDescription.content =
-        "خدمة غسيل الملابس واستلامها وتوصيلها من الفنادق في مكة بالقرب من الحرم.";
-    }
+    twitterTitle.setAttribute(
+      "content",
+      "مغسلة ملابس في مكة | استلام وتوصيل"
+    );
+
+    twitterDescription.setAttribute(
+      "content",
+      "خدمة غسيل واستلام وتوصيل الملابس في مكة بالقرب من الحرم وبرج الساعة."
+    );
+
+    ogLocale.setAttribute(
+      "content",
+      "ar_SA"
+    );
 
   } else {
 
-    if (title) {
-      title.textContent =
-        "Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram";
-    }
+    title.textContent =
+      "Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram";
 
-    if (description) {
-      description.content =
-        "Makkah Laundry Service provides hotel laundry pickup and delivery near Masjid Al Haram and Makkah Clock Tower. Wash & fold, ironing, dry cleaning and express laundry for pilgrims, visitors and residents. Order by WhatsApp.";
-    }
+    description.setAttribute(
+      "content",
+      "Makkah Laundry Service provides hotel laundry pickup and delivery near Masjid Al Haram and Makkah Clock Tower. Wash & fold, ironing, dry cleaning and express laundry for pilgrims, visitors and residents. Order by WhatsApp."
+    );
 
-    if (ogTitle) {
-      ogTitle.content =
-        "Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram";
-    }
+    ogTitle.setAttribute(
+      "content",
+      "Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram"
+    );
 
-    if (ogDescription) {
-      ogDescription.content =
-        "Laundry pickup and delivery in Makkah for hotels, pilgrims, visitors and residents. Wash & fold, ironing, dry cleaning and express service.";
-    }
+    ogDescription.setAttribute(
+      "content",
+      "Laundry pickup and delivery in Makkah for hotels, pilgrims, visitors and residents. Wash & fold, ironing, dry cleaning and express service."
+    );
 
-    if (twitterTitle) {
-      twitterTitle.content =
-        "Makkah Laundry Service | Laundry Pickup & Delivery";
-    }
+    twitterTitle.setAttribute(
+      "content",
+      "Makkah Laundry Service | Laundry Pickup & Delivery"
+    );
 
-    if (twitterDescription) {
-      twitterDescription.content =
-        "Hotel laundry pickup and delivery in Makkah near Haram and Makkah Clock Tower.";
-    }
+    twitterDescription.setAttribute(
+      "content",
+      "Hotel laundry pickup and delivery in Makkah near Haram and Makkah Clock Tower."
+    );
 
-  }
-}
-
-
-/* =====================================================
-   LANGUAGE
-===================================================== */
-
-function applyLanguage(language) {
-
-  if (language !== "ar" && language !== "en") {
-    language = "en";
-  }
-
-  document.documentElement.lang = language;
-  document.documentElement.dir =
-    language === "ar" ? "rtl" : "ltr";
-
-  document.body.dir =
-    language === "ar" ? "rtl" : "ltr";
-
-  document.body.classList.toggle(
-    "arabic-mode",
-    language === "ar"
-  );
-
-  translateTextNodes(language);
-  translatePlaceholders(language);
-  translateOptions(language);
-  updateMeta(language);
-
-  const langBtn =
-    document.getElementById("langBtn");
-
-  if (langBtn) {
-
-    langBtn.textContent =
-      language === "ar"
-        ? "English"
-        : "العربية";
-
-    langBtn.setAttribute(
-      "aria-label",
-      language === "ar"
-        ? "تغيير اللغة إلى الإنجليزية"
-        : "Switch language"
+    ogLocale.setAttribute(
+      "content",
+      "en_SA"
     );
   }
-
-  localStorage.setItem(
-    LANGUAGE_KEY,
-    language
-  );
-
-  window.currentLanguage = language;
 }
 
 
-/* =====================================================
-   LANGUAGE BUTTON
-===================================================== */
+/* =========================================================
+   WHATSAPP LINKS
+   ========================================================= */
 
-function setupLanguage() {
+function updateWhatsAppLinks(language) {
 
-  const langBtn =
-    document.getElementById("langBtn");
-
-  const savedLanguage =
-    localStorage.getItem(LANGUAGE_KEY) || "ar";
-
-  applyLanguage(savedLanguage);
-
-  if (!langBtn) {
-    return;
-  }
-
-  langBtn.addEventListener(
-    "click",
-    function () {
-
-      const current =
-        localStorage.getItem(LANGUAGE_KEY) || "ar";
-
-      const next =
-        current === "ar"
-          ? "en"
-          : "ar";
-
-      applyLanguage(next);
-
-    }
-  );
-}
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-function setupMobileMenu() {
-
-  const menuToggle =
-    document.getElementById("menuToggle");
-
-  const mainNav =
-    document.querySelector(".nav");
-
-  if (!menuToggle || !mainNav) {
-    return;
-  }
-
-  menuToggle.addEventListener(
-    "click",
-    function () {
-
-      mainNav.classList.toggle("active");
-
-    }
+  const links = document.querySelectorAll(
+    'a[href*="wa.me"]'
   );
 
-  mainNav.querySelectorAll("a").forEach(
-    function (link) {
+  links.forEach(function (link) {
 
-      link.addEventListener(
-        "click",
-        function () {
+    const href = link.getAttribute("href");
 
-          mainNav.classList.remove("active");
-
-        }
-      );
-
+    if (!href) {
+      return;
     }
-  );
-}
 
+    if (language === ARABIC) {
 
-/* =====================================================
-   SMOOTH SCROLL
-===================================================== */
+      if (
+        href.includes("Order%20Now") ||
+        href.includes("Hello%2C") ||
+        href.includes("laundry")
+      ) {
 
-function setupSmoothScroll() {
-
-  document.querySelectorAll(
-    'a[href^="#"]'
-  ).forEach(function (link) {
-
-    link.addEventListener(
-      "click",
-      function (event) {
-
-        const targetId =
-          this.getAttribute("href");
-
-        if (
-          !targetId ||
-          targetId === "#"
-        ) {
-          return;
-        }
-
-        const target =
-          document.querySelector(targetId);
-
-        if (!target) {
-          return;
-        }
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+        link.setAttribute(
+          "href",
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          encodeURIComponent(
+            "السلام عليكم، أريد خدمة غسيل الملابس في مكة."
+          )
+        );
 
       }
-    );
+
+    } else {
+
+      if (
+        href.includes("السلام") ||
+        href.includes("%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85")
+      ) {
+
+        link.setAttribute(
+          "href",
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          encodeURIComponent(
+            "Hello, I need laundry pickup in Makkah."
+          )
+        );
+
+      }
+
+    }
 
   });
 }
 
 
-/* =====================================================
-   BOOKING
-===================================================== */
+/* =========================================================
+   BOOKING WHATSAPP
+   ========================================================= */
 
-function setupBooking() {
+function setupBookingForm() {
 
-  const form =
-    document.getElementById("bookingForm");
+  const form = document.getElementById("bookingForm");
 
   if (!form) {
     return;
   }
 
-  form.addEventListener(
-    "submit",
-    function (event) {
+  form.addEventListener("submit", function (event) {
 
-      event.preventDefault();
+    event.preventDefault();
 
-      const language =
-        localStorage.getItem(LANGUAGE_KEY) || "ar";
+    const language =
+      document.documentElement.lang === "ar"
+        ? ARABIC
+        : ENGLISH;
 
-      const name =
-        document.getElementById("fullName")?.value || "";
 
-      const hotel =
-        document.getElementById("hotelName")?.value || "";
+    const name =
+      document.getElementById("fullName")?.value.trim() || "";
 
-      const room =
-        document.getElementById("roomNumber")?.value || "";
+    const hotel =
+      document.getElementById("hotelName")?.value || "";
 
-      const phone =
-        document.getElementById("customerPhone")?.value || "";
+    const room =
+      document.getElementById("roomNumber")?.value.trim() || "";
 
-      const service =
-        document.getElementById("service")?.value || "";
+    const phone =
+      document.getElementById("customerPhone")?.value.trim() || "";
 
-      const speed =
-        document.getElementById("serviceSpeed")?.value || "";
+    const service =
+      document.getElementById("service")?.value || "";
 
-      const date =
-        document.getElementById("pickupDate")?.value || "";
+    const speed =
+      document.getElementById("serviceSpeed")?.value || "";
 
-      const time =
-        document.getElementById("pickupTime")?.value || "";
+    const date =
+      document.getElementById("pickupDate")?.value || "";
 
-      const clothes =
-        document.getElementById("clothesType")?.value || "";
+    const time =
+      document.getElementById("pickupTime")?.value || "";
 
-      const quantity =
-        document.getElementById("clothQty")?.value || "";
+    const clothes =
+      document.getElementById("clothesType")?.value.trim() || "";
 
-      const note =
-        document.getElementById("specialNote")?.value || "";
+    const quantity =
+      document.getElementById("clothQty")?.value || "";
 
-      let message = "";
+    const note =
+      document.getElementById("specialNote")?.value.trim() || "";
 
-      if (language === "ar") {
 
-        message =
-`السلام عليكم، أريد طلب خدمة غسيل الملابس.
+    let message = "";
 
-الاسم: ${name}
-الفندق / الموقع: ${hotel}
-رقم الغرفة: ${room}
-رقم الهاتف / واتساب: ${phone}
-الخدمة: ${service}
-سرعة الخدمة: ${speed}
-تاريخ الاستلام: ${date}
-وقت الاستلام: ${time}
-نوع الملابس: ${clothes}
-الكمية: ${quantity}
-ملاحظة: ${note}
 
-يرجى تأكيد توفر خدمة الاستلام.`;
+    if (language === ARABIC) {
 
-      } else {
+      message =
+        "السلام عليكم، أريد حجز خدمة غسيل الملابس في مكة.\n\n" +
 
-        message =
-`Hello, I would like to book laundry pickup.
+        "الاسم: " + name + "\n" +
+        "الفندق / الموقع: " + hotel + "\n" +
+        "رقم الغرفة: " + room + "\n" +
+        "رقم الهاتف / واتساب: " + phone + "\n" +
+        "الخدمة: " + service + "\n" +
+        "سرعة الخدمة: " + speed + "\n" +
+        "تاريخ الاستلام: " + date + "\n" +
+        "وقت الاستلام: " + time + "\n" +
+        "نوع الملابس: " + clothes + "\n" +
+        "الكمية: " + quantity + "\n" +
+        "ملاحظات: " + note;
 
-Name: ${name}
-Hotel / Location: ${hotel}
-Room Number: ${room}
-Phone / WhatsApp: ${phone}
-Service: ${service}
-Service Speed: ${speed}
-Pickup Date: ${date}
-Pickup Time: ${time}
-Clothes Type: ${clothes}
-Quantity: ${quantity}
-Special Note: ${note}
+    } else {
 
-Please confirm pickup availability.`;
+      message =
+        "Hello, I would like to book laundry pickup in Makkah.\n\n" +
 
-      }
-
-      const url =
-        "https://wa.me/" +
-        WHATSAPP_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
-
-      window.open(
-        url,
-        "_blank",
-        "noopener"
-      );
-
+        "Name: " + name + "\n" +
+        "Hotel / Location: " + hotel + "\n" +
+        "Room Number: " + room + "\n" +
+        "Phone / WhatsApp: " + phone + "\n" +
+        "Service: " + service + "\n" +
+        "Service Speed: " + speed + "\n" +
+        "Pickup Date: " + date + "\n" +
+        "Pickup Time: " + time + "\n" +
+        "Clothes Type: " + clothes + "\n" +
+        "Quantity: " + quantity + "\n" +
+        "Special Note: " + note;
     }
-  );
+
+
+    const url =
+      "https://wa.me/" +
+      WHATSAPP_NUMBER +
+      "?text=" +
+      encodeURIComponent(message);
+
+
+    window.open(url, "_blank");
+
+  });
 }
 
 
-/* =====================================================
-   DATE
-===================================================== */
-
-function setupDate() {
-
-  const date =
-    document.getElementById("pickupDate");
-
-  if (!date) {
-    return;
-  }
-
-  const today =
-    new Date().toISOString().split("T")[0];
-
-  date.min = today;
-
-  if (!date.value) {
-    date.value = today;
-  }
-}
-
-
-/* =====================================================
-   CALCULATOR
-===================================================== */
+/* =========================================================
+   PRICE CALCULATOR
+   ========================================================= */
 
 function setupCalculator() {
 
@@ -1418,9 +1094,11 @@ function setupCalculator() {
   const result =
     document.getElementById("calcResult");
 
+
   if (!service || !quantity || !result) {
     return;
   }
+
 
   function calculate() {
 
@@ -1428,12 +1106,15 @@ function setupCalculator() {
       parseFloat(service.value) || 0;
 
     const qty =
-      parseInt(quantity.value) || 1;
+      Math.max(
+        1,
+        parseInt(quantity.value) || 1
+      );
 
     result.textContent =
       price * qty;
-
   }
+
 
   service.addEventListener(
     "change",
@@ -1449,9 +1130,9 @@ function setupCalculator() {
 }
 
 
-/* =====================================================
+/* =========================================================
    ORDER TRACKING
-===================================================== */
+   ========================================================= */
 
 function setupTracking() {
 
@@ -1464,82 +1145,195 @@ function setupTracking() {
   const result =
     document.getElementById("trackingResult");
 
+
   if (!button || !input || !result) {
     return;
   }
+
 
   button.addEventListener(
     "click",
     function () {
 
-      const language =
-        localStorage.getItem(LANGUAGE_KEY) || "ar";
-
       const orderId =
         input.value.trim();
+
+      const language =
+        document.documentElement.lang === "ar"
+          ? ARABIC
+          : ENGLISH;
+
 
       if (!orderId) {
 
         result.textContent =
-          language === "ar"
+          language === ARABIC
             ? "يرجى إدخال رقم الطلب."
             : "Please enter your order ID.";
 
         return;
       }
 
+
       result.textContent =
-        language === "ar"
-          ? "تم استلام رقم الطلب. يرجى التواصل معنا عبر واتساب لمعرفة حالة الطلب."
-          : "Order ID received. Please contact us on WhatsApp for the latest order status.";
+        language === ARABIC
+          ? "سيتم تأكيد حالة الطلب عبر واتساب. يرجى التواصل معنا وإرسال رقم الطلب."
+          : "Order status will be confirmed through WhatsApp. Please contact us and send your order ID.";
 
     }
   );
 }
 
 
-/* =====================================================
-   SERVICE WORKER
-===================================================== */
+/* =========================================================
+   LANGUAGE BUTTON
+   ========================================================= */
 
-function setupServiceWorker() {
+function updateLanguageButton(language) {
 
-  if (!("serviceWorker" in navigator)) {
+  const button =
+    document.getElementById("langBtn");
+
+  if (!button) {
     return;
   }
 
-  window.addEventListener(
-    "load",
+  if (language === ARABIC) {
+
+    button.textContent = "English";
+    button.setAttribute(
+      "aria-label",
+      "تغيير اللغة"
+    );
+
+  } else {
+
+    button.textContent = "العربية";
+    button.setAttribute(
+      "aria-label",
+      "Switch language"
+    );
+  }
+}
+
+
+/* =========================================================
+   APPLY LANGUAGE
+   ========================================================= */
+
+function applyLanguage(language) {
+
+  const html =
+    document.documentElement;
+
+  html.lang = language;
+  html.dir =
+    language === ARABIC
+      ? "rtl"
+      : "ltr";
+
+
+  document.body.dir =
+    language === ARABIC
+      ? "rtl"
+      : "ltr";
+
+
+  translateTextNodes(
+    document.body,
+    language
+  );
+
+  translatePlaceholders(language);
+  translateOptions(language);
+  translateAltText(language);
+  translateAria(language);
+
+  updateLanguageButton(language);
+  updateSEO(language);
+  updateWhatsAppLinks(language);
+
+
+  localStorage.setItem(
+    LANGUAGE_KEY,
+    language
+  );
+}
+
+
+/* =========================================================
+   LANGUAGE TOGGLE
+   ========================================================= */
+
+function setupLanguageToggle() {
+
+  const button =
+    document.getElementById("langBtn");
+
+  if (!button) {
+    return;
+  }
+
+
+  button.addEventListener(
+    "click",
     function () {
 
-      navigator.serviceWorker
-        .register(
-          "service-worker.js?v=20260913"
-        )
-        .then(function () {
+      const current =
+        document.documentElement.lang;
 
-          console.log(
-            "Service Worker registered."
-          );
+      const next =
+        current === ARABIC
+          ? ENGLISH
+          : ARABIC;
 
-        })
-        .catch(function (error) {
-
-          console.log(
-            "Service Worker registration failed:",
-            error
-          );
-
-        });
+      applyLanguage(next);
 
     }
   );
 }
 
 
-/* =====================================================
+/* =========================================================
+   DATE MINIMUM
+   ========================================================= */
+
+function setupPickupDate() {
+
+  const date =
+    document.getElementById("pickupDate");
+
+  if (!date) {
+    return;
+  }
+
+
+  const today =
+    new Date();
+
+
+  const year =
+    today.getFullYear();
+
+  const month =
+    String(
+      today.getMonth() + 1
+    ).padStart(2, "0");
+
+  const day =
+    String(
+      today.getDate()
+    ).padStart(2, "0");
+
+
+  date.min =
+    `${year}-${month}-${day}`;
+}
+
+
+/* =========================================================
    INITIALIZE
-===================================================== */
+   ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -1549,14 +1343,36 @@ document.addEventListener(
       "Makkah Laundry Service Loaded"
     );
 
-    setupLanguage();
-    setupMobileMenu();
-    setupSmoothScroll();
-    setupBooking();
-    setupDate();
+
+    setupLanguageToggle();
+
+    setupBookingForm();
+
     setupCalculator();
+
     setupTracking();
-    setupServiceWorker();
+
+    setupPickupDate();
+
+
+    /*
+      FIRST VISIT = ARABIC
+      AFTER THAT = REMEMBER USER CHOICE
+    */
+
+    const savedLanguage =
+      localStorage.getItem(
+        LANGUAGE_KEY
+      );
+
+
+    const language =
+      savedLanguage === ENGLISH
+        ? ENGLISH
+        : ARABIC;
+
+
+    applyLanguage(language);
 
   }
 );
