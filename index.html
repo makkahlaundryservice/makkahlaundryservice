@@ -287,6 +287,85 @@
   }
   </script>
 
+<style>
+/* =====================================================
+   ARABIC RTL SUPPORT
+===================================================== */
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .container,
+html[dir="rtl"] .section-heading,
+html[dir="rtl"] .hero-content,
+html[dir="rtl"] .seo-content,
+html[dir="rtl"] .about-content,
+html[dir="rtl"] .booking-form,
+html[dir="rtl"] .calculator,
+html[dir="rtl"] .tracking-form,
+html[dir="rtl"] .contact-grid,
+html[dir="rtl"] .footer-content {
+  direction: rtl;
+}
+
+html[dir="rtl"] .hero-buttons,
+html[dir="rtl"] .quick-actions,
+html[dir="rtl"] .header-actions {
+  direction: rtl;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] select,
+html[dir="rtl"] textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+html[dir="rtl"] select {
+  text-align: right;
+}
+
+html[dir="rtl"] .fa-phone,
+html[dir="rtl"] .fa-whatsapp,
+html[dir="rtl"] .fa-location-dot {
+  margin-left: 6px;
+  margin-right: 0;
+}
+
+/* English/Arabic SEO content */
+.arabic-seo {
+  display: none;
+}
+
+html[dir="rtl"] .arabic-seo {
+  display: block;
+}
+
+html[dir="rtl"] .seo-content:not(.arabic-seo) {
+  display: none;
+}
+
+/* Arabic typography */
+html[lang="ar"] body {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] p,
+html[lang="ar"] a,
+html[lang="ar"] button,
+html[lang="ar"] label,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea {
+  letter-spacing: 0;
+}
+</style>
+  
 </head>
 
 <body>
@@ -1760,7 +1839,7 @@
 
 
   <!-- MAIN JAVASCRIPT -->
-  <script src="script.js"></script>
+  <script src="script.js?v=20260913"></script>
 
 
   <!-- Service Worker -->
