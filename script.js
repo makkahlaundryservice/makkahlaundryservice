@@ -1,11 +1,12 @@
 // =========================================================
 // MAKKAH LAUNDRY SERVICE
-// BILINGUAL ENGLISH / ARABIC SCRIPT
+// COMPLETE BILINGUAL ENGLISH / ARABIC SYSTEM
 // =========================================================
 
 "use strict";
 
 const WHATSAPP_NUMBER = "966550865064";
+const LANGUAGE_STORAGE_KEY = "makkahLaundryLanguage";
 
 
 // =========================================================
@@ -14,9 +15,13 @@ const WHATSAPP_NUMBER = "966550865064";
 
 const translations = {
 
+    // =====================================================
+    // ENGLISH
+    // =====================================================
+
     en: {
 
-        // Top bar
+        // Top
         support: "🟢 Laundry Support Available",
         whatsapp: "WhatsApp",
 
@@ -69,18 +74,21 @@ const translations = {
             "Looking for a reliable laundry near me in Makkah? Makkah Laundry Service provides convenient laundry pickup and delivery for hotel guests, pilgrims, visitors and residents.",
         seoText2:
             "Our service includes hotel laundry in Makkah, wash and fold, clothes ironing, dry cleaning and laundry pickup and delivery.",
+
         seoHotelTitle:
             "Hotel Laundry Near Makkah Clock Tower",
         seoHotelText:
-            "If you are staying near the Makkah Clock Tower or central Makkah, you can contact us on WhatsApp to check pickup availability.",
+            "If you are staying near the Makkah Clock Tower or central Makkah, contact us on WhatsApp to check pickup availability.",
+
         seoPilgrimTitle:
             "Laundry Service for Umrah Pilgrims",
         seoPilgrimText:
-            "Pilgrims often need clean clothes during their stay in Makkah. Our laundry pickup and delivery service makes it easier to send your clothes for washing, ironing or dry cleaning.",
+            "Pilgrims and visitors often need clean clothes during their stay in Makkah. Our pickup and delivery service makes laundry easier.",
+
         seoOrderTitle:
             "How to Order Laundry in Makkah",
         seoOrderText:
-            "Simply contact us on WhatsApp, tell us your hotel or location, room number and laundry requirement. We will confirm pickup availability.",
+            "Contact us on WhatsApp and send your hotel or location, room number and laundry requirement. We will confirm pickup availability.",
 
         // Pricing
         pricingTitle: "Laundry Prices in Makkah",
@@ -153,6 +161,7 @@ const translations = {
         // Trust
         whyCustomers:
             "Why Customers Choose Our Laundry Service",
+
         whyCustomersText:
             "Convenient service designed for hotel guests and visitors in Makkah.",
 
@@ -173,44 +182,54 @@ const translations = {
             "Serving central Makkah and locations around Makkah Clock Tower.",
 
         // Hotels
-        hotelsTitle: "Hotels Near Our Makkah Pickup Area",
+        hotelsTitle:
+            "Hotels Near Our Makkah Pickup Area",
+
         hotelsText:
             "Pickup availability depends on hotel location, timing and order details.",
+
         hotelNote:
             "Please contact us before ordering to confirm pickup availability from your exact hotel.",
 
         // FAQ
-        faqTitle: "Frequently Asked Questions",
+        faqTitle:
+            "Frequently Asked Questions",
 
         faq1Question:
             "Do you provide hotel laundry pickup in Makkah?",
+
         faq1Answer:
             "Yes. We provide pickup and delivery from selected hotels and locations in Makkah. Availability depends on location and order time.",
 
         faq2Question:
             "Do you provide laundry near Makkah Clock Tower?",
+
         faq2Answer:
             "Yes. We serve central Makkah and areas around Makkah Clock Tower, subject to pickup availability.",
 
         faq3Question:
             "How much does laundry cost?",
+
         faq3Answer:
             "Wash & Fold starts from 15 SAR per bag. Ironing starts from 5 SAR per item. Dry Cleaning starts from 12 SAR per item.",
 
         faq4Question:
             "Do you offer express laundry?",
+
         faq4Answer:
             "Express service may be available depending on the order, location and workload. Please contact us on WhatsApp first.",
 
         faq5Question:
             "How can I order?",
+
         faq5Answer:
             "Send us a WhatsApp message with your hotel name, room number, phone number and required laundry service.",
 
         faq6Question:
-            "هل توجد خدمة غسيل ملابس في مكة؟",
+            "Is laundry service available in Makkah?",
+
         faq6Answer:
-            "نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل في مكة حسب الموقع والتوفر.",
+            "Yes. We provide laundry, ironing, pickup and delivery service in Makkah, subject to location availability.",
 
         // Gallery
         galleryTitle: "Our Laundry Service",
@@ -219,8 +238,8 @@ const translations = {
 
         // Hours
         hoursTitle: "Business Hours",
-        saturdayThursday: "Saturday – Thursday:",
-        friday: "Friday:",
+        saturdayThursday: "Saturday – Thursday",
+        friday: "Friday",
         hoursText:
             "WhatsApp orders can be sent anytime. Response time may vary outside business hours.",
 
@@ -229,14 +248,19 @@ const translations = {
         call: "Call",
 
         // Location
-        locationTitle: "Makkah Laundry Service Location",
+        locationTitle:
+            "Makkah Laundry Service Location",
+
         locationText:
             "Serving Makkah and nearby central areas.",
 
         // Calculator
-        calculatorTitle: "Laundry Price Calculator",
+        calculatorTitle:
+            "Laundry Price Calculator",
+
         calculatorText:
             "Calculate an estimated starting price.",
+
         calculatorService: "Service",
         calculatorQuantity: "Quantity",
         estimatedPrice: "Estimated Price:",
@@ -245,75 +269,114 @@ const translations = {
         trackingTitle: "Order Tracking",
         trackingText:
             "If you have an order ID, enter it below.",
-        orderIdPlaceholder: "Enter Order ID",
+
+        orderIdPlaceholder:
+            "Enter Order ID",
+
         trackOrder: "Track Order",
 
         // Why choose us
-        whyChooseTitle: "Why Choose Makkah Laundry Service?",
-        makkahFocused: "Makkah Focused",
+        whyChooseTitle:
+            "Why Choose Makkah Laundry Service?",
+
+        makkahFocused:
+            "Makkah Focused",
+
         makkahFocusedText:
             "Our service is focused on customers staying in Makkah.",
 
-        hotelFriendly: "Hotel Friendly",
+        hotelFriendly:
+            "Hotel Friendly",
+
         hotelFriendlyText:
             "Convenient pickup and delivery for hotel guests.",
 
-        fastCommunication: "Fast Communication",
+        fastCommunication:
+            "Fast Communication",
+
         fastCommunicationText:
             "Easy communication through WhatsApp.",
 
-        convenientService: "Convenient Service",
+        convenientService:
+            "Convenient Service",
+
         convenientServiceText:
             "Send your laundry request without searching for a shop.",
 
         // Contact
-        contactTitle: "Contact Makkah Laundry Service",
+        contactTitle:
+            "Contact Makkah Laundry Service",
+
         contactText:
             "Contact us to check laundry pickup availability in Makkah.",
+
         whatsappTitle: "WhatsApp",
         callTitle: "Call",
         emailTitle: "Email",
         serviceAreaTitle: "Service Area",
 
-        // Final CTA
-        finalTitle: "Need Laundry Pickup in Makkah?",
+        // CTA
+        finalTitle:
+            "Need Laundry Pickup in Makkah?",
+
         finalText:
             "Send us your hotel name and room number on WhatsApp.",
-        finalButton: "Order Laundry on WhatsApp",
+
+        finalButton:
+            "Order Laundry on WhatsApp",
 
         // Footer
         quickLinks: "Quick Links",
+
         footerText:
             "Laundry pickup and delivery service in Makkah.",
-        privacy: "Privacy Policy",
-        terms: "Terms & Conditions",
+
+        privacy:
+            "Privacy Policy",
+
+        terms:
+            "Terms & Conditions",
+
         rights:
             "© 2026 Makkah Laundry Service. All Rights Reserved.",
 
         // Messages
         invalidQuantity:
             "Please enter a valid quantity.",
+
         enterOrderId:
             "Please enter your Order ID.",
+
         readyDelivery:
             "✅ Ready for Delivery",
+
         washing:
             "🧺 Washing in Progress",
+
         outDelivery:
             "🚚 Out for Delivery",
-        notFound:
-            "❌ Order ID Not Found"
 
+        notFound:
+            "❌ Order ID Not Found",
+
+        // Meta
+        metaTitle:
+            "Makkah Laundry Service | Laundry Pickup & Delivery Near Haram",
+
+        metaDescription:
+            "Makkah Laundry Service provides laundry pickup, washing, ironing, dry cleaning and hotel delivery in Makkah for pilgrims, visitors and hotel guests."
     },
 
 
+    // =====================================================
+    // ARABIC
+    // =====================================================
+
     ar: {
 
-        // Top bar
         support: "🟢 خدمة غسيل الملابس متاحة",
         whatsapp: "واتساب",
 
-        // Navigation
         home: "الرئيسية",
         services: "الخدمات",
         pricing: "الأسعار",
@@ -323,288 +386,437 @@ const translations = {
         contact: "اتصل بنا",
         orderNow: "اطلب الآن",
 
-        // Hero
-        eyebrow: "خدمة استلام وتوصيل الملابس في مكة",
+        eyebrow:
+            "خدمة استلام وتوصيل الملابس في مكة",
+
         heroTitle:
-            "خدمة غسيل الملابس في مكة بالقرب من برج الساعة",
+            "مغسلة ملابس في مكة بالقرب من برج الساعة",
+
         heroText:
-            "خدمة سريعة ومريحة لغسيل الملابس مع الاستلام والتوصيل في مكة للحجاج والزوار والمقيمين ونزلاء الفنادق.",
+            "خدمة سريعة ومريحة لغسيل الملابس مع الاستلام والتوصيل في مكة للحجاج والمعتمرين والزوار والمقيمين ونزلاء الفنادق.",
+
         heroServices:
             "غسيل وطي • كي الملابس • تنظيف جاف • استلام وتوصيل من الفندق",
-        orderWhatsApp: "اطلب عبر واتساب",
-        callNow: "اتصل الآن",
+
+        orderWhatsApp:
+            "اطلب عبر واتساب",
+
+        callNow:
+            "اتصل الآن",
+
         locationNote:
             "📍 نخدم مكة، بما في ذلك وسط مكة والمناطق القريبة من برج الساعة حسب توفر خدمة الاستلام.",
 
-        // Services
-        servicesTitle: "خدمات غسيل الملابس في مكة",
-        servicesText:
-            "حلول مريحة لغسيل الملابس لنزلاء الفنادق والحجاج والزوار والمقيمين في مكة.",
+        servicesTitle:
+            "خدمات غسيل الملابس في مكة",
 
-        washFold: "غسيل وطي الملابس",
+        servicesText:
+            "حلول مريحة لغسيل الملابس لنزلاء الفنادق والحجاج والمعتمرين والزوار والمقيمين في مكة.",
+
+        washFold:
+            "غسيل وطي الملابس",
+
         washFoldText:
             "غسيل وطي احترافي للملابس اليومية.",
 
-        ironing: "خدمة كي الملابس",
+        ironing:
+            "خدمة كي الملابس",
+
         ironingText:
             "كي مرتب ونظيف للثياب والقمصان والبناطيل وغيرها من الملابس.",
 
-        dryCleaning: "تنظيف جاف",
+        dryCleaning:
+            "تنظيف جاف",
+
         dryCleaningText:
-            "خدمة تنظيف جاف للملابس المناسبة.",
+            "خدمة تنظيف جاف للملابس المناسبة والملابس الخاصة.",
 
-        hotelPickup: "استلام وتوصيل من الفندق",
+        hotelPickup:
+            "استلام وتوصيل من الفندق",
+
         hotelPickupText:
-            "نستلم الملابس من الفنادق والمواقع المحددة ونعيدها بعد انتهاء الخدمة.",
+            "نستلم ملابسك من الفنادق والمواقع المحددة ونعيدها بعد انتهاء الخدمة.",
 
-        // SEO
-        seoTitle: "مغسلة ملابس في مكة – استلام وتوصيل",
+        seoTitle:
+            "مغسلة ملابس في مكة – استلام وتوصيل",
+
         seoText1:
-            "هل تبحث عن مغسلة ملابس في مكة؟ نقدم خدمة استلام وتوصيل الملابس لنزلاء الفنادق والحجاج والزوار والمقيمين.",
+            "هل تبحث عن مغسلة ملابس في مكة؟ نقدم خدمة استلام وتوصيل الملابس لنزلاء الفنادق والحجاج والمعتمرين والزوار والمقيمين.",
+
         seoText2:
-            "تشمل خدماتنا غسيل الملابس في مكة، الغسيل والطي، كي الملابس، التنظيف الجاف واستلام وتسليم الملابس.",
+            "تشمل خدماتنا غسيل الملابس في مكة، الغسيل والطي، كي الملابس، التنظيف الجاف واستلام وتوصيل الملابس.",
+
         seoHotelTitle:
             "مغسلة ملابس بالقرب من برج الساعة",
+
         seoHotelText:
             "إذا كنت تقيم بالقرب من برج الساعة أو في وسط مكة، يمكنك التواصل معنا عبر واتساب لمعرفة توفر خدمة الاستلام.",
+
         seoPilgrimTitle:
             "خدمة غسيل ملابس للحجاج والمعتمرين",
+
         seoPilgrimText:
             "يحتاج الحجاج والمعتمرون إلى ملابس نظيفة أثناء إقامتهم في مكة. نوفر خدمة الاستلام والتوصيل للغسيل والكي والتنظيف الجاف.",
+
         seoOrderTitle:
             "كيف تطلب خدمة غسيل الملابس في مكة؟",
+
         seoOrderText:
             "تواصل معنا عبر واتساب وأرسل اسم الفندق أو الموقع ورقم الغرفة ونوع الخدمة المطلوبة، وسنؤكد توفر الاستلام.",
 
-        // Pricing
-        pricingTitle: "أسعار غسيل الملابس في مكة",
+        pricingTitle:
+            "أسعار غسيل الملابس في مكة",
+
         pricingText:
             "أسعار تبدأ من الأسعار الموضحة. قد يختلف السعر النهائي حسب الكمية ونوع الملابس والخدمة المطلوبة.",
 
-        from15: "يبدأ من 15 ريال للكيس",
-        from5: "يبدأ من 5 ريال للقطعة",
-        from12: "يبدأ من 12 ريال للقطعة",
-        bookNow: "احجز الآن",
+        from15:
+            "يبدأ من 15 ريال للكيس",
 
-        // About
-        aboutTitle: "عن خدمة غسيل الملابس في مكة",
+        from5:
+            "يبدأ من 5 ريال للقطعة",
+
+        from12:
+            "يبدأ من 12 ريال للقطعة",
+
+        bookNow:
+            "احجز الآن",
+
+        aboutTitle:
+            "عن خدمة غسيل الملابس في مكة",
+
         aboutText1:
-            "مغسلة مكة هي خدمة مريحة لاستلام وتوصيل الملابس في مكة.",
+            "خدمة غسيل الملابس في مكة هي خدمة مريحة لاستلام وتوصيل الملابس في مكة.",
+
         aboutText2:
-            "نساعد نزلاء الفنادق والحجاج والزوار والمقيمين على إرسال واستلام ملابسهم دون الحاجة للبحث عن مغسلة.",
+            "نساعد نزلاء الفنادق والحجاج والمعتمرين والزوار والمقيمين على إرسال واستلام ملابسهم دون الحاجة للبحث عن مغسلة.",
+
         aboutText3:
             "تشمل خدماتنا الغسيل والطي، كي الملابس، التنظيف الجاف واستلام وتوصيل الملابس من الفنادق.",
-        checkAvailability: "تحقق من توفر الاستلام",
 
-        // Booking
-        bookingTitle: "حجز استلام الملابس في مكة",
+        checkAvailability:
+            "تحقق من توفر الاستلام",
+
+        bookingTitle:
+            "حجز استلام الملابس في مكة",
+
         bookingText:
             "أدخل بياناتك وأرسل طلب غسيل الملابس عبر واتساب.",
 
-        fullName: "الاسم الكامل",
-        fullNamePlaceholder: "اكتب اسمك",
+        fullName:
+            "الاسم الكامل",
 
-        hotelLocation: "الفندق / الموقع",
-        selectHotel: "اختر الفندق / الموقع",
+        fullNamePlaceholder:
+            "اكتب اسمك",
 
-        roomNumber: "رقم الغرفة",
-        roomPlaceholder: "رقم الغرفة",
+        hotelLocation:
+            "الفندق / الموقع",
 
-        phone: "رقم واتساب / الهاتف",
-        phonePlaceholder: "+966...",
+        selectHotel:
+            "اختر الفندق / الموقع",
 
-        service: "الخدمة",
-        selectService: "اختر الخدمة",
+        roomNumber:
+            "رقم الغرفة",
 
-        washFoldOption: "غسيل وطي – يبدأ من 15 ريال/كيس",
-        ironingOption: "كي الملابس – يبدأ من 5 ريال/قطعة",
-        dryCleaningOption: "تنظيف جاف – يبدأ من 12 ريال/قطعة",
-        washIronOption: "غسيل وطي + كي",
+        roomPlaceholder:
+            "رقم الغرفة",
 
-        serviceSpeed: "سرعة الخدمة",
-        normal: "عادي – 24 ساعة",
-        express: "سريع – حسب التوفر",
+        phone:
+            "رقم واتساب / الهاتف",
 
-        pickupDate: "تاريخ الاستلام",
-        pickupTime: "وقت الاستلام المفضل",
+        phonePlaceholder:
+            "+966...",
 
-        clothesType: "نوع الملابس",
+        service:
+            "الخدمة",
+
+        selectService:
+            "اختر الخدمة",
+
+        washFoldOption:
+            "غسيل وطي – يبدأ من 15 ريال/كيس",
+
+        ironingOption:
+            "كي الملابس – يبدأ من 5 ريال/قطعة",
+
+        dryCleaningOption:
+            "تنظيف جاف – يبدأ من 12 ريال/قطعة",
+
+        washIronOption:
+            "غسيل وطي + كي",
+
+        serviceSpeed:
+            "سرعة الخدمة",
+
+        normal:
+            "عادي – 24 ساعة",
+
+        express:
+            "سريع – حسب التوفر",
+
+        pickupDate:
+            "تاريخ الاستلام",
+
+        pickupTime:
+            "وقت الاستلام المفضل",
+
+        clothesType:
+            "نوع الملابس",
+
         clothesPlaceholder:
             "ثوب، قميص، بنطال، ملابس متنوعة...",
 
-        quantity: "الكمية",
-        quantityPlaceholder: "الكمية",
+        quantity:
+            "الكمية",
 
-        specialNote: "ملاحظة خاصة",
+        quantityPlaceholder:
+            "الكمية",
+
+        specialNote:
+            "ملاحظة خاصة",
+
         specialPlaceholder:
             "هل لديك تعليمات خاصة؟",
 
-        sendBooking: "إرسال الطلب عبر واتساب",
+        sendBooking:
+            "إرسال الطلب عبر واتساب",
 
         pickupAvailability:
             "قد يختلف توفر الاستلام حسب الموقع.",
 
-        // Trust
         whyCustomers:
             "لماذا يختار العملاء خدمة غسيل الملابس لدينا؟",
+
         whyCustomersText:
             "خدمة مريحة مصممة لنزلاء الفنادق والزوار في مكة.",
 
-        hotelPickupTitle: "استلام من الفندق",
+        hotelPickupTitle:
+            "استلام من الفندق",
+
         hotelPickupDescription:
             "استلام مريح من الفنادق والمواقع القريبة المحددة.",
 
-        flexibleTitle: "خدمة مرنة",
+        flexibleTitle:
+            "خدمة مرنة",
+
         flexibleDescription:
             "اختر الخدمة العادية أو اسأل عن توفر الخدمة السريعة.",
 
-        easyWhatsAppTitle: "حجز سهل عبر واتساب",
+        easyWhatsAppTitle:
+            "حجز سهل عبر واتساب",
+
         easyWhatsAppDescription:
             "تواصل معنا مباشرة وأرسل اسم الفندق وطلب الغسيل.",
 
-        makkahAreaTitle: "منطقة الخدمة في مكة",
+        makkahAreaTitle:
+            "منطقة الخدمة في مكة",
+
         makkahAreaDescription:
             "نخدم وسط مكة والمناطق القريبة من برج الساعة.",
 
-        // Hotels
-        hotelsTitle: "الفنادق القريبة من منطقة الاستلام في مكة",
+        hotelsTitle:
+            "الفنادق القريبة من منطقة الاستلام في مكة",
+
         hotelsText:
             "يعتمد توفر الاستلام على موقع الفندق والوقت وتفاصيل الطلب.",
+
         hotelNote:
             "يرجى التواصل معنا قبل الطلب لتأكيد توفر الاستلام من الفندق.",
 
-        // FAQ
-        faqTitle: "الأسئلة الشائعة",
+        faqTitle:
+            "الأسئلة الشائعة",
 
         faq1Question:
             "هل توفرون استلام الملابس من الفنادق في مكة؟",
+
         faq1Answer:
             "نعم، نوفر الاستلام والتوصيل من الفنادق والمواقع المحددة في مكة حسب الموقع ووقت الطلب.",
 
         faq2Question:
             "هل توجد خدمة غسيل ملابس بالقرب من برج الساعة؟",
+
         faq2Answer:
             "نعم، نخدم وسط مكة والمناطق القريبة من برج الساعة حسب توفر خدمة الاستلام.",
 
         faq3Question:
             "كم أسعار غسيل الملابس؟",
+
         faq3Answer:
             "يبدأ الغسيل والطي من 15 ريال للكيس، والكي من 5 ريال للقطعة، والتنظيف الجاف من 12 ريال للقطعة.",
 
         faq4Question:
             "هل توجد خدمة غسيل سريعة؟",
+
         faq4Answer:
             "قد تتوفر الخدمة السريعة حسب الطلب والموقع وضغط العمل. يرجى التواصل معنا عبر واتساب أولاً.",
 
         faq5Question:
             "كيف يمكنني طلب الخدمة؟",
+
         faq5Answer:
             "أرسل لنا عبر واتساب اسم الفندق ورقم الغرفة ورقم الهاتف ونوع خدمة الغسيل المطلوبة.",
 
         faq6Question:
             "هل توجد خدمة غسيل ملابس في مكة؟",
+
         faq6Answer:
             "نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل في مكة حسب الموقع والتوفر.",
 
-        // Gallery
-        galleryTitle: "خدمة غسيل الملابس لدينا",
+        galleryTitle:
+            "خدمة غسيل الملابس لدينا",
+
         galleryText:
             "غسيل، كي، تغليف وتوصيل.",
 
-        // Hours
-        hoursTitle: "ساعات العمل",
-        saturdayThursday: "السبت – الخميس:",
-        friday: "الجمعة:",
+        hoursTitle:
+            "ساعات العمل",
+
+        saturdayThursday:
+            "السبت – الخميس",
+
+        friday:
+            "الجمعة",
+
         hoursText:
             "يمكن إرسال طلبات واتساب في أي وقت. قد يختلف وقت الرد خارج ساعات العمل.",
 
-        // Quick actions
-        location: "الموقع",
-        call: "اتصال",
+        location:
+            "الموقع",
 
-        // Location
-        locationTitle: "موقع خدمة غسيل الملابس في مكة",
+        call:
+            "اتصال",
+
+        locationTitle:
+            "موقع خدمة غسيل الملابس في مكة",
+
         locationText:
             "نخدم مكة والمناطق القريبة في وسط المدينة.",
 
-        // Calculator
-        calculatorTitle: "حاسبة سعر غسيل الملابس",
+        calculatorTitle:
+            "حاسبة سعر غسيل الملابس",
+
         calculatorText:
             "احسب السعر التقديري المبدئي.",
-        calculatorService: "الخدمة",
-        calculatorQuantity: "الكمية",
-        estimatedPrice: "السعر التقديري:",
 
-        // Tracking
-        trackingTitle: "تتبع الطلب",
+        calculatorService:
+            "الخدمة",
+
+        calculatorQuantity:
+            "الكمية",
+
+        estimatedPrice:
+            "السعر التقديري:",
+
+        trackingTitle:
+            "تتبع الطلب",
+
         trackingText:
             "إذا كان لديك رقم طلب، أدخله أدناه.",
-        orderIdPlaceholder: "أدخل رقم الطلب",
-        trackOrder: "تتبع الطلب",
 
-        // Why choose us
-        whyChooseTitle: "لماذا تختار خدمة غسيل الملابس في مكة؟",
-        makkahFocused: "متخصصون في مكة",
+        orderIdPlaceholder:
+            "أدخل رقم الطلب",
+
+        trackOrder:
+            "تتبع الطلب",
+
+        whyChooseTitle:
+            "لماذا تختار خدمة غسيل الملابس في مكة؟",
+
+        makkahFocused:
+            "متخصصون في مكة",
+
         makkahFocusedText:
             "خدمتنا مخصصة للعملاء المقيمين والزائرين في مكة.",
 
-        hotelFriendly: "مناسب للفنادق",
+        hotelFriendly:
+            "مناسب للفنادق",
+
         hotelFriendlyText:
             "استلام وتوصيل مريح لنزلاء الفنادق.",
 
-        fastCommunication: "تواصل سريع",
-        fastCommunicationText:
-            "تواصل سهل عبر واتساب.",
+        fastCommunication:
+            "تواصل سريع",
 
-        convenientService: "خدمة مريحة",
+        fastCommunicationText:
+            "تواصل سهل وسريع عبر واتساب.",
+
+        convenientService:
+            "خدمة مريحة",
+
         convenientServiceText:
             "أرسل طلب الغسيل دون الحاجة للبحث عن مغسلة.",
 
-        // Contact
-        contactTitle: "تواصل مع خدمة غسيل الملابس في مكة",
+        contactTitle:
+            "تواصل مع خدمة غسيل الملابس في مكة",
+
         contactText:
             "تواصل معنا لمعرفة توفر خدمة استلام الملابس في مكة.",
-        whatsappTitle: "واتساب",
-        callTitle: "اتصال",
-        emailTitle: "البريد الإلكتروني",
-        serviceAreaTitle: "منطقة الخدمة",
 
-        // Final CTA
-        finalTitle: "تحتاج خدمة استلام الملابس في مكة؟",
+        whatsappTitle:
+            "واتساب",
+
+        callTitle:
+            "اتصال",
+
+        emailTitle:
+            "البريد الإلكتروني",
+
+        serviceAreaTitle:
+            "منطقة الخدمة",
+
+        finalTitle:
+            "تحتاج خدمة استلام الملابس في مكة؟",
+
         finalText:
             "أرسل اسم الفندق ورقم الغرفة عبر واتساب.",
-        finalButton: "اطلب غسيل الملابس عبر واتساب",
 
-        // Footer
-        quickLinks: "روابط سريعة",
+        finalButton:
+            "اطلب غسيل الملابس عبر واتساب",
+
+        quickLinks:
+            "روابط سريعة",
+
         footerText:
             "خدمة استلام وتوصيل الملابس في مكة.",
-        privacy: "سياسة الخصوصية",
-        terms: "الشروط والأحكام",
+
+        privacy:
+            "سياسة الخصوصية",
+
+        terms:
+            "الشروط والأحكام",
+
         rights:
             "© 2026 خدمة غسيل الملابس في مكة. جميع الحقوق محفوظة.",
 
-        // Messages
         invalidQuantity:
             "يرجى إدخال كمية صحيحة.",
+
         enterOrderId:
             "يرجى إدخال رقم الطلب.",
+
         readyDelivery:
             "✅ جاهز للتوصيل",
+
         washing:
             "🧺 جاري غسل الملابس",
+
         outDelivery:
             "🚚 خرج للتوصيل",
+
         notFound:
-            "❌ رقم الطلب غير موجود"
+            "❌ رقم الطلب غير موجود",
 
+        metaTitle:
+            "مغسلة ملابس مكة | استلام وتوصيل الملابس بالقرب من الحرم",
+
+        metaDescription:
+            "خدمة غسيل الملابس في مكة مع الاستلام والتوصيل، الغسيل والطي، كي الملابس والتنظيف الجاف للحجاج والمعتمرين والزوار ونزلاء الفنادق."
     }
-
 };
 
 
 // =========================================================
-// DOM READY
+// PAGE LOAD
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -619,7 +831,13 @@ document.addEventListener("DOMContentLoaded", function () {
     setupPickupDate();
     setupCalculator();
     setupTracking();
+    setupWhatsAppButtons();
 
+    // Apply saved language
+    const savedLanguage =
+        localStorage.getItem(LANGUAGE_STORAGE_KEY) || "en";
+
+    applyLanguage(savedLanguage);
 });
 
 
@@ -629,8 +847,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setupMobileMenu() {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mainNav =
+        document.getElementById("mainNav");
 
     if (!menuToggle || !mainNav) {
         return;
@@ -644,35 +865,21 @@ function setupMobileMenu() {
         const isOpen =
             mainNav.classList.toggle("active");
 
-        if (isOpen) {
+        menuToggle.textContent =
+            isOpen ? "✕" : "☰";
 
-            menuToggle.textContent = "✕";
-            menuToggle.setAttribute(
-                "aria-label",
-                "Close Menu"
-            );
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close Menu" : "Open Menu"
+        );
 
-            document.body.classList.add("menu-open");
-
-        } else {
-
-            menuToggle.textContent = "☰";
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open Menu"
-            );
-
-            document.body.classList.remove("menu-open");
-
-        }
-
+        document.body.classList.toggle(
+            "menu-open",
+            isOpen
+        );
     });
 
-
-    const navLinks =
-        mainNav.querySelectorAll("a");
-
-    navLinks.forEach(function (link) {
+    mainNav.querySelectorAll("a").forEach(function (link) {
 
         link.addEventListener("click", function () {
 
@@ -688,11 +895,9 @@ function setupMobileMenu() {
             document.body.classList.remove(
                 "menu-open"
             );
-
         });
 
     });
-
 }
 
 
@@ -702,218 +907,44 @@ function setupMobileMenu() {
 
 function setupSmoothScroll() {
 
-    const smoothLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                const targetID =
+                    this.getAttribute("href");
+
+                if (
+                    !targetID ||
+                    targetID === "#"
+                ) {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(targetID);
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            }
         );
-
-    smoothLinks.forEach(function (link) {
-
-        link.addEventListener("click", function (event) {
-
-            const targetID =
-                this.getAttribute("href");
-
-            if (!targetID || targetID === "#") {
-                return;
-            }
-
-            const target =
-                document.querySelector(targetID);
-
-            if (target) {
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-
-        });
-
     });
-
 }
 
 
 // =========================================================
-// BOOKING FORM → WHATSAPP
-// =========================================================
-
-function setupBookingForm() {
-
-    const bookingForm =
-        document.getElementById("bookingForm");
-
-    if (!bookingForm) {
-        return;
-    }
-
-
-    bookingForm.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
-
-
-            const fullName =
-                document.getElementById(
-                    "fullName"
-                )?.value.trim() || "";
-
-
-            const hotel =
-                document.getElementById(
-                    "hotelName"
-                )?.value || "";
-
-
-            const room =
-                document.getElementById(
-                    "roomNumber"
-                )?.value.trim() || "";
-
-
-            const phone =
-                document.getElementById(
-                    "customerPhone"
-                )?.value.trim() || "";
-
-
-            const service =
-                document.getElementById(
-                    "service"
-                )?.value || "";
-
-
-            const speed =
-                document.getElementById(
-                    "serviceSpeed"
-                )?.value || "";
-
-
-            const pickupDate =
-                document.getElementById(
-                    "pickupDate"
-                )?.value || "";
-
-
-            const pickupTime =
-                document.getElementById(
-                    "pickupTime"
-                )?.value || "";
-
-
-            const clothes =
-                document.getElementById(
-                    "clothesType"
-                )?.value || "";
-
-
-            const quantity =
-                document.getElementById(
-                    "clothQty"
-                )?.value || "1";
-
-
-            const note =
-                document.getElementById(
-                    "specialNote"
-                )?.value.trim() || "";
-
-
-            const currentLanguage =
-                document.documentElement.lang === "ar"
-                    ? "ar"
-                    : "en";
-
-
-            let message;
-
-
-            if (currentLanguage === "ar") {
-
-                message =
-`🧺 *طلب غسيل ملابس جديد*
-
-👤 الاسم: ${fullName}
-
-🏨 الفندق: ${hotel}
-
-🚪 رقم الغرفة: ${room}
-
-📱 رقم العميل: ${phone}
-
-🧼 الخدمة: ${service}
-
-⚡ سرعة الخدمة: ${speed}
-
-📅 تاريخ الاستلام: ${pickupDate}
-
-🕒 وقت الاستلام: ${pickupTime}
-
-👕 نوع الملابس: ${clothes}
-
-🔢 الكمية: ${quantity}
-
-📝 ملاحظات:
-${note || "لا توجد"}`;
-
-            } else {
-
-                message =
-`🧺 *NEW LAUNDRY ORDER*
-
-👤 Name: ${fullName}
-
-🏨 Hotel: ${hotel}
-
-🚪 Room: ${room}
-
-📱 Customer Phone: ${phone}
-
-🧼 Service: ${service}
-
-⚡ Speed: ${speed}
-
-📅 Pickup Date: ${pickupDate}
-
-🕒 Pickup Time: ${pickupTime}
-
-👕 Clothes: ${clothes}
-
-🔢 Quantity: ${quantity}
-
-📝 Special Instructions:
-${note || "None"}`;
-
-            }
-
-
-            const whatsappURL =
-                "https://wa.me/" +
-                WHATSAPP_NUMBER +
-                "?text=" +
-                encodeURIComponent(message);
-
-
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
-
-        }
-    );
-
-}
-
-
-// =========================================================
-// LANGUAGE SYSTEM
+// LANGUAGE BUTTON
 // =========================================================
 
 function setupLanguage() {
@@ -922,42 +953,34 @@ function setupLanguage() {
         document.getElementById("langBtn");
 
     if (!langBtn) {
+        console.warn(
+            "Language button #langBtn not found."
+        );
         return;
     }
-
-
-    let currentLanguage =
-        localStorage.getItem(
-            "makkahLaundryLanguage"
-        ) || "en";
-
-
-    applyLanguage(currentLanguage);
-
 
     langBtn.addEventListener(
         "click",
         function () {
 
-            currentLanguage =
-                currentLanguage === "en"
+            const current =
+                document.documentElement.lang === "ar"
                     ? "ar"
                     : "en";
 
+            const newLanguage =
+                current === "ar"
+                    ? "en"
+                    : "ar";
 
             localStorage.setItem(
-                "makkahLaundryLanguage",
-                currentLanguage
+                LANGUAGE_STORAGE_KEY,
+                newLanguage
             );
 
-
-            applyLanguage(
-                currentLanguage
-            );
-
+            applyLanguage(newLanguage);
         }
     );
-
 }
 
 
@@ -974,30 +997,33 @@ function applyLanguage(language) {
         return;
     }
 
-
     const isArabic =
         language === "ar";
 
+    // -----------------------------------------------------
+    // HTML LANGUAGE
+    // -----------------------------------------------------
 
     document.documentElement.lang =
         language;
 
-
     document.documentElement.dir =
-        isArabic
-            ? "rtl"
-            : "ltr";
-
+        isArabic ? "rtl" : "ltr";
 
     document.body.dir =
-        isArabic
-            ? "rtl"
-            : "ltr";
+        isArabic ? "rtl" : "ltr";
 
+    document.body.classList.toggle(
+        "arabic-mode",
+        isArabic
+    );
+
+    // -----------------------------------------------------
+    // LANGUAGE BUTTON
+    // -----------------------------------------------------
 
     const langBtn =
         document.getElementById("langBtn");
-
 
     if (langBtn) {
 
@@ -1006,82 +1032,27 @@ function applyLanguage(language) {
                 ? "English"
                 : "العربية";
 
-    }
-
-
-    // -----------------------------------------------------
-    // HELPER FUNCTIONS
-    // -----------------------------------------------------
-
-    function text(selector, value) {
-
-        const element =
-            document.querySelector(selector);
-
-        if (element) {
-            element.textContent = value;
-        }
-
-    }
-
-
-    function html(selector, value) {
-
-        const element =
-            document.querySelector(selector);
-
-        if (element) {
-            element.innerHTML = value;
-        }
-
-    }
-
-
-    function placeholder(selector, value) {
-
-        const element =
-            document.querySelector(selector);
-
-        if (element) {
-            element.placeholder = value;
-        }
-
-    }
-
-
-    function allText(selector, values) {
-
-        const elements =
-            document.querySelectorAll(selector);
-
-        elements.forEach(
-            function (element, index) {
-
-                if (values[index] !== undefined) {
-                    element.textContent =
-                        values[index];
-                }
-
-            }
+        langBtn.setAttribute(
+            "aria-label",
+            isArabic
+                ? "Switch to English"
+                : "التبديل إلى العربية"
         );
-
     }
-
 
     // -----------------------------------------------------
     // TOP BAR
     // -----------------------------------------------------
 
-    const topBarSpans =
-        document.querySelectorAll(
+    const topSpan =
+        document.querySelector(
             ".top-bar .container > span"
         );
 
-    if (topBarSpans[0]) {
-        topBarSpans[0].textContent =
+    if (topSpan) {
+        topSpan.textContent =
             t.support;
     }
-
 
     // -----------------------------------------------------
     // NAVIGATION
@@ -1089,22 +1060,27 @@ function applyLanguage(language) {
 
     const navLinks =
         document.querySelectorAll(
-            ".nav a"
+            "#mainNav a, .nav a"
         );
 
+    const navTexts = [
+        t.home,
+        t.services,
+        t.pricing,
+        t.bookPickup,
+        t.hotels,
+        t.faq,
+        t.contact
+    ];
 
-    if (navLinks.length >= 7) {
+    navLinks.forEach(function (link, index) {
 
-        navLinks[0].textContent = t.home;
-        navLinks[1].textContent = t.services;
-        navLinks[2].textContent = t.pricing;
-        navLinks[3].textContent = t.bookPickup;
-        navLinks[4].textContent = t.hotels;
-        navLinks[5].textContent = t.faq;
-        navLinks[6].textContent = t.contact;
+        if (navTexts[index]) {
+            link.textContent =
+                navTexts[index];
+        }
 
-    }
-
+    });
 
     const orderButton =
         document.querySelector(
@@ -1116,473 +1092,431 @@ function applyLanguage(language) {
             t.orderNow;
     }
 
-
     // -----------------------------------------------------
     // HERO
     // -----------------------------------------------------
 
-    text(
+    setText(
         ".hero .eyebrow",
         t.eyebrow
     );
 
-
-    html(
+    setText(
         ".hero h1",
         t.heroTitle
     );
-
 
     const heroParagraphs =
         document.querySelectorAll(
             ".hero-content > p"
         );
 
-
-    if (heroParagraphs[1]) {
-        heroParagraphs[1].textContent =
+    if (heroParagraphs[0]) {
+        heroParagraphs[0].textContent =
             t.heroText;
     }
 
-
-    if (heroParagraphs[2]) {
-        heroParagraphs[2].textContent =
+    if (heroParagraphs[1]) {
+        heroParagraphs[1].textContent =
             t.heroServices;
     }
 
-
-    if (heroParagraphs[3]) {
-        heroParagraphs[3].textContent =
+    if (heroParagraphs[2]) {
+        heroParagraphs[2].textContent =
             t.locationNote;
     }
-
 
     const heroButtons =
         document.querySelectorAll(
             ".hero-buttons .btn"
         );
 
-
     if (heroButtons[0]) {
 
         heroButtons[0].innerHTML =
             '<i class="fa-brands fa-whatsapp"></i> ' +
             t.orderWhatsApp;
-
     }
-
 
     if (heroButtons[1]) {
 
         heroButtons[1].innerHTML =
             '<i class="fa-solid fa-phone"></i> ' +
             t.callNow;
-
     }
-
 
     // -----------------------------------------------------
     // SERVICES
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#services .section-heading h2",
         t.servicesTitle
     );
 
-
-    text(
+    setText(
         "#services .section-heading p",
         t.servicesText
     );
-
 
     const serviceCards =
         document.querySelectorAll(
             "#services .service-card"
         );
 
+    const serviceData = [
 
-    if (serviceCards.length >= 4) {
+        [
+            t.washFold,
+            t.washFoldText
+        ],
 
-        serviceCards[0].querySelector("h3").textContent =
-            t.washFold;
+        [
+            t.ironing,
+            t.ironingText
+        ],
 
-        serviceCards[0].querySelector("p").textContent =
-            t.washFoldText;
+        [
+            t.dryCleaning,
+            t.dryCleaningText
+        ],
 
+        [
+            t.hotelPickup,
+            t.hotelPickupText
+        ]
+    ];
 
-        serviceCards[1].querySelector("h3").textContent =
-            t.ironing;
+    serviceCards.forEach(
+        function (card, index) {
 
-        serviceCards[1].querySelector("p").textContent =
-            t.ironingText;
+            if (!serviceData[index]) {
+                return;
+            }
 
+            const h3 =
+                card.querySelector("h3");
 
-        serviceCards[2].querySelector("h3").textContent =
-            t.dryCleaning;
+            const p =
+                card.querySelector("p");
 
-        serviceCards[2].querySelector("p").textContent =
-            t.dryCleaningText;
+            if (h3) {
+                h3.textContent =
+                    serviceData[index][0];
+            }
 
-
-        serviceCards[3].querySelector("h3").textContent =
-            t.hotelPickup;
-
-        serviceCards[3].querySelector("p").textContent =
-            t.hotelPickupText;
-
-    }
-
+            if (p) {
+                p.textContent =
+                    serviceData[index][1];
+            }
+        }
+    );
 
     // -----------------------------------------------------
-    // SEO CONTENT
+    // SEO
     // -----------------------------------------------------
 
-    const seoSections =
-        document.querySelectorAll(
+    const seo =
+        document.querySelector(
             ".seo-content"
         );
 
+    if (seo) {
 
-    if (seoSections[0]) {
+        const h2 =
+            seo.querySelector("h2");
 
-        seoSections[0].querySelector("h2").textContent =
-            t.seoTitle;
+        const h3 =
+            seo.querySelectorAll("h3");
 
+        const p =
+            seo.querySelectorAll("p");
 
-        const paragraphs =
-            seoSections[0].querySelectorAll("p");
-
-
-        if (paragraphs[0])
-            paragraphs[0].textContent =
-                t.seoText1;
-
-
-        if (paragraphs[1])
-            paragraphs[1].textContent =
-                t.seoText2;
-
-
-        const headings =
-            seoSections[0].querySelectorAll("h3");
-
-
-        if (headings[0])
-            headings[0].textContent =
-                t.seoHotelTitle;
-
-
-        if (paragraphs[2])
-            paragraphs[2].textContent =
-                t.seoHotelText;
-
-
-        if (headings[1])
-            headings[1].textContent =
-                t.seoPilgrimTitle;
-
-
-        if (paragraphs[3])
-            paragraphs[3].textContent =
-                t.seoPilgrimText;
-
-
-        if (headings[2])
-            headings[2].textContent =
-                t.seoOrderTitle;
-
-
-        if (paragraphs[4])
-            paragraphs[4].textContent =
-                t.seoOrderText;
-
-    }
-
-
-    // -----------------------------------------------------
-    // ARABIC SEO SECTION
-    // -----------------------------------------------------
-
-    const arabicSeo =
-        document.querySelector(
-            ".arabic-seo"
-        );
-
-
-    if (arabicSeo) {
-
-        if (language === "ar") {
-
-            arabicSeo.style.display =
-                "block";
-
-        } else {
-
-            arabicSeo.style.display =
-                "none";
-
+        if (h2) {
+            h2.textContent =
+                t.seoTitle;
         }
 
-    }
+        if (p[0]) {
+            p[0].textContent =
+                t.seoText1;
+        }
 
+        if (p[1]) {
+            p[1].textContent =
+                t.seoText2;
+        }
+
+        if (h3[0]) {
+            h3[0].textContent =
+                t.seoHotelTitle;
+        }
+
+        if (p[2]) {
+            p[2].textContent =
+                t.seoHotelText;
+        }
+
+        if (h3[1]) {
+            h3[1].textContent =
+                t.seoPilgrimTitle;
+        }
+
+        if (p[3]) {
+            p[3].textContent =
+                t.seoPilgrimText;
+        }
+
+        if (h3[2]) {
+            h3[2].textContent =
+                t.seoOrderTitle;
+        }
+
+        if (p[4]) {
+            p[4].textContent =
+                t.seoOrderText;
+        }
+    }
 
     // -----------------------------------------------------
     // PRICING
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#pricing .section-heading h2",
         t.pricingTitle
     );
 
-
-    text(
+    setText(
         "#pricing .section-heading p",
         t.pricingText
     );
-
 
     const priceCards =
         document.querySelectorAll(
             "#pricing .price-card"
         );
 
+    const priceData = [
 
-    if (priceCards.length >= 3) {
+        [
+            t.washFold,
+            t.from15
+        ],
 
-        priceCards[0].querySelector("h3").textContent =
-            t.washFold;
+        [
+            t.ironing,
+            t.from5
+        ],
 
-        priceCards[0].querySelector("p").textContent =
-            t.from15;
+        [
+            t.dryCleaning,
+            t.from12
+        ]
+    ];
 
-        priceCards[0].querySelector("a").textContent =
-            t.bookNow;
+    priceCards.forEach(
+        function (card, index) {
 
+            if (!priceData[index]) {
+                return;
+            }
 
-        priceCards[1].querySelector("h3").textContent =
-            t.ironing;
+            const h3 =
+                card.querySelector("h3");
 
-        priceCards[1].querySelector("p").textContent =
-            t.from5;
+            const p =
+                card.querySelector("p");
 
-        priceCards[1].querySelector("a").textContent =
-            t.bookNow;
+            const a =
+                card.querySelector("a");
 
+            if (h3) {
+                h3.textContent =
+                    priceData[index][0];
+            }
 
-        priceCards[2].querySelector("h3").textContent =
-            t.dryCleaning;
+            if (p) {
+                p.textContent =
+                    priceData[index][1];
+            }
 
-        priceCards[2].querySelector("p").textContent =
-            t.from12;
-
-        priceCards[2].querySelector("a").textContent =
-            t.bookNow;
-
-    }
-
+            if (a) {
+                a.textContent =
+                    t.bookNow;
+            }
+        }
+    );
 
     // -----------------------------------------------------
     // ABOUT
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#about h2",
         t.aboutTitle
     );
 
-
-    const aboutParagraphs =
+    const aboutP =
         document.querySelectorAll(
             "#about p"
         );
 
-
-    if (aboutParagraphs[0])
-        aboutParagraphs[0].textContent =
+    if (aboutP[0])
+        aboutP[0].textContent =
             t.aboutText1;
 
-
-    if (aboutParagraphs[1])
-        aboutParagraphs[1].textContent =
+    if (aboutP[1])
+        aboutP[1].textContent =
             t.aboutText2;
 
-
-    if (aboutParagraphs[2])
-        aboutParagraphs[2].textContent =
+    if (aboutP[2])
+        aboutP[2].textContent =
             t.aboutText3;
 
-
-    const aboutButton =
-        document.querySelector(
-            "#about .btn"
-        );
-
-
-    if (aboutButton)
-        aboutButton.textContent =
-            t.checkAvailability;
-
+    setText(
+        "#about .btn",
+        t.checkAvailability
+    );
 
     // -----------------------------------------------------
-    // BOOKING
+    // BOOKING FORM
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#booking .section-heading h2",
         t.bookingTitle
     );
 
-
-    text(
+    setText(
         "#booking .section-heading p",
         t.bookingText
     );
-
 
     const bookingLabels =
         document.querySelectorAll(
             "#bookingForm label"
         );
 
+    const labels = [
 
-    if (bookingLabels.length >= 10) {
+        t.fullName,
+        t.hotelLocation,
+        t.roomNumber,
+        t.phone,
+        t.service,
+        t.serviceSpeed,
+        t.pickupDate,
+        t.pickupTime,
+        t.clothesType,
+        t.quantity
+    ];
 
-        bookingLabels[0].textContent =
-            t.fullName;
+    bookingLabels.forEach(
+        function (label, index) {
 
-        bookingLabels[1].textContent =
-            t.hotelLocation;
+            if (labels[index]) {
+                label.textContent =
+                    labels[index];
+            }
+        }
+    );
 
-        bookingLabels[2].textContent =
-            t.roomNumber;
+    setText(
+        'label[for="specialNote"]',
+        t.specialNote
+    );
 
-        bookingLabels[3].textContent =
-            t.phone;
-
-        bookingLabels[4].textContent =
-            t.service;
-
-        bookingLabels[5].textContent =
-            t.serviceSpeed;
-
-        bookingLabels[6].textContent =
-            t.pickupDate;
-
-        bookingLabels[7].textContent =
-            t.pickupTime;
-
-        bookingLabels[8].textContent =
-            t.clothesType;
-
-        bookingLabels[9].textContent =
-            t.quantity;
-
-    }
-
-
-    const specialNoteLabel =
-        document.querySelector(
-            'label[for="specialNote"]'
-        );
-
-
-    if (specialNoteLabel) {
-        specialNoteLabel.textContent =
-            t.specialNote;
-    }
-
-
-    placeholder(
+    setPlaceholder(
         "#fullName",
         t.fullNamePlaceholder
     );
 
-
-    placeholder(
+    setPlaceholder(
         "#roomNumber",
         t.roomPlaceholder
     );
 
-
-    placeholder(
+    setPlaceholder(
         "#customerPhone",
         t.phonePlaceholder
     );
 
-
-    placeholder(
+    setPlaceholder(
         "#clothesType",
         t.clothesPlaceholder
     );
 
-
-    placeholder(
+    setPlaceholder(
         "#clothQty",
         t.quantityPlaceholder
     );
 
-
-    placeholder(
+    setPlaceholder(
         "#specialNote",
         t.specialPlaceholder
     );
 
+    // -----------------------------------------------------
+    // HOTEL SELECT
+    // -----------------------------------------------------
 
-    // Hotel select
     const hotelSelect =
         document.getElementById(
             "hotelName"
         );
 
-
     if (hotelSelect) {
 
-        hotelSelect.options[0].text =
-            t.selectHotel;
+        if (hotelSelect.options[0]) {
 
+            hotelSelect.options[0].text =
+                t.selectHotel;
+        }
     }
 
+    // -----------------------------------------------------
+    // SERVICE SELECT
+    // -----------------------------------------------------
 
-    // Service select
     const serviceSelect =
         document.getElementById(
             "service"
         );
 
-
     if (serviceSelect) {
 
-        serviceSelect.options[0].text =
-            t.selectService;
+        const options = [
 
-        if (serviceSelect.options[1])
-            serviceSelect.options[1].text =
-                t.washFoldOption;
+            t.selectService,
+            t.washFoldOption,
+            t.ironingOption,
+            t.dryCleaningOption,
+            t.washIronOption
+        ];
 
-        if (serviceSelect.options[2])
-            serviceSelect.options[2].text =
-                t.ironingOption;
+        options.forEach(
+            function (value, index) {
 
-        if (serviceSelect.options[3])
-            serviceSelect.options[3].text =
-                t.dryCleaningOption;
+                if (
+                    serviceSelect.options[index]
+                ) {
 
-        if (serviceSelect.options[4])
-            serviceSelect.options[4].text =
-                t.washIronOption;
-
+                    serviceSelect.options[index].text =
+                        value;
+                }
+            }
+        );
     }
 
+    // -----------------------------------------------------
+    // SPEED SELECT
+    // -----------------------------------------------------
 
-    // Speed select
     const speedSelect =
         document.getElementById(
             "serviceSpeed"
         );
-
 
     if (speedSelect) {
 
@@ -1593,140 +1527,74 @@ function applyLanguage(language) {
         if (speedSelect.options[1])
             speedSelect.options[1].text =
                 t.express;
-
     }
 
+    // -----------------------------------------------------
+    // BOOKING NOTE
+    // -----------------------------------------------------
 
-    const pickupAvailabilityText =
+    const bookingNote =
         document.querySelector(
+            "#bookingForm .hotel-note, " +
             "#hotelName + .hotel-note"
         );
 
-
-    if (pickupAvailabilityText) {
-        pickupAvailabilityText.textContent =
+    if (bookingNote) {
+        bookingNote.textContent =
             t.pickupAvailability;
     }
 
+    // -----------------------------------------------------
+    // BOOKING BUTTON
+    // -----------------------------------------------------
 
     const bookingButton =
         document.querySelector(
             "#bookingForm button[type='submit']"
         );
 
-
     if (bookingButton) {
 
         bookingButton.innerHTML =
             '<i class="fa-brands fa-whatsapp"></i> ' +
             t.sendBooking;
-
     }
-
-
-    // -----------------------------------------------------
-    // WHY CUSTOMERS
-    // -----------------------------------------------------
-
-    const trustHeading =
-        document.querySelector(
-            ".section-heading h2"
-        );
-
-
-    // Find section by its cards instead of generic heading
-    const allSections =
-        document.querySelectorAll(
-            "section"
-        );
-
-
-    allSections.forEach(
-        function (section) {
-
-            const heading =
-                section.querySelector(
-                    ".section-heading h2"
-                );
-
-            if (!heading) {
-                return;
-            }
-
-
-            if (
-                heading.textContent.includes(
-                    "Why Customers"
-                ) ||
-                heading.textContent.includes(
-                    "لماذا يختار"
-                )
-            ) {
-
-                heading.textContent =
-                    t.whyCustomers;
-
-                const p =
-                    section.querySelector(
-                        ".section-heading p"
-                    );
-
-                if (p) {
-                    p.textContent =
-                        t.whyCustomersText;
-                }
-
-            }
-
-        }
-    );
-
 
     // -----------------------------------------------------
     // HOTELS
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#hotels .section-heading h2",
         t.hotelsTitle
     );
 
-
-    text(
+    setText(
         "#hotels .section-heading p",
         t.hotelsText
     );
 
-
-    const hotelNote =
-        document.querySelector(
-            "#hotels .hotel-note"
-        );
-
-
-    if (hotelNote) {
-        hotelNote.textContent =
-            t.hotelNote;
-    }
-
+    setText(
+        "#hotels .hotel-note",
+        t.hotelNote
+    );
 
     // -----------------------------------------------------
     // FAQ
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#faq .section-heading h2",
         t.faqTitle
     );
-
 
     const faqDetails =
         document.querySelectorAll(
             "#faq details"
         );
 
+    const questions = [
 
-    const faqQuestions = [
         t.faq1Question,
         t.faq2Question,
         t.faq3Question,
@@ -1735,8 +1603,8 @@ function applyLanguage(language) {
         t.faq6Question
     ];
 
+    const answers = [
 
-    const faqAnswers = [
         t.faq1Answer,
         t.faq2Answer,
         t.faq3Answer,
@@ -1745,58 +1613,44 @@ function applyLanguage(language) {
         t.faq6Answer
     ];
 
-
     faqDetails.forEach(
         function (detail, index) {
 
-            if (faqQuestions[index]) {
+            const summary =
+                detail.querySelector(
+                    "summary"
+                );
 
-                const summary =
-                    detail.querySelector(
-                        "summary"
-                    );
+            const answer =
+                detail.querySelector(
+                    "p"
+                );
 
-                if (summary) {
-                    summary.textContent =
-                        faqQuestions[index];
-                }
-
+            if (summary && questions[index]) {
+                summary.textContent =
+                    questions[index];
             }
 
-
-            if (faqAnswers[index]) {
-
-                const answer =
-                    detail.querySelector(
-                        "p"
-                    );
-
-                if (answer) {
-                    answer.textContent =
-                        faqAnswers[index];
-                }
-
+            if (answer && answers[index]) {
+                answer.textContent =
+                    answers[index];
             }
-
         }
     );
-
 
     // -----------------------------------------------------
     // GALLERY
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#gallery .section-heading h2",
         t.galleryTitle
     );
 
-
-    text(
+    setText(
         "#gallery .section-heading p",
         t.galleryText
     );
-
 
     // -----------------------------------------------------
     // HOURS
@@ -1807,7 +1661,6 @@ function applyLanguage(language) {
             ".hours"
         );
 
-
     if (hoursSection) {
 
         const paragraphs =
@@ -1815,40 +1668,28 @@ function applyLanguage(language) {
                 "p"
             );
 
-
         if (paragraphs[0]) {
 
             paragraphs[0].innerHTML =
                 "<strong>" +
-                t.saturdayThursday.replace(
-                    ":",
-                    ""
-                ) +
+                t.saturdayThursday +
                 ":</strong> 08:00 – 23:00";
-
         }
-
 
         if (paragraphs[1]) {
 
             paragraphs[1].innerHTML =
                 "<strong>" +
-                t.friday.replace(
-                    ":",
-                    ""
-                ) +
+                t.friday +
                 ":</strong> 14:00 – 23:00";
-
         }
 
-
         if (paragraphs[2]) {
+
             paragraphs[2].textContent =
                 t.hoursText;
         }
-
     }
-
 
     // -----------------------------------------------------
     // QUICK ACTIONS
@@ -1859,120 +1700,110 @@ function applyLanguage(language) {
             ".quick-actions .btn"
         );
 
-
-    if (quickButtons.length >= 3) {
+    if (quickButtons[0]) {
 
         quickButtons[0].innerHTML =
             '<i class="fa-brands fa-whatsapp"></i> ' +
             t.whatsapp;
+    }
+
+    if (quickButtons[1]) {
 
         quickButtons[1].innerHTML =
             '<i class="fa-solid fa-phone"></i> ' +
             t.call;
+    }
+
+    if (quickButtons[2]) {
 
         quickButtons[2].innerHTML =
             '<i class="fa-solid fa-location-dot"></i> ' +
             t.location;
-
     }
-
 
     // -----------------------------------------------------
     // LOCATION
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#location .section-heading h2",
         t.locationTitle
     );
 
-
-    text(
+    setText(
         "#location .section-heading p",
         t.locationText
     );
-
 
     // -----------------------------------------------------
     // CALCULATOR
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#calculator .section-heading h2",
         t.calculatorTitle
     );
 
-
-    text(
+    setText(
         "#calculator .section-heading p",
         t.calculatorText
     );
-
 
     const calculatorLabels =
         document.querySelectorAll(
             "#calculator label"
         );
 
-
     if (calculatorLabels[0])
         calculatorLabels[0].textContent =
             t.calculatorService;
 
-
     if (calculatorLabels[1])
         calculatorLabels[1].textContent =
             t.calculatorQuantity;
-
 
     const calculatorResult =
         document.querySelector(
             ".calculator-result"
         );
 
-
     if (calculatorResult) {
+
+        const currentResult =
+            document.getElementById(
+                "calcResult"
+            )?.textContent || "15";
 
         calculatorResult.innerHTML =
             t.estimatedPrice +
-            ' <strong><span id="calcResult">15</span> SAR</strong>';
-
+            ' <strong><span id="calcResult">' +
+            currentResult +
+            '</span> SAR</strong>';
     }
-
 
     // -----------------------------------------------------
     // TRACKING
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#tracking .section-heading h2",
         t.trackingTitle
     );
 
-
-    text(
+    setText(
         "#tracking .section-heading p",
         t.trackingText
     );
 
-
-    placeholder(
+    setPlaceholder(
         "#orderId",
         t.orderIdPlaceholder
     );
 
-
-    const trackButton =
-        document.getElementById(
-            "trackOrder"
-        );
-
-
-    if (trackButton) {
-        trackButton.textContent =
-            t.trackOrder;
-    }
-
+    setText(
+        "#trackOrder",
+        t.trackOrder
+    );
 
     // -----------------------------------------------------
     // WHY CHOOSE US
@@ -1983,25 +1814,17 @@ function applyLanguage(language) {
             "why-us"
         );
 
-
     if (whySection) {
 
-        const heading =
-            whySection.querySelector(
-                ".section-heading h2"
-            );
-
-        if (heading) {
-            heading.textContent =
-                t.whyChooseTitle;
-        }
-
+        setText(
+            "#why-us .section-heading h2",
+            t.whyChooseTitle
+        );
 
         const cards =
             whySection.querySelectorAll(
                 ".service-card"
             );
-
 
         const data = [
 
@@ -2024,9 +1847,7 @@ function applyLanguage(language) {
                 t.convenientService,
                 t.convenientServiceText
             ]
-
         ];
-
 
         cards.forEach(
             function (card, index) {
@@ -2041,43 +1862,35 @@ function applyLanguage(language) {
                 const p =
                     card.querySelector("p");
 
-
                 if (h3)
                     h3.textContent =
                         data[index][0];
 
-
                 if (p)
                     p.textContent =
                         data[index][1];
-
             }
         );
-
     }
-
 
     // -----------------------------------------------------
     // CONTACT
     // -----------------------------------------------------
 
-    text(
+    setText(
         "#contact .section-heading h2",
         t.contactTitle
     );
 
-
-    text(
+    setText(
         "#contact .section-heading p",
         t.contactText
     );
-
 
     const contactItems =
         document.querySelectorAll(
             "#contact .contact-item"
         );
-
 
     const contactData = [
 
@@ -2085,9 +1898,7 @@ function applyLanguage(language) {
         t.callTitle,
         t.emailTitle,
         t.serviceAreaTitle
-
     ];
-
 
     contactItems.forEach(
         function (item, index) {
@@ -2095,45 +1906,42 @@ function applyLanguage(language) {
             const h3 =
                 item.querySelector("h3");
 
-            if (h3 && contactData[index]) {
+            if (
+                h3 &&
+                contactData[index]
+            ) {
+
                 h3.textContent =
                     contactData[index];
             }
-
         }
     );
-
 
     // -----------------------------------------------------
     // FINAL CTA
     // -----------------------------------------------------
 
-    text(
+    setText(
         ".final-cta h2",
         t.finalTitle
     );
 
-
-    text(
+    setText(
         ".final-cta p",
         t.finalText
     );
-
 
     const finalButton =
         document.querySelector(
             ".final-cta .btn"
         );
 
-
     if (finalButton) {
 
         finalButton.innerHTML =
             '<i class="fa-brands fa-whatsapp"></i> ' +
             t.finalButton;
-
     }
-
 
     // -----------------------------------------------------
     // FOOTER
@@ -2144,41 +1952,35 @@ function applyLanguage(language) {
             ".footer"
         );
 
-
     if (footer) {
 
-        const footerParagraph =
+        const footerP =
             footer.querySelector(
                 ".footer-content > div:first-child p"
             );
 
-        if (footerParagraph) {
-            footerParagraph.textContent =
+        if (footerP) {
+            footerP.textContent =
                 t.footerText;
         }
-
 
         const footerHeadings =
             footer.querySelectorAll(
                 ".footer-content h3"
             );
 
-
         if (footerHeadings[0])
             footerHeadings[0].textContent =
                 t.quickLinks;
-
 
         if (footerHeadings[1])
             footerHeadings[1].textContent =
                 t.contact;
 
-
         const footerBottom =
             footer.querySelector(
                 ".footer-bottom"
             );
-
 
         if (footerBottom) {
 
@@ -2188,33 +1990,28 @@ function applyLanguage(language) {
                 );
 
             if (copyright) {
+
                 copyright.textContent =
                     t.rights;
             }
-
 
             const footerLinks =
                 footerBottom.querySelectorAll(
                     "a"
                 );
 
-
             if (footerLinks[0])
                 footerLinks[0].textContent =
                     t.privacy;
 
-
             if (footerLinks[1])
                 footerLinks[1].textContent =
                     t.terms;
-
         }
-
     }
 
-
     // -----------------------------------------------------
-    // UPDATE IMAGE ALT TEXT
+    // IMAGE ALT
     // -----------------------------------------------------
 
     const images =
@@ -2222,62 +2019,391 @@ function applyLanguage(language) {
             "#gallery img"
         );
 
+    const englishAlt = [
 
-    if (isArabic) {
+        "Laundry washing service in Makkah",
+        "Thobe ironing service in Makkah",
+        "Laundry pickup and delivery in Makkah",
+        "Dry cleaning service in Makkah"
+    ];
 
-        if (images[0])
-            images[0].alt =
-                "غسيل الملابس في مكة";
+    const arabicAlt = [
 
-        if (images[1])
-            images[1].alt =
-                "كي الثوب في مكة";
+        "غسيل الملابس في مكة",
+        "كي الثوب في مكة",
+        "استلام وتوصيل الملابس في مكة",
+        "تنظيف جاف للملابس في مكة"
+    ];
 
-        if (images[2])
-            images[2].alt =
-                "استلام وتوصيل الملابس في مكة";
+    images.forEach(
+        function (image, index) {
 
-        if (images[3])
-            images[3].alt =
-                "تنظيف جاف للملابس في مكة";
+            if (isArabic) {
 
-    } else {
+                if (arabicAlt[index]) {
+                    image.alt =
+                        arabicAlt[index];
+                }
 
-        if (images[0])
-            images[0].alt =
-                "Laundry washing service in Makkah";
+            } else {
 
-        if (images[1])
-            images[1].alt =
-                "Thobe ironing service in Makkah";
-
-        if (images[2])
-            images[2].alt =
-                "Laundry pickup and delivery in Makkah";
-
-        if (images[3])
-            images[3].alt =
-                "Dry cleaning service in Makkah";
-
-    }
-
+                if (englishAlt[index]) {
+                    image.alt =
+                        englishAlt[index];
+                }
+            }
+        }
+    );
 
     // -----------------------------------------------------
-    // DOCUMENT TITLE
+    // PAGE TITLE
     // -----------------------------------------------------
 
-    if (isArabic) {
+    document.title =
+        t.metaTitle;
 
-        document.title =
-            "مغسلة ملابس مكة | استلام وتوصيل الملابس بالقرب من الحرم";
+    // -----------------------------------------------------
+    // META DESCRIPTION
+    // -----------------------------------------------------
 
-    } else {
+    updateMeta(
+        "description",
+        t.metaDescription
+    );
 
-        document.title =
-            "Makkah Laundry Service | Hotel Laundry Pickup & Delivery Near Haram";
+    // -----------------------------------------------------
+    // OG TITLE
+    // -----------------------------------------------------
 
+    updateMeta(
+        "og:title",
+        t.metaTitle,
+        "property"
+    );
+
+    // -----------------------------------------------------
+    // OG DESCRIPTION
+    // -----------------------------------------------------
+
+    updateMeta(
+        "og:description",
+        t.metaDescription,
+        "property"
+    );
+
+    // -----------------------------------------------------
+    // TWITTER TITLE
+    // -----------------------------------------------------
+
+    updateMeta(
+        "twitter:title",
+        t.metaTitle,
+        "name"
+    );
+
+    // -----------------------------------------------------
+    // TWITTER DESCRIPTION
+    // -----------------------------------------------------
+
+    updateMeta(
+        "twitter:description",
+        t.metaDescription,
+        "name"
+    );
+
+    // -----------------------------------------------------
+    // SAVE LANGUAGE
+    // -----------------------------------------------------
+
+    localStorage.setItem(
+        LANGUAGE_STORAGE_KEY,
+        language
+    );
+
+    console.log(
+        "Language applied:",
+        language
+    );
+}
+
+
+// =========================================================
+// HELPER: TEXT
+// =========================================================
+
+function setText(selector, value) {
+
+    const element =
+        document.querySelector(selector);
+
+    if (element && value !== undefined) {
+        element.textContent = value;
+    }
+}
+
+
+// =========================================================
+// HELPER: PLACEHOLDER
+// =========================================================
+
+function setPlaceholder(selector, value) {
+
+    const element =
+        document.querySelector(selector);
+
+    if (element && value !== undefined) {
+        element.placeholder = value;
+    }
+}
+
+
+// =========================================================
+// META UPDATE
+// =========================================================
+
+function updateMeta(
+    key,
+    value,
+    attribute = "name"
+) {
+
+    let meta =
+        document.querySelector(
+            `meta[${attribute}="${key}"]`
+        );
+
+    if (!meta) {
+
+        meta =
+            document.createElement(
+                "meta"
+            );
+
+        meta.setAttribute(
+            attribute,
+            key
+        );
+
+        document.head.appendChild(
+            meta
+        );
     }
 
+    meta.setAttribute(
+        "content",
+        value
+    );
+}
+
+
+// =========================================================
+// BOOKING FORM → WHATSAPP
+// =========================================================
+
+function setupBookingForm() {
+
+    const bookingForm =
+        document.getElementById(
+            "bookingForm"
+        );
+
+    if (!bookingForm) {
+        return;
+    }
+
+    bookingForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            const fullName =
+                document.getElementById(
+                    "fullName"
+                )?.value.trim() || "";
+
+            const hotel =
+                document.getElementById(
+                    "hotelName"
+                )?.value || "";
+
+            const room =
+                document.getElementById(
+                    "roomNumber"
+                )?.value.trim() || "";
+
+            const phone =
+                document.getElementById(
+                    "customerPhone"
+                )?.value.trim() || "";
+
+            const service =
+                document.getElementById(
+                    "service"
+                )?.value || "";
+
+            const speed =
+                document.getElementById(
+                    "serviceSpeed"
+                )?.value || "";
+
+            const pickupDate =
+                document.getElementById(
+                    "pickupDate"
+                )?.value || "";
+
+            const pickupTime =
+                document.getElementById(
+                    "pickupTime"
+                )?.value || "";
+
+            const clothes =
+                document.getElementById(
+                    "clothesType"
+                )?.value || "";
+
+            const quantity =
+                document.getElementById(
+                    "clothQty"
+                )?.value || "1";
+
+            const note =
+                document.getElementById(
+                    "specialNote"
+                )?.value.trim() || "";
+
+            const language =
+                document.documentElement.lang === "ar"
+                    ? "ar"
+                    : "en";
+
+            let message;
+
+            // -------------------------------------------------
+            // ARABIC WHATSAPP MESSAGE
+            // -------------------------------------------------
+
+            if (language === "ar") {
+
+                message =
+                    `🧺 *طلب غسيل ملابس جديد*
+
+👤 الاسم: ${fullName}
+
+🏨 الفندق / الموقع: ${hotel}
+
+🚪 رقم الغرفة: ${room}
+
+📱 رقم العميل: ${phone}
+
+🧼 الخدمة: ${service}
+
+⚡ سرعة الخدمة: ${speed}
+
+📅 تاريخ الاستلام: ${pickupDate}
+
+🕒 وقت الاستلام: ${pickupTime}
+
+👕 نوع الملابس: ${clothes}
+
+🔢 الكمية: ${quantity}
+
+📝 ملاحظات: ${note || "لا توجد"}
+
+📍 *Makkah Laundry Service*`;
+
+            }
+
+            // -------------------------------------------------
+            // ENGLISH WHATSAPP MESSAGE
+            // -------------------------------------------------
+
+            else {
+
+                message =
+                    `🧺 *NEW LAUNDRY ORDER*
+
+👤 Name: ${fullName}
+
+🏨 Hotel / Location: ${hotel}
+
+🚪 Room: ${room}
+
+📱 Customer Phone: ${phone}
+
+🧼 Service: ${service}
+
+⚡ Speed: ${speed}
+
+📅 Pickup Date: ${pickupDate}
+
+🕒 Pickup Time: ${pickupTime}
+
+👕 Clothes: ${clothes}
+
+🔢 Quantity: ${quantity}
+
+📝 Special Instructions: ${note || "None"}
+
+📍 *Makkah Laundry Service*`;
+            }
+
+            const whatsappURL =
+                "https://wa.me/" +
+                WHATSAPP_NUMBER +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+        }
+    );
+}
+
+
+// =========================================================
+// WHATSAPP BUTTONS
+// =========================================================
+
+function setupWhatsAppButtons() {
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const button =
+                event.target.closest(
+                    '[href*="wa.me"], .whatsapp-btn'
+                );
+
+            if (!button) {
+                return;
+            }
+
+            // If existing href already contains
+            // a WhatsApp number, don't replace it.
+            if (
+                button.getAttribute("href") &&
+                button
+                    .getAttribute("href")
+                    .includes("wa.me")
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            window.open(
+                "https://wa.me/" +
+                WHATSAPP_NUMBER,
+                "_blank"
+            );
+        }
+    );
 }
 
 
@@ -2292,11 +2418,9 @@ function setupDarkMode() {
             "darkModeBtn"
         );
 
-
     if (!darkBtn) {
         return;
     }
-
 
     darkBtn.addEventListener(
         "click",
@@ -2306,26 +2430,40 @@ function setupDarkMode() {
                 "dark-mode"
             );
 
-
-            if (
+            const darkMode =
                 document.body.classList.contains(
                     "dark-mode"
-                )
-            ) {
+                );
 
-                darkBtn.textContent =
-                    "☀️";
+            darkBtn.textContent =
+                darkMode
+                    ? "☀️"
+                    : "🌙";
 
-            } else {
-
-                darkBtn.textContent =
-                    "🌙";
-
-            }
-
+            localStorage.setItem(
+                "makkahLaundryDarkMode",
+                darkMode
+                    ? "1"
+                    : "0"
+            );
         }
     );
 
+    // Restore
+    const saved =
+        localStorage.getItem(
+            "makkahLaundryDarkMode"
+        );
+
+    if (saved === "1") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        darkBtn.textContent =
+            "☀️";
+    }
 }
 
 
@@ -2340,21 +2478,28 @@ function setupPickupDate() {
             "pickupDate"
         );
 
-
     if (!pickupDate) {
         return;
     }
 
-
     const today =
-        new Date()
-            .toISOString()
-            .split("T")[0];
+        new Date();
 
+    const year =
+        today.getFullYear();
+
+    const month =
+        String(
+            today.getMonth() + 1
+        ).padStart(2, "0");
+
+    const day =
+        String(
+            today.getDate()
+        ).padStart(2, "0");
 
     pickupDate.min =
-        today;
-
+        `${year}-${month}-${day}`;
 }
 
 
@@ -2379,17 +2524,13 @@ function setupCalculator() {
             "calcResult"
         );
 
-
     if (
         !serviceElement ||
         !quantityElement ||
         !totalElement
     ) {
-
         return;
-
     }
-
 
     function calculate() {
 
@@ -2398,12 +2539,10 @@ function setupCalculator() {
                 serviceElement.value
             );
 
-
         const quantity =
             Number(
                 quantityElement.value
             );
-
 
         if (
             !Number.isFinite(quantity) ||
@@ -2414,34 +2553,23 @@ function setupCalculator() {
                 "0";
 
             return;
-
         }
 
-
-        const total =
-            price * quantity;
-
-
         totalElement.textContent =
-            total;
-
+            price * quantity;
     }
-
 
     serviceElement.addEventListener(
         "change",
         calculate
     );
 
-
     quantityElement.addEventListener(
         "input",
         calculate
     );
 
-
     calculate();
-
 }
 
 
@@ -2456,17 +2584,14 @@ function setupTracking() {
             "trackOrder"
         );
 
-
     if (!trackButton) {
         return;
     }
-
 
     trackButton.addEventListener(
         "click",
         trackOrder
     );
-
 }
 
 
@@ -2477,40 +2602,30 @@ function trackOrder() {
             "orderId"
         );
 
-
     const result =
         document.getElementById(
             "trackingResult"
         );
 
-
     if (
         !orderInput ||
         !result
     ) {
-
         return;
-
     }
-
 
     const orderID =
         orderInput.value
             .trim()
             .toUpperCase();
 
-
     const language =
-        document.documentElement.lang;
-
+        document.documentElement.lang === "ar"
+            ? "ar"
+            : "en";
 
     const t =
-        translations[
-            language === "ar"
-                ? "ar"
-                : "en"
-        ];
-
+        translations[language];
 
     if (!orderID) {
 
@@ -2518,11 +2633,7 @@ function trackOrder() {
             t.enterOrderId;
 
         return;
-
     }
-
-
-    // Existing demo tracking IDs
 
     if (orderID === "MLS-1001") {
 
@@ -2549,9 +2660,7 @@ function trackOrder() {
 
         result.textContent =
             t.notFound;
-
     }
-
 }
 
 
@@ -2575,7 +2684,6 @@ if ("serviceWorker" in navigator) {
                         console.log(
                             "Service Worker registered successfully."
                         );
-
                     }
                 )
                 .catch(
@@ -2585,11 +2693,8 @@ if ("serviceWorker" in navigator) {
                             "Service Worker registration failed:",
                             error
                         );
-
                     }
                 );
-
         }
     );
-
 }
