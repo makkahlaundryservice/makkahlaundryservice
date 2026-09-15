@@ -1583,7 +1583,6 @@ function applyLanguage(language) {
 
   updateSEO(language);
 
-  updateWhatsAppLinks(language);
 
 
   localStorage.setItem(
@@ -1687,8 +1686,6 @@ document.addEventListener(
       "Makkah Laundry Service Loaded"
     );
 
-setupMobileMenu();
-     
     /*
       IMPORTANT:
       Save the ORIGINAL English page
@@ -1712,7 +1709,7 @@ setupMobileMenu();
 
 
     /*
-      FIRST VISIT = ARABIC
+      FIRST VISIT = ENGLISH
       RETURNING USER = SAVED LANGUAGE
     */
 
@@ -1723,9 +1720,9 @@ setupMobileMenu();
 
 
     const language =
-      savedLanguage === ENGLISH
-        ? ENGLISH
-        : ARABIC;
+      savedLanguage === ARABIC
+        ? ARABIC
+        : ENGLISH;
 
 
     applyLanguage(language);
