@@ -295,62 +295,6 @@ const translations = {
     "نعم، نوفر خدمة غسيل وكي الملابس مع الاستلام والتوصيل في مكة حسب الموقع والتوفر.",
 
 
-  /* LOCAL SEO */
-
-  "Laundry Near Me in Makkah – Pickup & Delivery":
-    "مغسلة ملابس قريبة مني في مكة – استلام وتوصيل",
-
-  "Looking for a reliable":
-    "هل تبحث عن",
-
-  "laundry near me in Makkah":
-    "مغسلة ملابس قريبة مني في مكة",
-
-  "? Makkah Laundry Service provides convenient laundry pickup and delivery for hotel guests, pilgrims, visitors and residents.":
-    "؟ تقدم خدمة مغسلة مكة خدمة مريحة لاستلام وتوصيل الملابس لنزلاء الفنادق والحجاج والزوار والمقيمين.",
-
-  "Our service includes":
-    "تشمل خدمتنا",
-
-  "hotel laundry in Makkah":
-    "غسيل ملابس الفنادق في مكة",
-
-  "wash and fold":
-    "غسيل وطي الملابس",
-
-  "clothes ironing":
-    "كي الملابس",
-
-  "dry cleaning":
-    "التنظيف الجاف",
-
-  "and":
-    "و",
-
-  "laundry pickup and delivery":
-    "استلام وتوصيل الملابس",
-
-  "Hotel Laundry Near Makkah Clock Tower":
-    "غسيل الملابس بالقرب من برج الساعة في مكة",
-
-  "If you are staying near the Makkah Clock Tower or central Makkah, you can contact us on WhatsApp to check pickup availability. Send your hotel name, room number and required service.":
-    "إذا كنت تقيم بالقرب من برج الساعة أو في وسط مكة، يمكنك التواصل معنا عبر واتساب للتحقق من توفر خدمة الاستلام. أرسل اسم الفندق ورقم الغرفة والخدمة المطلوبة.",
-
-  "Laundry Service for Umrah Pilgrims":
-    "خدمة غسيل الملابس لمعتمري مكة",
-
-  "Pilgrims often need clean clothes during their stay in Makkah. Our laundry pickup and delivery service makes it easier to send your clothes for washing, ironing or dry cleaning without looking for a laundry shop yourself.":
-    "غالبًا ما يحتاج الحجاج والمعتمرون إلى ملابس نظيفة أثناء إقامتهم في مكة. تجعل خدمة استلام وتوصيل الملابس لدينا إرسال ملابسك للغسيل أو الكي أو التنظيف الجاف أسهل دون الحاجة إلى البحث عن مغسلة بنفسك.",
-
-  "How to Order Laundry in Makkah":
-    "كيفية طلب خدمة غسيل الملابس في مكة",
-
-  "Simply contact us on WhatsApp, tell us your hotel or location, room number and laundry requirement. We will confirm pickup availability and arrange the service.":
-    "ما عليك سوى التواصل معنا عبر واتساب وإرسال اسم الفندق أو الموقع ورقم الغرفة واحتياجك من خدمة الغسيل. سنؤكد توفر الاستلام ونرتب الخدمة.",
-
-  "🟢 Laundry Support Available":
-    "🟢 خدمة دعم الغسيل متاحة",
-
   /* GALLERY */
 
   "Our Laundry Service":
@@ -364,12 +308,6 @@ const translations = {
 
   "Business Hours":
     "ساعات العمل",
-
-  "Open 24 Hours:":
-    "مفتوح 24 ساعة:",
-
-  "Every day":
-    "كل يوم",
 
   "Saturday – Thursday:":
     "السبت – الخميس:",
@@ -1749,7 +1687,9 @@ document.addEventListener(
       "Makkah Laundry Service Loaded"
     );
 
-/*
+setupMobileMenu();
+     
+    /*
       IMPORTANT:
       Save the ORIGINAL English page
       before doing ANY translation.
@@ -1760,8 +1700,6 @@ document.addEventListener(
 
     setupLanguageToggle();
 
-    setupMobileMenu();
-     
     setupBookingForm();
 
     setupCalculator();
