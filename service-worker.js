@@ -1,4 +1,4 @@
-const CACHE_NAME = "makkah-laundry-v4";
+const CACHE_NAME = "makkah-laundry-v5";
 
 const FILES_TO_CACHE = [
     "./",
