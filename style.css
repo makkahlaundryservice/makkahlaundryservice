@@ -2038,340 +2038,83 @@ html[dir="rtl"] .header .nav.active {
 
 
 /* =========================================================
-   FINAL PRODUCTION RESPONSIVE FIXES
-   Based on the current production HTML structure.
-========================================================= */
-
-html, body {
-    max-width: 100%;
-    overflow-x: hidden !important;
+   FINAL HERO CTA + MOBILE OVERFLOW FIX
+   Production HTML uses .hero-buttons with .btn-primary/.btn-secondary.
+   ========================================================= */
+.hero {
+    min-height: 500px !important;
+    height: auto !important;
+    overflow: hidden !important;
 }
-
-/* Desktop: top bar must stay above the header. */
-body {
-    padding-top: 0 !important;
-}
-
-.top-bar {
-    position: relative !important;
-    z-index: 10001 !important;
-}
-
-.header {
-    position: sticky !important;
-    top: 0 !important;
-    left: 0 !important;
+.hero-content {
     width: 100% !important;
-    height: 68px !important;
-    z-index: 10000 !important;
+    max-width: 900px !important;
+    padding: 46px 20px 42px !important;
 }
-
-.header > .container {
-    height: 68px !important;
-    min-height: 68px !important;
-}
-
-/* The actual hero uses .btn, not .btn1/.btn2. */
 .hero-buttons {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 12px !important;
     flex-wrap: wrap !important;
+    width: 100% !important;
+    margin: 6px 0 24px !important;
 }
-
 .hero-buttons .btn {
-    min-width: 150px !important;
-    min-height: 48px !important;
-    padding: 11px 20px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
+    min-height: 48px !important;
+    padding: 12px 20px !important;
     border-radius: 999px !important;
     font-weight: 700 !important;
-    text-decoration: none !important;
-    box-shadow: 0 4px 14px rgba(0,0,0,.12) !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
 }
-
 .hero-buttons .btn-primary {
-    background: #ffffff !important;
-    color: #0077ff !important;
-    border: 2px solid #ffffff !important;
+    background: #25d366 !important;
+    color: #ffffff !important;
+    border: 2px solid #25d366 !important;
 }
-
 .hero-buttons .btn-secondary {
-    background: rgba(0,0,0,.18) !important;
+    background: transparent !important;
     color: #ffffff !important;
     border: 2px solid #ffffff !important;
 }
-
-/* All service-card blocks were present in the HTML but lacked matching CSS. */
-.services-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 24px !important;
-    width: 100% !important;
+.hero-buttons .btn-primary:hover,
+.hero-buttons .btn-secondary:hover {
+    transform: translateY(-2px) !important;
 }
+.hero .location-note { margin-bottom: 0 !important; }
 
-.service-card {
-    padding: 28px 22px !important;
-    background: #ffffff !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius) !important;
-    box-shadow: var(--shadow) !important;
-    text-align: center !important;
-    transition: transform var(--transition), box-shadow var(--transition) !important;
-}
-
-.service-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: var(--shadow-hover) !important;
-}
-
-.service-card > i {
-    display: block !important;
-    margin: 0 auto 14px !important;
-    color: var(--primary) !important;
-    font-size: 30px !important;
-}
-
-.service-card h3 {
-    margin-bottom: 8px !important;
-    color: var(--text) !important;
-    font-size: 19px !important;
-}
-
-.service-card p {
-    color: var(--muted) !important;
-    line-height: 1.7 !important;
-}
-
-/* =========================================================
-   TABLET / MOBILE
-========================================================= */
-@media (max-width: 1100px) {
-    .top-bar {
-        display: none !important;
+@media (max-width: 768px) {
+    .hero { min-height: 0 !important; height: auto !important; }
+    .hero-content { padding: 42px 18px 38px !important; }
+    .hero h1 {
+        font-size: clamp(30px, 8vw, 38px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 18px !important;
     }
-
-    .header {
-        position: sticky !important;
-        top: 0 !important;
-    }
-
-    .header > .container {
-        padding: 0 14px !important;
-    }
-
-    .header .logo img {
-        height: 45px !important;
-        width: auto !important;
-        max-width: 145px !important;
-        object-fit: contain !important;
-    }
-
-    .header .menu-toggle {
-        display: flex !important;
-        width: 44px !important;
-        height: 44px !important;
-        padding: 0 !important;
-        border: 0 !important;
-        background: transparent !important;
-        color: #0877d1 !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 30px !important;
-        flex-shrink: 0 !important;
-        z-index: 10003 !important;
-    }
-
-    .header .nav {
-        position: fixed !important;
-        top: 68px !important;
-        right: -100% !important;
-        left: auto !important;
-        width: min(360px, 82vw) !important;
-        max-width: 360px !important;
-        height: calc(100dvh - 68px) !important;
-        padding: 16px !important;
-        margin: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        align-content: flex-start !important;
-        background: #ffffff !important;
-        box-shadow: -8px 0 25px rgba(0,0,0,.14) !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        transition: right .25s ease !important;
-        z-index: 10002 !important;
-    }
-
-    .header .nav.active {
-        right: 0 !important;
-        left: auto !important;
-    }
-
-    .header .nav > ul {
-        width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        gap: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .header .nav > ul > li {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .header .nav > ul > li > a {
-        width: 100% !important;
-        min-height: 50px !important;
-        height: auto !important;
-        display: flex !important;
-        align-items: center !important;
-        padding: 12px 10px !important;
-        border-bottom: 1px solid #eeeeee !important;
-        border-radius: 8px !important;
+    .hero p {
         font-size: 16px !important;
-        line-height: 1.4 !important;
-        white-space: nowrap !important;
-        text-align: left !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
     }
-
-    .header .nav > ul > li > a:hover {
-        background: var(--primary-light) !important;
-        color: var(--primary) !important;
-    }
-
-    .header .nav-actions {
-        width: 100% !important;
-        margin: 16px 0 0 !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 10px !important;
-    }
-
-    .header .nav-actions .btn,
-    .header .nav-actions .language-btn,
-    .header .nav-actions #langBtn {
-        width: 100% !important;
-        min-height: 46px !important;
-        margin: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-
-    .hero-buttons .btn {
-        min-width: 145px !important;
-    }
-}
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-@media (max-width: 600px) {
-    .header > .container {
-        padding: 0 12px !important;
-    }
-
-    .header .logo img {
-        height: 43px !important;
-        max-width: 135px !important;
-    }
-
-    .header .menu-toggle {
-        width: 42px !important;
-        height: 42px !important;
-        font-size: 29px !important;
-    }
-
-    .header .nav {
-        width: 84vw !important;
-        max-width: 360px !important;
-        padding: 14px !important;
-    }
-
-    .header .nav > ul > li > a {
-        min-height: 48px !important;
-        padding: 11px 10px !important;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
-
-    .service-card {
-        padding: 22px 18px !important;
-    }
-
     .hero-buttons {
         width: 100% !important;
         flex-direction: column !important;
         gap: 10px !important;
+        margin: 8px 0 22px !important;
     }
-
     .hero-buttons .btn {
-        width: 100% !important;
-        min-width: 0 !important;
-        min-height: 48px !important;
+        width: min(100%, 340px) !important;
+        min-height: 50px !important;
     }
+    .hero .location-note { font-size: 14px !important; }
 }
 
-/* =========================================================
-   RTL
-========================================================= */
-html[dir="rtl"] body {
-    direction: rtl !important;
-    text-align: right !important;
-}
-
-html[dir="rtl"] .header > .container,
-html[dir="rtl"] .header .nav,
-html[dir="rtl"] .header .nav > ul,
-html[dir="rtl"] .header .nav-actions {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .header .nav > ul > li > a {
-    text-align: right !important;
-}
-
-html[dir="rtl"] .header .nav {
-    right: auto !important;
-    left: -100% !important;
-}
-
-html[dir="rtl"] .header .nav.active {
-    right: auto !important;
-    left: 0 !important;
-}
-
-html[dir="rtl"] .hero-buttons {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] input,
-html[dir="rtl"] select,
-html[dir="rtl"] textarea {
-    direction: rtl !important;
-    text-align: right !important;
+@media (max-width: 420px) {
+    .hero-content { padding: 38px 14px 34px !important; }
+    .hero-buttons .btn { width: 100% !important; }
 }
