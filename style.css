@@ -2118,3 +2118,163 @@ html[dir="rtl"] .header .nav.active {
     .hero-content { padding: 38px 14px 34px !important; }
     .hero-buttons .btn { width: 100% !important; }
 }
+
+
+/* =========================================================
+   FINAL MOBILE MENU — KEEP THIS AS THE LAST MENU RULE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .header .nav {
+        position: fixed !important;
+
+        top: 68px !important;
+        right: 0 !important;
+        left: auto !important;
+
+        width: 320px !important;
+        max-width: calc(100vw - 24px) !important;
+
+        height: calc(100vh - 68px) !important;
+
+        margin: 0 !important;
+        padding: 20px !important;
+
+        box-sizing: border-box !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        background: #ffffff !important;
+
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+
+        transform: translateX(100%) !important;
+
+        transition:
+            transform 0.25s ease,
+            opacity 0.25s ease,
+            visibility 0.25s ease !important;
+
+        z-index: 10000 !important;
+    }
+
+    .header .nav.active {
+        right: 0 !important;
+        left: auto !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        transform: translateX(0) !important;
+    }
+
+    .header .nav > ul {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .header .nav > ul > li {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .header .nav > ul > li > a {
+        width: 100% !important;
+        min-height: 48px !important;
+
+        display: flex !important;
+        align-items: center !important;
+
+        margin: 0 !important;
+        padding: 13px 8px !important;
+
+        box-sizing: border-box !important;
+
+        font-size: 16px !important;
+
+        border-bottom: 1px solid #eeeeee !important;
+    }
+
+    .header .nav-actions {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 10px !important;
+
+        margin: 20px 0 0 !important;
+        padding: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .header .nav-actions .btn,
+    .header .nav-actions .language-btn,
+    .header .nav-actions #langBtn {
+        width: 100% !important;
+        min-height: 46px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        margin: 0 !important;
+
+        box-sizing: border-box !important;
+    }
+}
+
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+
+    .header .nav {
+        width: 310px !important;
+        max-width: calc(100vw - 20px) !important;
+    }
+
+    .header .nav > ul > li > a {
+        min-height: 48px !important;
+        font-size: 16px !important;
+    }
+}
+
+
+/* RTL */
+html[dir="rtl"] .header .nav {
+    right: 0 !important;
+    left: auto !important;
+
+    transform: translateX(100%) !important;
+}
+
+html[dir="rtl"] .header .nav.active {
+    right: 0 !important;
+    left: auto !important;
+
+    transform: translateX(0) !important;
+}
